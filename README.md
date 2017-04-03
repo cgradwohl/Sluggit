@@ -15,7 +15,7 @@ Includes clustering algorithm to recommend content, in browser code editor for s
 ## Getting Started:
 Clone the repo.
 
-Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed. 
+Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed.
 
 Run `npm install` to install dependancies.
 
@@ -30,6 +30,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build. Needed to push to heroku. [Heroku](https://dashboard.heroku.com/).
+
+Note package.json postinstall script
 
 ## Running unit tests
 
