@@ -1,8 +1,20 @@
-# BlankMean
+# reddit_clone
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 live example: https://blank-mean.herokuapp.com/
+
+This a blog post web application similar to sites like reddit, medium and stack overflow. Application includes user
+profiles, friend requests, blog posts, topic search, user feed, blog likes and user reputation.  
+Content will be recommended via user feed, based on likes AND various CS topics:
+	-ML
+	-AI
+	-web development
+	-NLP
+	-iot
+	-programming languages
+	-etc.
+Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
 
 ## Development server
 
@@ -16,7 +28,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build. Needed to push to heroku. [Heroku](https://dashboard.heroku.com/).
 
 ## Running unit tests
 
