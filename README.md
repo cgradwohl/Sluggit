@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-live example: https://blank-mean.herokuapp.com/
+live example: https://blog-clone.herokuapp.com/
 
 This a blog post web application similar to sites like reddit, medium and stack overflow. Application includes user
 profiles, friend requests, blog posts, topic search, user feed, blog likes and user reputation.  
