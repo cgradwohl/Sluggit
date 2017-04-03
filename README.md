@@ -6,7 +6,8 @@ live example: https://blog-clone.herokuapp.com/
 
 
 Features/Ideas:
-This a blog post web application similar to sites like reddit, medium and stack overflow.
+
+This is a blog post web application similar to sites like reddit, medium and stack overflow.
 
 Application includes user profiles, friend requests, blog posts, topic search, user feed,
 blog likes and user reputation.  
