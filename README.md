@@ -15,6 +15,8 @@ Includes clustering algorithm to recommend content, in browser code editor for s
 ## Getting Started:
 Clone the repo.
 
+Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed. 
+
 Run `npm install` to install dependancies.
 
 Run `npm start` for a dev server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api`.
