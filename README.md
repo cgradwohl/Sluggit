@@ -1,4 +1,33 @@
-# blog-clone web application
+## Getting Started:
+1. Clone the repo: `git clone https://github.com/cgradwohl/blog-clone.git`
+
+2. Go into repo: `cd blog-clone`
+
+3. Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed.
+
+4. Run `npm install` to install dependancies.
+
+5. Run `npm start` for a dev server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api`.
+
+The app will automatically reload if you change any of the source files.
+
+
+## blog-clone web application
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+live example: https://blog-clone.herokuapp.com/
+
+
+Features/Ideas:
+
+This is a blog post web application similar to sites like reddit, medium and stack overflow.
+
+Application includes user profiles, friend requests, blog posts, topic search, user feed,
+blog likes and user reputation.  
+Content will be recommended via user feed, based on likes AND various CS topics: (ML, AI, web development, NLP, iot, programming languages, etc.).
+Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
+Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.# blog-clone web application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
@@ -14,17 +43,6 @@ blog likes and user reputation.
 Content will be recommended via user feed, based on likes AND various CS topics: (ML, AI, web development, NLP, iot, programming languages, etc.).
 Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
 Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.
-
-## Getting Started:
-Clone the repo.
-
-Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed.
-
-Run `npm install` to install dependancies.
-
-Run `npm start` for a dev server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api`.
-
-The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
