@@ -13,11 +13,26 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 // Get our API routes
 const api = require('./server/routes/api');
 
 const app = express();
+
+const uri = 'mongodb://cgradwohl:2chester@cluster0-shard-00-00-sqlil.mongodb.net:27017,cluster0-shard-00-01-sqlil.mongodb.net:27017,cluster0-shard-00-02-sqlil.mongodb.net:27017/Cluster0?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+
+mongoose.connect(uri);
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function() {
+  // we're connected!
+  console.log('success');
+});
+
 
 // Parsers for POST data
 app.use(bodyParser.json());
