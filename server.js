@@ -20,7 +20,9 @@ const api = require('./server/routes/api');
 
 const app = express();
 
-const uri = 'mongodb://cgradwohl:2chester@cluster0-shard-00-00-sqlil.mongodb.net:27017,cluster0-shard-00-01-sqlil.mongodb.net:27017,cluster0-shard-00-02-sqlil.mongodb.net:27017/Cluster0?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+
+// mongodb connection attempt   -   -   -   -   -   -   -   -   -
+const uri = 'mongodb://admin:123admin@ds161400.mlab.com:61400/sluggit-db';
 
 mongoose.connect(uri);
 
@@ -32,6 +34,11 @@ db.once('open', function() {
   // we're connected!
   console.log('success');
 });
+
+
+// -    -   -   -   -   -   -   -   -   -   -   -   -   -   -
+
+
 
 
 // Parsers for POST data
