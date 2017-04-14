@@ -12,7 +12,7 @@
 The app will automatically reload if you change any of the source files.
 
 
-## blog-clone web application
+## Sluggit web application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
@@ -29,20 +29,6 @@ Content will be recommended via user feed, based on likes AND various CS topics:
 Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
 Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.# blog-clone web application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
-
-live example: https://blog-clone.herokuapp.com/
-
-
-Features/Ideas:
-
-This is a blog post web application similar to sites like reddit, medium and stack overflow.
-
-Application includes user profiles, friend requests, blog posts, topic search, user feed,
-blog likes and user reputation.  
-Content will be recommended via user feed, based on likes AND various CS topics: (ML, AI, web development, NLP, iot, programming languages, etc.).
-Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
-Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.
 
 ## Code scaffolding
 

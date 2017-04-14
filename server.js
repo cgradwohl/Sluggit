@@ -20,23 +20,17 @@ const api = require('./server/routes/api');
 
 const app = express();
 
-
-// mongodb connection attempt   -   -   -   -   -   -   -   -   -
+// Sluggit mongodb instance uri   -   -   -   -   -   -   -   -   -
 const uri = 'mongodb://admin:123admin@ds161400.mlab.com:61400/sluggit-db';
-
 mongoose.connect(uri);
-
 const db = mongoose.connection;
-
 db.on('error', console.error.bind(console, 'connection error:'));
-
 db.once('open', function() {
   // we're connected!
   console.log('success');
 });
 
 
-// -    -   -   -   -   -   -   -   -   -   -   -   -   -   -
 
 
 
