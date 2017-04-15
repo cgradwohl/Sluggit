@@ -1,12 +1,51 @@
-// sets up a simple express app, with an /api route and all
-// other routes are directed towards the dist/index.html page.
-// This catch all route, denoted with *, MUST come last after
-// all other API routes have been defined.
+const express = require('express'),
+    path = require('path'),
+	mongoose = require('mongoose'),
+	bodyParser = require('body-parser'),
+	cookieParser = require('cookie-parser'),
+    methodOverride = require('method-override'),
+	cors = require('cors'),
+	app = express();
 
-// https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli
+// ENVIRONMENT CONFIG
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+	envConfig = require('./server/config/env')[env];
+
+mongoose.connect(envConfig.db);
+
+// EXPRESS CONFIG
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(methodOverride());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// ROUTES
+require('./server/routes')(app);
+
+// Catch all other routes and return the index file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
+// Start server
+app.listen(envConfig.port, function(){
+  console.log('Server listening on port ' + envConfig.port)
+});
 
 
 
+
+
+
+
+
+
+
+
+
+/*
 
 // Get dependencies
 const express = require('express');
@@ -31,10 +70,6 @@ db.once('open', function() {
 });
 
 
-
-
-
-
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,18 +85,19 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-/**
- * Get port from environment and store in Express.
- */
+
+
+
+
+
+// Get port from environment and store in Express.
 const port = process.env.PORT || '3000';
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
+
+// Create HTTP server.
 const server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+// Listen on provided port, on all network interfaces.
+server.listen(port, () => console.log(`API running on localhost:${port}`));*/
