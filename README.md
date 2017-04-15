@@ -14,9 +14,8 @@ The app will automatically reload if you change any of the source files.
 
 ## Sluggit web application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-live example: https://blog-clone.herokuapp.com/
+live example: https://sluggit.herokuapp.com/
 
 
 Features/Ideas:
