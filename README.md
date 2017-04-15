@@ -1,7 +1,7 @@
 ## Getting Started:
-1. Clone the repo: `git clone https://github.com/cgradwohl/blog-clone.git`
+1. Clone the repo: `https://github.com/cgradwohl/Sluggit.git`
 
-2. Go into repo: `cd blog-clone`
+2. Go into repo: `cd Sluggit`
 
 3. Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed.
 
@@ -13,9 +13,7 @@ The app will automatically reload if you change any of the source files.
 
 
 ## Sluggit web application
-
-
-live example: https://sluggit.herokuapp.com/
+live url: https://sluggit.herokuapp.com/
 
 
 Features/Ideas:
