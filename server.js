@@ -9,7 +9,7 @@ const express = require('express'),
 
 // ENVIRONMENT CONFIG
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-	envConfig = require('./server/config/env')[env];
+	envConfig = require('./config/environment')[env];
 
 mongoose.connect(envConfig.db);
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTES
-require('./server/routes')(app);
+require('./routes/routes')(app);
 
 // Start server
 app.listen(envConfig.port, function(){
