@@ -31,7 +31,6 @@ const posts = require('./routes/posts');
 app.use('/users', users);
 app.use('/feed', posts);
 
-
 require('./routes/index')(app);
 
 // Start server
