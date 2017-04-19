@@ -8,10 +8,14 @@ const express = require('express'),
 	app = express();
 
 // ENVIRONMENT CONFIG
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 	envConfig = require('./config/environment')[env];
 
+
+
+// connect to DB mabey add this to config
 mongoose.connect(envConfig.db);
+
 
 // EXPRESS CONFIG
 app.use(bodyParser.json());
@@ -22,7 +26,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTES
-require('./routes/routes')(app);
+const users = require('./routes/users');
+const posts = require('./routes/posts');
+
+app.use('/users', users);
+//app.use('/posts', posts);
+
+require('./routes/index')(app);
 
 // Start server
 app.listen(envConfig.port, function(){

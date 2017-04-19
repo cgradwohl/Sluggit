@@ -1,7 +1,6 @@
 const express = require('express'),
 	path = require('path'),
 	rootPath = path.normalize(__dirname + '/../'),
-	apiRouter = express.Router(),
 	router = express.Router();
 
 module.exports = function(app){
@@ -11,6 +10,5 @@ module.exports = function(app){
 		res.sendFile(rootPath + 'dist/index.html', { user: req.user });
 	});
 
-	app.use('/api', apiRouter);	// haven't built any api yet
 	app.use('/', router);
 };

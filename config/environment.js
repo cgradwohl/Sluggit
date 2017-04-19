@@ -1,3 +1,6 @@
+// "postinstall": "ng build --aot --prod"
+
+
 const path = require('path'),
 	rootPath = path.normalize(__dirname + '/../../');
 
