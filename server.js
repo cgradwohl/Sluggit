@@ -12,7 +12,6 @@ const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 	envConfig = require('./config/environment')[env];
 
 
-
 // connect to DB mabey add this to config
 mongoose.connect(envConfig.db);
 
@@ -30,7 +29,8 @@ const users = require('./routes/users');
 const posts = require('./routes/posts');
 
 app.use('/users', users);
-//app.use('/posts', posts);
+app.use('/feed', posts);
+
 
 require('./routes/index')(app);
 
