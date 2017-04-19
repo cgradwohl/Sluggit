@@ -7,9 +7,19 @@
 
 4. Run `npm install` to install dependancies.
 
-5. Run `npm start` for a dev server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api`.
+5. Make sure you have [mongodb](https://www.mongodb.com/) installed.
+
+6. Start a local mongodb instance `mongod`
+
+7. Run `npm start` for a dev server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api`.
 
 The app will automatically reload if you change any of the source files.
+
+## Known Bugs
+we are using npm aot (ahead of time) app compile BUT THIS WILL NOT WORK for the local dev server.
+
+If you are receiving an error for -aot --prod, simply confirm that the line `"postinstall": "ng build --aot --prod"`
+has been removed from `package.json`.     
 
 
 ## Sluggit web application
