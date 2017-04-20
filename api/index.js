@@ -5,7 +5,7 @@ const express = require('express'),
 
 module.exports = function(app){
 
-	// angularjs catch all route
+	// Angularjs catches all routes
 	router.get('/*', function(req, res) {
 		res.sendFile(rootPath + 'dist/index.html', { user: req.user });
 	});

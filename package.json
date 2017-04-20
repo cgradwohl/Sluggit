@@ -35,6 +35,8 @@
     "method-override": "^2.3.3",
     "mongoose": "^4.9.4",
     "nodemon": "^1.11.0",
+    "passport": "*",
+    "passport-jwt": "*",
     "rxjs": "^5.1.0",
     "typescript": "~2.2.0",
     "zone.js": "^0.8.4"
