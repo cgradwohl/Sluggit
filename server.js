@@ -7,7 +7,7 @@ const express = require('express'),
 	cors = require('cors'),
 	passport = require('passport');
 
-    
+
 
 // ENVIRONMENT CONFIG
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -38,7 +38,7 @@ require('./config/passport')(passport);
 
 // ROUTES
 // sets server to serve dist folder, which which is built on the server
-require('./routes/index')(app);
+require('./api/index')(app);
 
 
 // API ROUTES
