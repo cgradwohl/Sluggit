@@ -1,10 +1,18 @@
-// login, register, profile
 const express = require('express'),
     router = express.Router(),
-    User = require('../models/user');
+    User = require('../models/user'),
+    passport = require('passport'),
+    jwt = require('jsonwebtoken'),
+    // same // sketchy env hack, probably should centralize the environment varibles
+    env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+    config = require('../config/environment')[env];
 
 
-// register endpoint
+// ROUTES -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+
+
+// /register
+// creates a new User object to be stored into DB
 router.post('/register', (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
@@ -23,15 +31,49 @@ router.post('/register', (req, res, next) => {
 });
 
 
-// authenticate and login
+// /auth
+// authenticates existing users from the DB using a JWT passport strategy (see ./config/passport.js)
 router.post('/auth', (req, res, next) => {
-    res.send('AUTHENTICATE AND LOGIN PAGE');
+    const username = req.body.username;
+    const password = req.body.password;
+
+    User.getUserByUsername(username, (err, user) => {
+        if (err) throw err;
+        if (!user){
+            return res.json({success: false, msg: 'User not found'})
+        }
+
+        User.comparePassword(password, user.password, (err, isMatch) => {
+            if( err ) throw err;
+            if( isMatch ){
+                const token = jwt.sign(user, config.secret, {
+                    expiresIn: 604800 // 1 week
+                });
+
+                res.json({
+                    success: true,
+                    token: 'JWT '+token,
+                    user: {
+                        id: user._id,
+                        name: user.name,
+                        username: user.username,
+                        email: user.email
+                    }
+                });
+            } else {
+                return res.json({success: false, msg: 'Wrong Password'});
+            }
+        })
+    })
 });
 
 
-// profile
-router.get('/profile', (req, res, next) => {
-    res.send('PROFILE PAGE');
+// /profile
+// retrieves user profile data from the database
+// this is a protected route using passport-jwt strategy
+// user must have a valid token to access this path
+router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+    res.json({user: req.user});
 });
 
 
