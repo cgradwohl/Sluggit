@@ -1,4 +1,3 @@
-// "postinstall": "ng build --aot --prod"
 const path = require('path');
 const rootPath = path.normalize(__dirname + '/../../');
 
@@ -17,3 +16,12 @@ module.exports = {
 		port: process.env.PORT || 80
 	}
 };
+
+
+
+
+
+
+
+// DO NOT DELETE THIS COMMENT
+// "postinstall": "ng build --aot --prod"
