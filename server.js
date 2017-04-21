@@ -14,9 +14,17 @@ const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const envConfig = require('./config/environment')[env];
 
 
+
 // CONNECT TO DB
 mongoose.Promise = global.Promise;
 mongoose.connect(envConfig.db);
+mongoose.connection.on('connected', () => {
+    console.log('CONNECTED TO DB ' + envConfig.db);
+});
+mongoose.connection.on('error', (err) => {
+    console.log('DB ERROR: ' + err);
+});
+
 
 
 // EXPRESS CONFIG
@@ -26,8 +34,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(methodOverride());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'dist')));
+
 
 
 // PASSPORT CONFIG
@@ -36,17 +44,16 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 
+
 // ROUTES
 // sets server to serve dist folder, which which is built on the server
-require('./api/index')(app);
+app.use(express.static(path.join(__dirname, 'dist')));
+
 
 
 // API ROUTES
 const users = require('./api/users');
 app.use('/users', users);
-
-// const posts = require('./routes/posts');
-// app.use('/feed', posts);
 
 
 

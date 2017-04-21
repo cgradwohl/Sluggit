@@ -3,7 +3,6 @@ const express = require('express'),
     User = require('../models/user'),
     passport = require('passport'),
     jwt = require('jsonwebtoken'),
-    // same // sketchy env hack, probably should centralize the environment varibles
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     config = require('../config/environment')[env];
 
@@ -75,6 +74,7 @@ router.post('/auth', (req, res, next) => {
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     res.json({user: req.user});
 });
+
 
 
 module.exports = router;
