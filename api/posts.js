@@ -30,7 +30,7 @@ router.post('/add', (req, res, next) => {
 
 // /getUserPost
 // right now this simply confirms that the user has posted data to db
-// TODO: need to be able to display the actual post data from a registered user.  
+// TODO: need to be able to display the actual post data from a registered user.
 router.post('/getUserPost', (req, res, next) => {
     const username = req.body.username;
 
@@ -40,6 +40,7 @@ router.post('/getUserPost', (req, res, next) => {
             return res.json({success: false, msg: 'User not found'});
         } else {
             res.json({success:true, msg: 'User Post data has been found.'});
+        }
     });
 });
 
