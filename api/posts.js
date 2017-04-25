@@ -8,8 +8,8 @@ const express = require('express'),
 // ROUTES -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 
 
-// /register
-// creates a new Post object to be stored into DB
+// /add
+// creates a new Post object and adds the pos to DB
 router.post('/add', (req, res, next) => {
     let newPost = new Post({
         title: req.body.title,
@@ -23,6 +23,27 @@ router.post('/add', (req, res, next) => {
             res.json({success: false, msg:'Failed to add post'});
         } else {
             res.json({success: true, msg:'Successfully added post'});
+        }
+    });
+});
+
+
+// /getUserPost
+// retrieves post data from a user from the database
+router.post('/getUserPost', (req, res, next) => {
+    const username = req.body.username;
+
+    Post.getPostByUsername(username, (err, user, postdata) => {
+        if(err) throw err;
+        if (!user){
+            return res.json({success: false, msg: 'User not found'});
+        } else {
+            res.json({success:true, msg: 'User Post data has been found.'});
+            res.json({
+                postdata: {
+                    postBody: postdata.body
+                }
+            });
         }
     });
 });

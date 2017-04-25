@@ -28,3 +28,11 @@ const Post = module.exports = mongoose.model('Post', PostSchema);
 module.exports.addPost = (newPost, callback) => {
     newPost.save(callback);
 }
+
+
+// getPostByUsername()
+// gets user post data from mongodb
+module.exports.getPostByUsername = (username, callback) => {
+    const userQuery = {username: username}
+    Post.findOne(userQuery, callback);
+}
