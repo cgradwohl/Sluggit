@@ -4,30 +4,27 @@ const config = require('../config/environment');
 
 const PostSchema = mongoose.Schema({
     title: {
-        type: String
+        type: String,
+        required: true
+    },
+    author:{
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
     },
     body: {
         type: String,
-        required: true
     }
 });
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
 
-module.exports.getUserById = (id, callback) => {
-    User.findById(id, callback);
-}
 
-module.exports.getUserByUsername = (username, callback) => {
-    const query = {username: username}
-    User.findOne(query, callback);
-}
-
-module.exports.addUser = (newUser, callback) => {
-    bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-            newUser.password = hash;
-            newUser.save(callback);
-        })
-    })
+// addPost()
+// adds a new post to mongoDB
+module.exports.addPost = (newPost, callback) => {
+    newPost.save(callback);
 }

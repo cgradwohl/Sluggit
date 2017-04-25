@@ -70,7 +70,7 @@ router.post('/auth', (req, res, next) => {
 // /profile
 // retrieves user profile data from the database
 // this is a protected route using passport-jwt strategy
-// user must have a valid token to access this path
+// user must have a valid jsonwebtoken to access this path
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     res.json({user: req.user});
 });

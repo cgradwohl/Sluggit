@@ -55,6 +55,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 const users = require('./api/users');
 app.use('/users', users);
 
+const posts = require('./api/posts');
+app.use('/posts', posts);
+
 
 
 // START SERVER
