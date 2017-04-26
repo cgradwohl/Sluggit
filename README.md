@@ -28,8 +28,8 @@ Our app URL: https://sluggit.herokuapp.com/
 
 
 ## Front End Resources We Used
-easy custom bootstrap themes --> https://bootswatch.com/
-simple bootstrap template --> http://getbootstrap.com/examples/starter-template/
+1. easy custom bootstrap themes --> https://bootswatch.com/
+2. simple bootstrap template --> http://getbootstrap.com/examples/starter-template/
 
 ## Known Bugs
 currently bug free :) on 4/26/2017   
