@@ -1,17 +1,23 @@
 ## Getting Started:
 1. Clone the repo: `https://github.com/cgradwohl/Sluggit.git`
 
-2. Go into repo: `cd Sluggit`
+2. Go into repo: `$ cd Sluggit`
 
 3. Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed.
 
-4. Run `npm install` to install dependancies.
+4. Run `$ npm install` to install dependancies.
 
 5. Make sure you have [mongodb](https://www.mongodb.com/) installed.
 
-6. Start a local mongodb instance `mongod`
+6. Start a local mongodb instance `$ mongod`
 
-7. Run `npm start` for a dev server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api`.
+7. Run `$ npm start` for a dev backend server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api` to see backend app.
+
+8. `$ cd angular-src` and run `$ ng serve` to start the local front end service.
+
+9.  Navigate to `http://localhost:4200/` to see front end app.
+
+
 
 The app will automatically reload if you change any of the source files.
 
