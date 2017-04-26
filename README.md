@@ -21,6 +21,11 @@
 
 The app will automatically reload if you change any of the source files.
 
+## Live Application
+[Sluggit](https://sluggit.herokuapp.com/ )
+
+Our app URL: https://sluggit.herokuapp.com/
+
 
 ## Front End Resources We Used
 easy custom bootstrap themes --> https://bootswatch.com/
