@@ -13,7 +13,7 @@ module.exports = {
         db: 'mongodb://admin:123admin@ds161400.mlab.com:61400/sluggit-db',
         secret: 'abc123',
 		// db: process.env.MONGOLAB_URI || 'you can add a mongolab uri here ($ heroku config | grep MONGOLAB_URI)',
-		port: process.env.PORT || 80
+		port: process.env.PORT || 8080
 	}
 };
 
