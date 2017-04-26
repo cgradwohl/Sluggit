@@ -34,7 +34,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(methodOverride());
-// app.use(express.static(path.join(__dirname, 'dist')));
+// sets server to serve public folder, which hopefully is built on the server????
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 
@@ -45,9 +47,6 @@ require('./config/passport')(passport);
 
 
 
-// ROUTES
-// sets server to serve dist folder, which which is built on the server
-app.use(express.static(path.join(__dirname, 'dist')));
 
 
 
