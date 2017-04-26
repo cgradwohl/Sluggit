@@ -3,29 +3,31 @@
 
 2. Go into repo: `$ cd Sluggit`
 
-3. Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed.
+3. Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed. Make sure you have [mongodb](https://www.mongodb.com/) installed.
 
-4. Run `$ npm install` to install dependancies.
+4. `$ npm install` to install dependancies.
 
-5. Make sure you have [mongodb](https://www.mongodb.com/) installed.
+5. Start a local mongoDB instance `$ mongod`
 
-6. Start a local mongodb instance `$ mongod`
+6. `$ npm start` for a dev backend server.
 
-7. Run `$ npm start` for a dev backend server. Navigate to `http://localhost:3000/` and `http://localhost:3000/api` to see backend app.
+7. Navigate to `http://localhost:3000/` to make sure backend app is working.
 
-8. `$ cd angular-src` and run `$ ng serve` to start the local front end service.
+7. `$ cd angular-src` and then `$ ng serve` to start the local front end service.
 
-9.  Navigate to `http://localhost:4200/` to see front end app.
+8.  Navigate to `http://localhost:4200/` to see front end app.
 
 
 
 The app will automatically reload if you change any of the source files.
 
-## Known Bugs
-we are using npm aot (ahead of time) app compile BUT THIS WILL NOT WORK for the local dev server.
 
-If you are receiving an error for -aot --prod, simply confirm that the line `"postinstall": "ng build --aot --prod"`
-has been removed from `package.json`.     
+## Front End Resources We Used
+easy custom bootstrap themes --> https://bootswatch.com/
+simple bootstrap template --> http://getbootstrap.com/examples/starter-template/
+
+## Known Bugs
+currently bug free :) on 4/26/2017   
 
 
 ## Sluggit web application
@@ -45,13 +47,12 @@ Includes clustering algorithm to recommend content, in browser code editor for s
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Run `ng g component <component-name>` to generate a new component.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build. Needed to push to heroku. [Heroku](https://dashboard.heroku.com/).
+Run `ng build` to build the project into the public folder. (Used to deploy to heroku)
 
-Note package.json postinstall script
 
 ## Running unit tests
 
