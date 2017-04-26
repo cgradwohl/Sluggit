@@ -21,11 +21,6 @@
 
 The app will automatically reload if you change any of the source files.
 
-## Live Application
-[Sluggit](https://sluggit.herokuapp.com/ )
-
-Our app URL: https://sluggit.herokuapp.com/
-
 
 ## Front End Resources We Used
 1. easy custom bootstrap themes --> https://bootswatch.com/
@@ -35,11 +30,14 @@ Our app URL: https://sluggit.herokuapp.com/
 currently bug free :) on 4/26/2017   
 
 
-## Sluggit web application
+## Deployment Info
+We deployed our app with heroku.
+
+Run `ng build` to build the project into the public folder. (Used to deploy to heroku) 
+
 live url: https://sluggit.herokuapp.com/
 
-
-Features/Ideas:
+## Features/Product Ideas:
 
 This is a blog post web application similar to sites like reddit, medium and stack overflow.
 
@@ -53,10 +51,6 @@ Includes clustering algorithm to recommend content, in browser code editor for s
 ## Code scaffolding
 
 Run `ng g component <component-name>` to generate a new component.
-
-## Build
-
-Run `ng build` to build the project into the public folder. (Used to deploy to heroku)
 
 
 ## Running unit tests
