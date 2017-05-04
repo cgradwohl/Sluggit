@@ -9,9 +9,12 @@ const express = require('express'),
 
 
 
+/* -    -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   */
+
 // ENVIRONMENT CONFIG
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const envConfig = require('./config/environment')[env];
+
 
 
 
@@ -27,14 +30,13 @@ mongoose.connection.on('error', (err) => {
 
 
 
+
 // EXPRESS CONFIG
 const app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(methodOverride());
-// sets server to serve public folder, which hopefully is built on the server????
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -48,14 +50,13 @@ require('./config/passport')(passport);
 
 
 
-
-
 // API ROUTES
 const users = require('./api/users');
 app.use('/users', users);
 
 const posts = require('./api/posts');
 app.use('/posts', posts);
+
 
 
 
