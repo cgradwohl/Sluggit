@@ -11,17 +11,26 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { PublicFeedComponent } from './components/public-feed/public-feed.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PopularComponent } from './components/popular/popular.component';
+import { SearchComponent } from './components/search/search.component';
+
+
 
 
 // FRONT END ROUTES CONFIG
-// this routing logic is exported as the <router-outlet> html tag
+// routing logic is exported as the <router-outlet> html tag
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'feed', component: PublicFeedComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'popular', component: PopularComponent},
+  {path: 'search', component: SearchComponent}
 ];
+
+
+
 
 @NgModule({
   declarations: [
@@ -31,7 +40,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     PublicFeedComponent,
-    ProfileComponent
+    ProfileComponent,
+    PopularComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

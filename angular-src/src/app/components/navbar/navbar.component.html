@@ -1,6 +1,8 @@
 <!-- bootstrap navbar :) from http://getbootstrap.com/examples/starter-template/ -->
 <!-- uses angulars routerLink and selectors see this for details: https://angular.io/docs/ts/latest/api/router/index/RouterLink-directive.html -->
 
+
+<!-- UPPER NAVBAR -->
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -14,18 +16,44 @@
     </div>
 
     <div id="navbar" class="collapse navbar-collapse">
+
+      <!-- Angular RouterLink object injection -->
+      <ul class="nav navbar-nav navbar-right">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login/SignUp</a></li>
+      </ul>
+
+    </div><!--/.nav-collapse -->
+
+  </div>
+</nav>
+
+
+
+<!-- LOWER NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div id="navbar" class="collapse navbar-collapse">
+
+      <!-- Angular RouterLink object injection -->
       <ul class="nav navbar-nav navbar-left">
-        <!-- Angular RouterLink object injection -->
         <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/']">Home</a></li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/feed']">Public Feed</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/popular']">Popular on Sluggit</a></li>
       </ul>
 
       <!-- Angular RouterLink object injection -->
       <ul class="nav navbar-nav navbar-right">
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/register']">Register</a></li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/profile']">Profile</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/search']"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
       </ul>
+
     </div><!--/.nav-collapse -->
   </div>
 </nav>
