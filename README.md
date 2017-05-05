@@ -39,7 +39,10 @@ TLDR:
 
 
 ## Commit and Push Procedure:
-The app is served via the express server. Our server serves the `/public` directory (take a look at line 40 in `server.js`). To update your changes in the github repo:
+The app is served via the express server. Our server serves the `/public` directory (take a look at line 40 in `server.js`).
+
+
+To update your changes in the github repo DO THE FOLLOWING FIRST:
 
 1. Run `$ git pull` make sure you have the most current version and resolve merge conflicts.
 2. Make sure your did step 1!
@@ -53,8 +56,6 @@ The app is served via the express server. Our server serves the `/public` direct
 1. easy custom bootstrap themes --> https://bootswatch.com/
 2. simple bootstrap template --> http://getbootstrap.com/examples/starter-template/
 
-## Known Bugs
-currently bug free :) on 4/26/2017   
 
 
 ## Deployment Info
@@ -75,7 +76,7 @@ Users public feed will deliver relevant content based on users behavior, as well
 Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.# blog-clone web application
 
 
-## Code scaffolding
+## Component Scaffolding
 
 Run `ng g component <component-name>` to generate a new component.
 
