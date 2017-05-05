@@ -1,7 +1,7 @@
-## Getting Started:
+## Getting Started in Development Mode:
 1. Clone the repo: `https://github.com/cgradwohl/Sluggit.git`
 
-2. Go into repo: `$ cd Sluggit`
+2. `$ cd Sluggit`
 
 3. Make sure you have [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) installed. Make sure you have [mongodb](https://www.mongodb.com/) installed.
 
@@ -11,15 +11,42 @@
 
 6. `$ npm start` for a dev backend server.
 
-7. Navigate to `http://localhost:3000/` to make sure backend app is working.
+7. Navigate to `http://localhost:3000/` to make sure server app is working.
 
-7. `$ cd angular-src` and then `$ ng serve` to start the local front end service.
+8. `$ cd angular-src`
 
-8.  Navigate to `http://localhost:4200/` to see front end app.
+9. make sure you have the dependancies installed `$ npm install`
+
+10. from the `/angular-src` directory build the app `$ ng build` , this will bundle and compile the app into the public directory.
+
+11. from the `/angular-src` directory run `$ ng serve` to start the local angular server.
+
+12.  Navigate to `http://localhost:4200/` to see front end app.
+
+
+TLDR:
+
+1. `$ npm install`
+
+2. `$ npm start`
+
+3. `$ cd angular-src && npm install`
+
+4. `$ ng build`
+
+5. `$ ng serve`
 
 
 
-The app will automatically reload if you change any of the source files.
+## Commit and Push Procedure:
+The app is served via the express server. Our server serves the `/public` directory (take a look at line 40 in `server.js`). To update your changes in the github repo:
+
+1. Run `$ git pull` make sure you have the most current version and resolve merge conflicts.
+2. Make sure your did step 1!
+3. build the app into the public directory by running `$ ng build` from the `/angular-src` directory
+4. commit your code changes AND the entire `/public` directory
+5. `$ git push`
+
 
 
 ## Front End Resources We Used
@@ -33,7 +60,7 @@ currently bug free :) on 4/26/2017
 ## Deployment Info
 We deployed our app with heroku.
 
-Run `ng build` to build the project into the public folder. (Used to deploy to heroku) 
+Run `ng build` to build the project into the public folder. (Used to deploy to heroku)
 
 live url: https://sluggit.herokuapp.com/
 
