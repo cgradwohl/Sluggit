@@ -79,7 +79,7 @@ exports = module.exports = __webpack_require__(7)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".fa-terminal {\n  color: #eb6864\n}\n", ""]);
 
 // exports
 
