@@ -19,7 +19,9 @@
 
       <!-- Angular RouterLink object injection -->
       <ul class="nav navbar-nav navbar-right">
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login/SignUp</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/register']">Sign up</a></li>
+        <li><a (click)="onNativeLogoutClick()" href="#">Logout</a></li>
       </ul>
 
     </div><!--/.nav-collapse -->

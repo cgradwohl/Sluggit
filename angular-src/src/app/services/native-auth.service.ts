@@ -21,9 +21,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class NativeAuthService {
 
+
+
   // CLASS PROPERTIES
   authToken: any;
   user: any;
+
+
 
   // constructor()
   // injects the Http object
@@ -70,5 +74,11 @@ export class NativeAuthService {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  nativeLogout() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
   }
 }
