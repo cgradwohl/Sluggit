@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NativeRegisterValidationService } from '../../services/native-reg-validate.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +20,8 @@ export class RegisterComponent implements OnInit {
 
 
   // constructor()
-  // injects the native register service into the component on constuction
-  constructor(private validateService: NativeRegisterValidationService ) { }
+  // injects the native register service, and  into the component on constuction
+  constructor(private validateService: NativeRegisterValidationService, private flashMsgService: FlashMessagesService ) { }
 
 
 
@@ -46,18 +47,22 @@ export class RegisterComponent implements OnInit {
     // checks user register form for missing entries
     const missingEntry = !this.validateService.nativeRegisterFormValidate(user);
     if (missingEntry) {
-      console.log('Please make sure all fields have valid entries');
-      alert('Please make sure all fields have valid entries!');
+      this.flashMsgService.show('Please make sure all fields have valid entries!', { cssClass: 'alert-danger' });
 
       return false;
     }
     // checks user register form for valid email
     const invalidEmail = !this.validateService.nativeEmailValidate(user.email);
     if (invalidEmail) {
-      console.log('Please enter a valid email');
-      alert('Please enter a valid email!');
+      this.flashMsgService.show('Please enter a valid email!', { cssClass: 'alert-danger' });
 
       return false;
+    }
+    // shows success msg
+    const validForm = this.validateService.nativeRegisterFormValidate(user);
+    const validEmail = this.validateService.nativeEmailValidate(user.email);
+    if (validForm && validEmail) {
+      this.flashMsgService.show('Success!', { cssClass: 'alert-success' });
     }
   }
 
