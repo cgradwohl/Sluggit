@@ -15,6 +15,7 @@
 
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { LocalStorageService } from 'angular-2-local-storage';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -26,7 +27,10 @@ export class NativeAuthService {
 
   // constructor()
   // injects the Http object
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private localStorageService: LocalStorageService
+  ) { }
 
 
 
