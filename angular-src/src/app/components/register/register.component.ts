@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { NativeRegisterValidationService } from '../../services/native-reg-validate.service';
+import { NativeAuthService } from '../../services/native-auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
+
+
 export class RegisterComponent implements OnInit {
 
 
-  // REGISTER FORM PROPERTIES
+  // CLASS PROPERTIES
   name: String;
   username: String;
   email: String;
@@ -21,7 +27,12 @@ export class RegisterComponent implements OnInit {
 
   // constructor()
   // injects the native register service, and  into the component on constuction
-  constructor(private validateService: NativeRegisterValidationService, private flashMsgService: FlashMessagesService ) { }
+  constructor(
+    private nativeValidateService: NativeRegisterValidationService,
+    private nativeAuthService: NativeAuthService,
+    private flashMsgService: FlashMessagesService,
+    private router: Router
+  ) { }
 
 
 
@@ -33,6 +44,7 @@ export class RegisterComponent implements OnInit {
   // creates user object from user input and validates user form input
   onNativeRegisterSubmit() {
 
+
     // USER OBJECT
     // grabs user data from register form using two way data binding
     const user = {
@@ -43,29 +55,38 @@ export class RegisterComponent implements OnInit {
     };
 
 
+
     // FORM VALIDATION
     // checks user register form for missing entries
-    const missingEntry = !this.validateService.nativeRegisterFormValidate(user);
+    const missingEntry = !this.nativeValidateService.nativeRegisterFormValidate(user);
     if (missingEntry) {
       this.flashMsgService.show('Please make sure all fields have valid entries!', { cssClass: 'alert-danger' });
 
       return false;
     }
     // checks user register form for valid email
-    const invalidEmail = !this.validateService.nativeEmailValidate(user.email);
+    const invalidEmail = !this.nativeValidateService.nativeEmailValidate(user.email);
     if (invalidEmail) {
       this.flashMsgService.show('Please enter a valid email!', { cssClass: 'alert-danger' });
 
       return false;
     }
-    // shows success msg
-    const validForm = this.validateService.nativeRegisterFormValidate(user);
-    const validEmail = this.validateService.nativeEmailValidate(user.email);
-    if (validForm && validEmail) {
-      this.flashMsgService.show('Success!', { cssClass: 'alert-success' });
-    }
+
+
+
+    // REGISTER USER
+    this.nativeAuthService.registerUser(user).subscribe(data => {
+
+      if (data.success) {
+        this.flashMsgService.show('Success!', { cssClass: 'alert-success' });
+        this.router.navigate(['/login']);
+
+      } else {
+        this.flashMsgService.show('Register failed! Please try again!', { cssClass: 'alert-danger' });
+        this.router.navigate(['/register']);
+      }
+    });
+
+
   }
-
-
-
 }

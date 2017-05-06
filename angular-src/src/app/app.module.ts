@@ -19,6 +19,7 @@ import { SearchComponent } from './components/search/search.component';
 
 // SERVICES
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
+import { NativeAuthService } from './services/native-auth.service';
 
 
 
@@ -58,7 +59,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [NativeRegisterValidationService],
+  providers: [
+    NativeRegisterValidationService,
+    NativeAuthService
+  ],
   bootstrap: [AppComponent]
 })
 

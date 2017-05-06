@@ -16,12 +16,3 @@ module.exports = {
 		port: process.env.PORT || 8080
 	}
 };
-
-
-
-
-
-
-
-// DO NOT DELETE THIS COMMENT
-// "postinstall": "ng build --aot --prod"
