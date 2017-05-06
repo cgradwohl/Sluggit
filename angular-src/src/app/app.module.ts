@@ -1,9 +1,11 @@
+// NG MODULES
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes } from '@angular/router';
 
+// COMPONENTS
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -14,13 +16,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PopularComponent } from './components/popular/popular.component';
 import { SearchComponent } from './components/search/search.component';
 
-
+// SERVICES
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
 
 
 
 
-// FRONT END ROUTES CONFIG
+// ROUTER CONFIG
 // routing logic is exported as the <router-outlet> html tag
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
 
 
 
-
+// NG MODULE CONFIG
+// defines the set of injectable objects that are available in the injector of this module.
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,4 +59,7 @@ const appRoutes: Routes = [
   providers: [NativeRegisterValidationService],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { }

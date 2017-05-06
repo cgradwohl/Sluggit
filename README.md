@@ -1,3 +1,14 @@
+## Features/Product Ideas:
+
+This is a blog post web application similar to sites like reddit, medium and stack overflow.
+
+Application includes user profiles, friend requests, blog posts, topic search, user feed,
+blog likes and user reputation.  
+Content will be recommended via user feed, based on likes AND various CS topics: (ML, AI, web development, NLP, iot, programming languages, etc.).
+Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
+Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.# blog-clone web application
+
+
 ## Getting Started in Development Mode:
 1. Clone the repo: `https://github.com/cgradwohl/Sluggit.git`
 
@@ -58,27 +69,11 @@ To update your changes in the github repo DO THE FOLLOWING FIRST:
 
 
 
-## Deployment Info
-We deployed our app with heroku.
+## Code Scaffolding
 
-Run `ng build` to build the project into the public folder. (Used to deploy to heroku)
+Run `$ ng g component <your-component-name>` to generate a new component.
 
-live url: https://sluggit.herokuapp.com/
-
-## Features/Product Ideas:
-
-This is a blog post web application similar to sites like reddit, medium and stack overflow.
-
-Application includes user profiles, friend requests, blog posts, topic search, user feed,
-blog likes and user reputation.  
-Content will be recommended via user feed, based on likes AND various CS topics: (ML, AI, web development, NLP, iot, programming languages, etc.).
-Users public feed will deliver relevant content based on users behavior, as well as new topics the user hasn't previously seen. 	
-Includes clustering algorithm to recommend content, in browser code editor for sharing/ running code snippets.# blog-clone web application
-
-
-## Component Scaffolding
-
-Run `ng g component <component-name>` to generate a new component.
+Run `$ ng g service <your-service-name>` to generate a new service. (Note the cli currently does not add this to the service providers in the main app module)
 
 
 ## Running unit tests
