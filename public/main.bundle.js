@@ -827,7 +827,10 @@ var NativeAuthService = (function () {
         headers.append('Content-Type', 'application/json');
         // sends the user object to ./users/register api endpoint
         // the map() method makes the post request an Observable
-        var userObservable = this.http.post('http://localhost:3000/users/register', user, { headers: headers }).map(function (res) { return res.json(); });
+        // FOR LOCAL DEV comment out for heroku deployment
+        // const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
+        // FOR HEROKU comment out for local development
+        var userObservable = this.http.post('users/register', user, { headers: headers }).map(function (res) { return res.json(); });
         return userObservable;
     };
     // authenticateUser()
@@ -838,7 +841,10 @@ var NativeAuthService = (function () {
         headers.append('Content-Type', 'application/json');
         // sends the user object to ./users/register api endpoint
         // the map() method makes the post request an Observable
-        var userObservable = this.http.post('http://localhost:3000/users/auth', user, { headers: headers }).map(function (res) { return res.json(); });
+        // FOR LOCAL DEV comment out for heroku deployment
+        // const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+        // FOR HEROKU comment out for local development
+        var userObservable = this.http.post('users/auth', user, { headers: headers }).map(function (res) { return res.json(); });
         return userObservable;
     };
     // storeNativeUserData()

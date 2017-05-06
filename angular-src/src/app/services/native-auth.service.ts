@@ -47,7 +47,13 @@ export class NativeAuthService {
 
     // sends the user object to ./users/register api endpoint
     // the map() method makes the post request an Observable
-    const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
+
+    // FOR LOCAL DEV comment out for heroku deployment
+    // const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
+
+    // FOR HEROKU comment out for local development
+    const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
+
 
     return userObservable;
 
@@ -62,7 +68,12 @@ export class NativeAuthService {
 
     // sends the user object to ./users/register api endpoint
     // the map() method makes the post request an Observable
-    const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+
+    // FOR LOCAL DEV comment out for heroku deployment
+    // const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+
+    // FOR HEROKU comment out for local development
+    const userObservable = this.http.post('users/auth', user, {headers: headers}).map(res => res.json());
 
     return userObservable;
   }
