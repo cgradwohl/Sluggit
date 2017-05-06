@@ -31,9 +31,9 @@ export class NativeAuthService {
 
 
   // registerUser()
-  // makes a POST request to the register api endpoint
+  // makes a POST request to the /register api endpoint
+  // returns success or failure on repsonse
   registerUser(user) {
-
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -43,5 +43,28 @@ export class NativeAuthService {
 
     return userObservable;
 
+  }
+
+  // authenticateUser()
+  // makes a POST request to the /auth api endpoint
+  // returns success and JWT or failure on repsonse
+  authenticateUser(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    // sends the user object to ./users/register api endpoint
+    // the map() method makes the post request an Observable
+    const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+
+    return userObservable;
+  }
+
+  // storeNativeUserData()
+  // stores the user data in local storage so that the browser remembers the user login info.
+  storeNativeUserData(token, user) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
   }
 }

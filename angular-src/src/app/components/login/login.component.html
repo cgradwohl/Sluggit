@@ -1,11 +1,11 @@
-<form class="form-horizontal" (submit)="onNativeAuthSubmit()">
+<form class="form-horizontal" (submit)="onNativeLoginSubmit()">
   <fieldset>
 
 
     <legend>Login to Sluggit.</legend>
 
 
-    <!-- AUTH PROPERTIES -->
+    <!-- AUTH LOGIN PROPERTIES -->
     <div class="form-group">
       <label class="col-lg-2 control-label">Username</label>
       <div class="col-lg-5">
@@ -21,6 +21,7 @@
         <input type="password" [(ngModel)]="password" name="password" class="form-control">
       </div>
     </div>
+
 
 
     <!-- BTN BAR -->
