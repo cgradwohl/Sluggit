@@ -1,7 +1,36 @@
-<p>
-  login works!
-</p>
+<form class="form-horizontal" (submit)="onNativeAuthSubmit()">
+  <fieldset>
 
-<p>
-  this will take us to the login form. users can signup/ login with Google, Facebook, Github or with an email address. 
-</p>
+
+    <legend>Login to Sluggit.</legend>
+
+
+    <!-- AUTH PROPERTIES -->
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Username</label>
+      <div class="col-lg-5">
+        <input type="text" [(ngModel)]="username" name="username" class="form-control">
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-5">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control">
+      </div>
+    </div>
+
+
+    <!-- BTN BAR -->
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+
+  </fieldset>
+</form>
