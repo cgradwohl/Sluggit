@@ -1,20 +1,63 @@
-<h2>Register Page</h2>
-<form>
-  <div class="form-group">
-    <label>Name</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Username</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Email</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control">
-  </div>
-  <input type="submit" class="btn btn-primary" value="Submit">
+<!-- DEV NOTES -->
+
+<!-- ngModel -->
+<!-- https://angular.io/docs/ts/latest/api/forms/index/NgModel-directive.html -->
+<!-- The ngModel directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive. -->
+<!-- [()] syntax (also known as 'banana-box syntax') allows us to use two way data binding -->
+
+
+<!-- Event Binding -->
+<!-- https://angular.io/docs/ts/latest/guide/user-input.html -->
+<!-- use Angular event bindings to respond to any DOM event. <button (click)="onClickMe()">Click me!</button> -->
+
+<!-- =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  = -->
+<form class="form-horizontal" (submit)="onNativeRegisterSubmit()">
+  <fieldset>
+
+
+    <legend>Sign up now to start connecting on Sluggit.</legend>
+
+
+    <!-- REGISTER PROPERTIES -->
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Name</label>
+      <div class="col-lg-5">
+        <input type="text" [(ngModel)]="name" name="name" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Username</label>
+      <div class="col-lg-5">
+        <input type="text" [(ngModel)]="username" name="username" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-5">
+        <input type="text" [(ngModel)]="email" name="email" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-5">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control">
+      </div>
+    </div>
+
+
+
+
+    <!-- BTN BAR -->
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+
+  </fieldset>
 </form>

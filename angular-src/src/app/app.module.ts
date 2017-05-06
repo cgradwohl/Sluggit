@@ -15,6 +15,9 @@ import { PopularComponent } from './components/popular/popular.component';
 import { SearchComponent } from './components/search/search.component';
 
 
+import { NativeRegisterValidationService } from './services/native-reg-validate.service';
+
+
 
 
 // FRONT END ROUTES CONFIG
@@ -50,7 +53,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [NativeRegisterValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
