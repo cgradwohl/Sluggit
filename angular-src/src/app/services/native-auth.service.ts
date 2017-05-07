@@ -12,11 +12,16 @@
 // Like Array.prototype.map(), it passes each source value through a transformation function to get corresponding output values.
 // see http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-map for more info
 
+// ANGULAR2-JWT
+// this is a service we will use to hide and show elements depending on wheather there is a valid JWT
+// If the token is valid, tokenNotExpired returns true, otherwise it returns false.
+// https://github.com/auth0/angular2-jwt
 
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { LocalStorageService } from 'angular-2-local-storage';
 import 'rxjs/add/operator/map';
+import { tokenNotExpired } from 'angular2-jwt';
+
 
 @Injectable()
 export class NativeAuthService {
@@ -33,7 +38,6 @@ export class NativeAuthService {
   // injects the Http object
   constructor(
     private http: Http,
-    private localStorageService: LocalStorageService
   ) { }
 
 
@@ -125,6 +129,15 @@ export class NativeAuthService {
   fetchToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
+  }
+
+
+
+  // loggedIn()
+  // if the token is valid, tokenNotExpired returns true, otherwise it returns false
+  // loggedIn() will be used in html to conditionally hide and show elements
+  loggedIn() {
+    return tokenNotExpired('id_token');
   }
 
 
