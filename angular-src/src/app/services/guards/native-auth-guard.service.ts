@@ -2,7 +2,7 @@
 // this is a simple service that guards routes against unauthenticated users
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { NativeAuthService } from '../services/native-auth.service';
+import { NativeAuthService } from '../native-auth.service';
 
 
 
@@ -11,7 +11,7 @@ import { NativeAuthService } from '../services/native-auth.service';
 
 
 
-export class NativeAuthGuard implements CanActivate {
+export class NativeAuthGuardService implements CanActivate {
   constructor(
     private nativeAuthService: NativeAuthService,
     private router: Router

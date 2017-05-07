@@ -20,9 +20,7 @@ import { SearchComponent } from './components/search/search.component';
 // SERVICES
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
 import { NativeAuthService } from './services/native-auth.service';
-import { NativeAuthGuard } from './guards/native-auth-guard';
-
-
+import { NativeAuthGuardService } from './services/guards/native-auth-guard.service';
 
 
 // ROUTER CONFIG
@@ -31,12 +29,11 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'feed', component: PublicFeedComponent, canActivate:[NativeAuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate:[NativeAuthGuard]},
-  {path: 'popular', component: PopularComponent, canActivate:[NativeAuthGuard]},
+  {path: 'feed', component: PublicFeedComponent, canActivate: [NativeAuthGuardService]},
+  {path: 'profile', component: ProfileComponent, canActivate: [NativeAuthGuardService]},
+  {path: 'popular', component: PopularComponent, canActivate: [NativeAuthGuardService]},
   {path: 'search', component: SearchComponent}
 ];
-
 
 
 // NG MODULE CONFIG
@@ -63,11 +60,11 @@ const appRoutes: Routes = [
   providers: [
     NativeRegisterValidationService,
     NativeAuthService,
-    NativeAuthGuard
+    NativeAuthGuardService
   ],
   bootstrap: [AppComponent]
 })
 
 
-
+// EXPORT CLASS
 export class AppModule { }
