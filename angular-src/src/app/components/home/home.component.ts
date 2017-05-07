@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NativeAuthService } from '../../services/native-auth.service';
 
 
 
@@ -14,7 +15,9 @@ import { Component, OnInit } from '@angular/core';
 // HomeComponent CONFIG
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private nativeAuthService: NativeAuthService
+  ) { }
 
   ngOnInit() { }
 
