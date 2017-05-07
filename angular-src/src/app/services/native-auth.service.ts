@@ -38,6 +38,7 @@ export class NativeAuthService {
 
 
 
+
   // registerUser()
   // makes a POST request to the /register api endpoint
   // returns success or failure on repsonse
@@ -48,11 +49,11 @@ export class NativeAuthService {
     headers.append('Content-Type', 'application/json');
 
 
-    // FOR LOCAL DEV comment out for heroku deployment
-    // const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
+    // NOTE FOR LOCAL DEV comment out for heroku deployment
+    const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
 
-    // FOR HEROKU comment out for local development
-    const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
+    // NOTE FOR HEROKU comment out for local development
+    // const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
 
     return userObservable;
 
@@ -71,11 +72,34 @@ export class NativeAuthService {
     headers.append('Content-Type', 'application/json');
 
 
-    // FOR LOCAL DEV comment out for heroku deployment
-    // const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+    // NOTE FOR LOCAL DEV comment out for heroku deployment
+    const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
 
-    // FOR HEROKU comment out for local development
-    const userObservable = this.http.post('users/auth', user, {headers: headers}).map(res => res.json());
+    // NOTE FOR HEROKU comment out for local development
+    // const userObservable = this.http.post('users/auth', user, {headers: headers}).map(res => res.json());
+
+    return userObservable;
+  }
+
+
+
+
+  // getProfile()
+  // makes a protected/authenticated get request, requires a valid token to access this endpoint
+  // sends a valid auth token to the api endpoint
+  getProfile() {
+    let headers = new Headers();
+    this.fetchToken();
+
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+
+
+    // NOTE FOR LOCAL DEV comment out for heroku deployment
+    const userObservable = this.http.get('http://localhost:3000/users/profile', {headers: headers}).map(res => res.json());
+
+    // NOTE FOR HEROKU comment out for local development
+    // const userObservable = this.http.get('users/profile', {headers: headers}).map(res => res.json());
 
     return userObservable;
   }
@@ -92,6 +116,22 @@ export class NativeAuthService {
     this.user = user;
   }
 
+
+
+
+  // fetchToken()
+  // gets user JWT token from localStroage if it exists
+  // sets the class property authToken to the token it fetches
+  fetchToken() {
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
+
+
+
+
+  // nativeLogout()
+  // clears localStorage and removes JWT token
   nativeLogout() {
     this.authToken = null;
     this.user = null;

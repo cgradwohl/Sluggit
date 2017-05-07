@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       if (data.success) {
         this.nativeAuthService.storeNativeUserData(data.token, data.user);
         this.flashMessage.show('Successful login!', { cssClass: 'alert-success' });
-        this.router.navigate(['/feed']);
+        this.router.navigate(['/profile']);
 
       } else {
         this.flashMessage.show(data.msg, { cssClass: 'alert-danger' });
