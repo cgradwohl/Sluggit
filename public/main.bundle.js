@@ -420,8 +420,8 @@ SearchComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__ = __webpack_require__(13);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NativeAuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__native_auth_service__ = __webpack_require__(13);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NativeAuthGuardService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -436,12 +436,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var NativeAuthGuard = (function () {
-    function NativeAuthGuard(nativeAuthService, router) {
+var NativeAuthGuardService = (function () {
+    function NativeAuthGuardService(nativeAuthService, router) {
         this.nativeAuthService = nativeAuthService;
         this.router = router;
     }
-    NativeAuthGuard.prototype.canActivate = function () {
+    NativeAuthGuardService.prototype.canActivate = function () {
         if (this.nativeAuthService.loggedIn()) {
             return true;
         }
@@ -450,15 +450,15 @@ var NativeAuthGuard = (function () {
             return false;
         }
     };
-    return NativeAuthGuard;
+    return NativeAuthGuardService;
 }());
-NativeAuthGuard = __decorate([
+NativeAuthGuardService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__["a" /* NativeAuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
-], NativeAuthGuard);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__native_auth_service__["a" /* NativeAuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], NativeAuthGuardService);
 
 var _a, _b;
-//# sourceMappingURL=native-auth-guard.js.map
+//# sourceMappingURL=native-auth-guard.service.js.map
 
 /***/ }),
 
@@ -979,7 +979,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_search_search_component__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_native_reg_validate_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_native_auth_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_guards_native_auth_guard_service__ = __webpack_require__(108);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1014,14 +1014,15 @@ var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_9__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_8__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'feed', component: __WEBPACK_IMPORTED_MODULE_11__components_public_feed_public_feed_component__["a" /* PublicFeedComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]] },
-    { path: 'popular', component: __WEBPACK_IMPORTED_MODULE_13__components_popular_popular_component__["a" /* PopularComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]] },
+    { path: 'feed', component: __WEBPACK_IMPORTED_MODULE_11__components_public_feed_public_feed_component__["a" /* PublicFeedComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_guards_native_auth_guard_service__["a" /* NativeAuthGuardService */]] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_guards_native_auth_guard_service__["a" /* NativeAuthGuardService */]] },
+    { path: 'popular', component: __WEBPACK_IMPORTED_MODULE_13__components_popular_popular_component__["a" /* PopularComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_guards_native_auth_guard_service__["a" /* NativeAuthGuardService */]] },
     { path: 'search', component: __WEBPACK_IMPORTED_MODULE_14__components_search_search_component__["a" /* SearchComponent */] }
 ];
 // NG MODULE CONFIG
 // defines the set of injectable objects that are available in the injector of this module.
 var AppModule = (function () {
+    // EXPORT CLASS
     function AppModule() {
     }
     return AppModule;
@@ -1049,10 +1050,11 @@ AppModule = __decorate([
         providers: [
             __WEBPACK_IMPORTED_MODULE_15__services_native_reg_validate_service__["a" /* NativeRegisterValidationService */],
             __WEBPACK_IMPORTED_MODULE_16__services_native_auth_service__["a" /* NativeAuthService */],
-            __WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]
+            __WEBPACK_IMPORTED_MODULE_17__services_guards_native_auth_guard_service__["a" /* NativeAuthGuardService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
+    // EXPORT CLASS
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
