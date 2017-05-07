@@ -20,6 +20,7 @@ import { SearchComponent } from './components/search/search.component';
 // SERVICES
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
 import { NativeAuthService } from './services/native-auth.service';
+import { NativeAuthGuard } from './guards/native-auth-guard';
 
 
 
@@ -30,9 +31,9 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'feed', component: PublicFeedComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'popular', component: PopularComponent},
+  {path: 'feed', component: PublicFeedComponent, canActivate:[NativeAuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate:[NativeAuthGuard]},
+  {path: 'popular', component: PopularComponent, canActivate:[NativeAuthGuard]},
   {path: 'search', component: SearchComponent}
 ];
 
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     NativeRegisterValidationService,
-    NativeAuthService
+    NativeAuthService,
+    NativeAuthGuard
   ],
   bootstrap: [AppComponent]
 })

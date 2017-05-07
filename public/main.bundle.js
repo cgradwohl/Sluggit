@@ -5,7 +5,7 @@ webpackJsonp([1,4],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(13);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -28,8 +28,8 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home',
-        template: __webpack_require__(178),
-        styles: [__webpack_require__(168)]
+        template: __webpack_require__(179),
+        styles: [__webpack_require__(169)]
     })
     // HomeComponent CONFIG
     ,
@@ -46,8 +46,8 @@ var _a;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
@@ -98,8 +98,8 @@ var LoginComponent = (function () {
 LoginComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-login',
-        template: __webpack_require__(179),
-        styles: [__webpack_require__(169)]
+        template: __webpack_require__(180),
+        styles: [__webpack_require__(170)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__["a" /* NativeAuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object])
 ], LoginComponent);
@@ -114,8 +114,8 @@ var _a, _b, _c;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
@@ -153,8 +153,8 @@ var NavbarComponent = (function () {
 NavbarComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-navbar',
-        template: __webpack_require__(180),
-        styles: [__webpack_require__(170)]
+        template: __webpack_require__(181),
+        styles: [__webpack_require__(171)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__["a" /* NativeAuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object])
 ], NavbarComponent);
@@ -190,8 +190,8 @@ var PopularComponent = (function () {
 PopularComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-popular',
-        template: __webpack_require__(181),
-        styles: [__webpack_require__(171)]
+        template: __webpack_require__(182),
+        styles: [__webpack_require__(172)]
     }),
     __metadata("design:paramtypes", [])
 ], PopularComponent);
@@ -205,8 +205,8 @@ PopularComponent = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(18);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -243,8 +243,8 @@ var ProfileComponent = (function () {
 ProfileComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-profile',
-        template: __webpack_require__(182),
-        styles: [__webpack_require__(172)]
+        template: __webpack_require__(183),
+        styles: [__webpack_require__(173)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_native_auth_service__["a" /* NativeAuthService */]) === "function" && _b || Object])
 ], ProfileComponent);
@@ -280,8 +280,8 @@ var PublicFeedComponent = (function () {
 PublicFeedComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-public-feed',
-        template: __webpack_require__(183),
-        styles: [__webpack_require__(173)]
+        template: __webpack_require__(184),
+        styles: [__webpack_require__(174)]
     }),
     __metadata("design:paramtypes", [])
 ], PublicFeedComponent);
@@ -296,10 +296,10 @@ PublicFeedComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_native_reg_validate_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(18);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -367,8 +367,8 @@ var RegisterComponent = (function () {
 RegisterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-register',
-        template: __webpack_require__(184),
-        styles: [__webpack_require__(174)]
+        template: __webpack_require__(185),
+        styles: [__webpack_require__(175)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_native_reg_validate_service__["a" /* NativeRegisterValidationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_native_reg_validate_service__["a" /* NativeRegisterValidationService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__["a" /* NativeAuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _d || Object])
 ], RegisterComponent);
@@ -404,8 +404,8 @@ var SearchComponent = (function () {
 SearchComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-search',
-        template: __webpack_require__(185),
-        styles: [__webpack_require__(175)]
+        template: __webpack_require__(186),
+        styles: [__webpack_require__(176)]
     }),
     __metadata("design:paramtypes", [])
 ], SearchComponent);
@@ -415,6 +415,54 @@ SearchComponent = __decorate([
 /***/ }),
 
 /***/ 108:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__ = __webpack_require__(13);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NativeAuthGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// use this as an example of a custom Injectable service
+// this is a simple service that guards routes against unauthenticated users
+
+
+
+var NativeAuthGuard = (function () {
+    function NativeAuthGuard(nativeAuthService, router) {
+        this.nativeAuthService = nativeAuthService;
+        this.router = router;
+    }
+    NativeAuthGuard.prototype.canActivate = function () {
+        if (this.nativeAuthService.loggedIn()) {
+            return true;
+        }
+        else {
+            this.router.navigate(['/login']);
+            return false;
+        }
+    };
+    return NativeAuthGuard;
+}());
+NativeAuthGuard = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__["a" /* NativeAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_native_auth_service__["a" /* NativeAuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], NativeAuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=native-auth-guard.js.map
+
+/***/ }),
+
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -431,69 +479,15 @@ var environment = {
 
 /***/ }),
 
-/***/ 167:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(7)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 168:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(7)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".propaganda {\n  margin-top: 10%;\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 169:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(7)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 17:
+/***/ 13:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NativeAuthService; });
 // NOTES
@@ -612,6 +606,42 @@ var _a;
 
 /***/ }),
 
+/***/ 168:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 169:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".propaganda {\n  margin-top: 10%;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
 /***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -620,7 +650,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".fa-terminal {\n  color: #eb6864\n}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -638,7 +668,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".fa-terminal {\n  color: #eb6864\n}\n", ""]);
 
 // exports
 
@@ -720,70 +750,88 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 177:
-/***/ (function(module, exports) {
+/***/ 176:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<!-- MAIN APP HTML COMPONENT -->\n<!-- this is the meeting place for all other components -->\n<app-navbar></app-navbar>\n\n<div class=\"container\">\n  <!-- router outlet contains all our routing info (see app.module.ts) -->\n  <flash-messages></flash-messages>\n  <router-outlet></router-outlet>\n</div>\n"
+exports = module.exports = __webpack_require__(7)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 178:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Welcome to the Sluggit Landing Page</h1>\n  <p class=\"lead\">A computer science blog and resource.</p>\n\n  <div *ngIf=\"!nativeAuthService.loggedIn()\">\n    <a class=\"btn btn-info btn-lg\" [routerLink]=\"['/register']\">Sign up now!</a>\n    <a class=\"btn btn-primary btn-lg\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n\n  <div *ngIf=\"nativeAuthService.loggedIn()\">\n    <a class=\"btn btn-info btn-lg\" [routerLink]=\"['/feed']\">Checkout the Public Feed!</a>\n    <a class=\"btn btn-primary btn-lg\" [routerLink]=\"['/popular']\">See whats popular on Sluggit!</a>\n  </div>\n</div>\n\n\n<div class=\"row propaganda\">\n  <div class=\"col-md-4\">\n    <h3 class=\"text-center\"><i class=\"fa fa-file-code-o fa-3x\" aria-hidden=\"true\"></i></h3>\n    <p>Fancy Landing Page Propaganda Goes Here! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3 class=\"text-center\"><i class=\"fa fa-camera-retro fa-3x\"></i></h3>\n    <p>Fancy Landing Page Propaganda Goes Here! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3 class=\"text-center\"><i class=\"fa fa-play-circle fa-3x\" aria-hidden=\"true\"></i></h3>\n    <p>Fancy Landing Page Propaganda Goes Here! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n"
+module.exports = "<!-- MAIN APP HTML COMPONENT -->\n<!-- this is the meeting place for all other components -->\n<app-navbar></app-navbar>\n\n<div class=\"container\">\n  <!-- router outlet contains all our routing info (see app.module.ts) -->\n  <flash-messages></flash-messages>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
 /***/ 179:
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-horizontal\" (submit)=\"onNativeLoginSubmit()\">\n  <fieldset>\n\n\n    <legend>Login to Sluggit.</legend>\n\n\n    <!-- AUTH LOGIN PROPERTIES -->\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Username</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n      </div>\n    </div>\n\n\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Password</label>\n      <div class=\"col-lg-5\">\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n      </div>\n    </div>\n\n\n\n    <!-- BTN BAR -->\n    <div class=\"form-group\">\n      <div class=\"col-lg-10 col-lg-offset-2\">\n        <button type=\"reset\" class=\"btn btn-default\">Cancel</button>\n        <button type=\"submit\" class=\"btn btn-primary\">Login</button>\n      </div>\n    </div>\n\n\n  </fieldset>\n</form>\n"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Welcome to the Sluggit Landing Page</h1>\n  <p class=\"lead\">A computer science blog and resource.</p>\n\n  <div *ngIf=\"!nativeAuthService.loggedIn()\">\n    <a class=\"btn btn-info btn-lg\" [routerLink]=\"['/register']\">Sign up now!</a>\n    <a class=\"btn btn-primary btn-lg\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n\n  <div *ngIf=\"nativeAuthService.loggedIn()\">\n    <a class=\"btn btn-info btn-lg\" [routerLink]=\"['/feed']\">Checkout the Public Feed!</a>\n    <a class=\"btn btn-primary btn-lg\" [routerLink]=\"['/popular']\">See whats popular on Sluggit!</a>\n  </div>\n</div>\n\n\n<div class=\"row propaganda\">\n  <div class=\"col-md-4\">\n    <h3 class=\"text-center\"><i class=\"fa fa-file-code-o fa-3x\" aria-hidden=\"true\"></i></h3>\n    <p>Fancy Landing Page Propaganda Goes Here! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3 class=\"text-center\"><i class=\"fa fa-camera-retro fa-3x\"></i></h3>\n    <p>Fancy Landing Page Propaganda Goes Here! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3 class=\"text-center\"><i class=\"fa fa-play-circle fa-3x\" aria-hidden=\"true\"></i></h3>\n    <p>Fancy Landing Page Propaganda Goes Here! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 180:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- bootstrap navbar :) from http://getbootstrap.com/examples/starter-template/ -->\n<!-- uses angulars routerLink and selectors see this for details: https://angular.io/docs/ts/latest/api/router/index/RouterLink-directive.html -->\n\n\n<!-- UPPER NAVBAR -->\n<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fa fa-terminal\" aria-hidden=\"true\"></i> Sluggit</a>\n    </div>\n\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n\n      <!-- Angular RouterLink object injection -->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"!nativeAuthService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/register']\">Sign up</a></li>\n        <li *ngIf=\"!nativeAuthService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\n\n        <li *ngIf=\"nativeAuthService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/profile']\">Profile</a></li>\n        <li *ngIf=\"nativeAuthService.loggedIn()\"><a (click)=\"onNativeLogoutClick()\" href=\"#\">Logout</a></li>\n\n      </ul>\n\n    </div><!--/.nav-collapse -->\n\n  </div>\n</nav>\n\n\n\n<!-- LOWER NAVBAR -->\n<nav class=\"navbar\" *ngIf=\"nativeAuthService.loggedIn()\" >\n  <div class=\"container\">\n    <div class=\"navbar-inner\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n    </div>\n\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n\n      <!-- Angular RouterLink object injection -->\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/feed']\">Feed</a></li>\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/popular']\">Popular on Sluggit</a></li>\n      </ul>\n\n      <!-- Angular RouterLink object injection -->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/search']\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i> Search</a></li>\n      </ul>\n\n    </div><!--/.nav-collapse -->\n  </div>\n</nav>\n"
+module.exports = "<form class=\"form-horizontal\" (submit)=\"onNativeLoginSubmit()\">\n  <fieldset>\n\n\n    <legend>Login to Sluggit.</legend>\n\n\n    <!-- AUTH LOGIN PROPERTIES -->\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Username</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n      </div>\n    </div>\n\n\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Password</label>\n      <div class=\"col-lg-5\">\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n      </div>\n    </div>\n\n\n\n    <!-- BTN BAR -->\n    <div class=\"form-group\">\n      <div class=\"col-lg-10 col-lg-offset-2\">\n        <button type=\"reset\" class=\"btn btn-default\">Cancel</button>\n        <button type=\"submit\" class=\"btn btn-primary\">Login</button>\n      </div>\n    </div>\n\n\n  </fieldset>\n</form>\n"
 
 /***/ }),
 
 /***/ 181:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  popular works!\n</p>\n\n<p>\n  same as public feed but blogs are shown by order of likes.\n</p>\n"
+module.exports = "<!-- UPPER NAVBAR -->\n<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fa fa-terminal\" aria-hidden=\"true\"></i> Sluggit</a>\n    </div>\n\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n\n      <!-- Angular RouterLink object injection -->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"!nativeAuthService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/register']\">Sign up</a></li>\n        <li *ngIf=\"!nativeAuthService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\n\n        <li *ngIf=\"nativeAuthService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/profile']\">Profile</a></li>\n        <li *ngIf=\"nativeAuthService.loggedIn()\"><a (click)=\"onNativeLogoutClick()\" href=\"#\">Logout</a></li>\n\n      </ul>\n\n    </div><!--/.nav-collapse -->\n\n  </div>\n</nav>\n\n\n\n<!-- LOWER NAVBAR -->\n<nav class=\"navbar\" *ngIf=\"nativeAuthService.loggedIn()\" >\n  <div class=\"container\">\n    <div class=\"navbar-inner\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n    </div>\n\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n\n      <!-- Angular RouterLink object injection -->\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/feed']\">Feed</a></li>\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/popular']\">Popular on Sluggit</a></li>\n      </ul>\n\n      <!-- Angular RouterLink object injection -->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/search']\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i> Search</a></li>\n      </ul>\n\n    </div><!--/.nav-collapse -->\n  </div>\n</nav>\n"
 
 /***/ }),
 
 /***/ 182:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Username: {{user.username}}</li>\n    <li class=\"list-group-item\">Email: {{user.email}}</li>\n  </ul>\n\n</div>\n"
+module.exports = "<p>\n  popular works!\n</p>\n\n<p>\n  same as public feed but blogs are shown by order of likes.\n</p>\n"
 
 /***/ }),
 
 /***/ 183:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  public-feed works!\n</p>\n"
+module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Username: {{user.username}}</li>\n    <li class=\"list-group-item\">Email: {{user.email}}</li>\n  </ul>\n\n</div>\n"
 
 /***/ }),
 
 /***/ 184:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- DEV NOTES -->\n\n<!-- ngModel -->\n<!-- https://angular.io/docs/ts/latest/api/forms/index/NgModel-directive.html -->\n<!-- The ngModel directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive. -->\n<!-- [()] syntax (also known as 'banana-box syntax') allows us to use two way data binding -->\n\n\n<!-- Event Binding -->\n<!-- https://angular.io/docs/ts/latest/guide/user-input.html -->\n<!-- use Angular event bindings to respond to any DOM event. <button (click)=\"onClickMe()\">Click me!</button> -->\n\n<!-- =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  = -->\n<form class=\"form-horizontal\" (submit)=\"onNativeRegisterSubmit()\">\n  <fieldset>\n\n\n    <legend>Sign up now to start connecting on Sluggit.</legend>\n\n\n    <!-- REGISTER PROPERTIES -->\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Name</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n      </div>\n    </div>\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Username</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n      </div>\n    </div>\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Email</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n      </div>\n    </div>\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Password</label>\n      <div class=\"col-lg-5\">\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n      </div>\n    </div>\n\n\n\n\n    <!-- BTN BAR -->\n    <div class=\"form-group\">\n      <div class=\"col-lg-10 col-lg-offset-2\">\n        <button type=\"reset\" class=\"btn btn-default\">Cancel</button>\n        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n      </div>\n    </div>\n\n\n  </fieldset>\n</form>\n"
+module.exports = "<p>\n  public-feed works!\n</p>\n"
 
 /***/ }),
 
 /***/ 185:
 /***/ (function(module, exports) {
 
+module.exports = "<!-- DEV NOTES -->\n\n<!-- ngModel -->\n<!-- https://angular.io/docs/ts/latest/api/forms/index/NgModel-directive.html -->\n<!-- The ngModel directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive. -->\n<!-- [()] syntax (also known as 'banana-box syntax') allows us to use two way data binding -->\n\n\n<!-- Event Binding -->\n<!-- https://angular.io/docs/ts/latest/guide/user-input.html -->\n<!-- use Angular event bindings to respond to any DOM event. <button (click)=\"onClickMe()\">Click me!</button> -->\n\n<!-- =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  =  = -->\n<form class=\"form-horizontal\" (submit)=\"onNativeRegisterSubmit()\">\n  <fieldset>\n\n\n    <legend>Sign up now to start connecting on Sluggit.</legend>\n\n\n    <!-- REGISTER PROPERTIES -->\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Name</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n      </div>\n    </div>\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Username</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n      </div>\n    </div>\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Email</label>\n      <div class=\"col-lg-5\">\n        <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n      </div>\n    </div>\n\n    <div class=\"form-group\">\n      <label class=\"col-lg-2 control-label\">Password</label>\n      <div class=\"col-lg-5\">\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n      </div>\n    </div>\n\n\n\n\n    <!-- BTN BAR -->\n    <div class=\"form-group\">\n      <div class=\"col-lg-10 col-lg-offset-2\">\n        <button type=\"reset\" class=\"btn btn-default\">Cancel</button>\n        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n      </div>\n    </div>\n\n\n  </fieldset>\n</form>\n"
+
+/***/ }),
+
+/***/ 186:
+/***/ (function(module, exports) {
+
 module.exports = "<p>\n  search works!\n</p>\n\n<p>\n  this will be a drop down menu of available tags. user clicks a tag and sees blog post's that have thoses tags. NOT A TEXT SEARCH.\n</p>\n"
 
 /***/ }),
 
-/***/ 222:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(92);
@@ -865,7 +913,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(109);
 
 
 
@@ -900,8 +948,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(177),
-        styles: [__webpack_require__(167)]
+        template: __webpack_require__(178),
+        styles: [__webpack_require__(168)]
     })
 ], AppComponent);
 
@@ -913,11 +961,11 @@ AppComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(98);
@@ -930,7 +978,8 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_popular_popular_component__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_search_search_component__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_native_reg_validate_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_native_auth_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_native_auth_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__ = __webpack_require__(108);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -958,15 +1007,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // SERVICES
 
 
+
 // ROUTER CONFIG
 // routing logic is exported as the <router-outlet> html tag
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_9__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_8__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'feed', component: __WEBPACK_IMPORTED_MODULE_11__components_public_feed_public_feed_component__["a" /* PublicFeedComponent */] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */] },
-    { path: 'popular', component: __WEBPACK_IMPORTED_MODULE_13__components_popular_popular_component__["a" /* PopularComponent */] },
+    { path: 'feed', component: __WEBPACK_IMPORTED_MODULE_11__components_public_feed_public_feed_component__["a" /* PublicFeedComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]] },
+    { path: 'popular', component: __WEBPACK_IMPORTED_MODULE_13__components_popular_popular_component__["a" /* PopularComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]] },
     { path: 'search', component: __WEBPACK_IMPORTED_MODULE_14__components_search_search_component__["a" /* SearchComponent */] }
 ];
 // NG MODULE CONFIG
@@ -998,7 +1048,8 @@ AppModule = __decorate([
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_15__services_native_reg_validate_service__["a" /* NativeRegisterValidationService */],
-            __WEBPACK_IMPORTED_MODULE_16__services_native_auth_service__["a" /* NativeAuthService */]
+            __WEBPACK_IMPORTED_MODULE_16__services_native_auth_service__["a" /* NativeAuthService */],
+            __WEBPACK_IMPORTED_MODULE_17__guards_native_auth_guard__["a" /* NativeAuthGuard */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
@@ -1008,5 +1059,5 @@ AppModule = __decorate([
 
 /***/ })
 
-},[222]);
+},[223]);
 //# sourceMappingURL=main.bundle.js.map
