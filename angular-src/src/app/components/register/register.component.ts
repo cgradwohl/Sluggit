@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
 
   // constructor()
-  // injects the native register service, and  into the component on constuction
+  // injects the native register service into the component on constuction
   constructor(
     private nativeValidateService: NativeRegisterValidationService,
     private nativeAuthService: NativeAuthService,
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
 
   // onNativeRegisterSubmit()
-  // creates user object from user input and validates user form input
+  // creates user object from user input, validates user form input, and registers user
   onNativeRegisterSubmit() {
 
 
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
 
       return false;
     }
-    // checks user register form for valid email
+
     const invalidEmail = !this.nativeValidateService.nativeEmailValidate(user.email);
     if (invalidEmail) {
       this.flashMsgService.show('Please enter a valid email!', { cssClass: 'alert-danger' });
@@ -75,6 +75,7 @@ export class RegisterComponent implements OnInit {
 
 
     // REGISTER USER
+    // calls registerUser() which makes post request to user/register api endpoint
     this.nativeAuthService.registerUser(user).subscribe(data => {
 
       if (data.success) {

@@ -22,7 +22,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
   // onNativeLoginSubmit()
+  // grabs user data from login form and calls authenticateUser() using observables
+  // stores user data in local storage on success
   onNativeLoginSubmit() {
     const user = {
       username: this.username,

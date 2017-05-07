@@ -41,12 +41,12 @@ export class NativeAuthService {
   // registerUser()
   // makes a POST request to the /register api endpoint
   // returns success or failure on repsonse
+  // sends the user object to ./users/register api endpoint
+  // the map() method makes the post request an Observable
   registerUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    // sends the user object to ./users/register api endpoint
-    // the map() method makes the post request an Observable
 
     // FOR LOCAL DEV comment out for heroku deployment
     // const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
@@ -54,20 +54,22 @@ export class NativeAuthService {
     // FOR HEROKU comment out for local development
     const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
 
-
     return userObservable;
 
   }
 
+
+
+
   // authenticateUser()
   // makes a POST request to the /auth api endpoint
   // returns success and JWT or failure on repsonse
+  // sends the user object to ./users/register api endpoint
+  // the map() method makes the post request an Observable
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    // sends the user object to ./users/register api endpoint
-    // the map() method makes the post request an Observable
 
     // FOR LOCAL DEV comment out for heroku deployment
     // const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
@@ -77,6 +79,9 @@ export class NativeAuthService {
 
     return userObservable;
   }
+
+
+
 
   // storeNativeUserData()
   // stores the user data in local storage so that the browser remembers the user login info.
