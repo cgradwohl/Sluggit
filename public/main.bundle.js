@@ -272,6 +272,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var PublicFeedComponent = (function () {
     function PublicFeedComponent() {
+        this.timeStamp = Date.now();
     }
     PublicFeedComponent.prototype.ngOnInit = function () {
     };
@@ -686,7 +687,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".submitButton {\n    background-color: #f44336; /* Red */\n    border: none;\n    color: white;\n    padding: 15px 32px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    margin: 4px 2px;\n    cursor: pointer;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -722,7 +723,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".submitButton {\n    background-color: #f44336; /* Red */\n    border: none;\n    color: white;\n    padding: 15px 32px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    margin: 4px 2px;\n    cursor: pointer;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -799,7 +800,7 @@ module.exports = "<!-- UPPER NAVBAR -->\n<nav class=\"navbar navbar-default\">\n
 /***/ 182:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  popular works!\n</p>\n\n<p>\n  same as public feed but blogs are shown by order of likes.\n</p>\n"
+module.exports = "<button class=\"submitButton\"> Submit self post </button>\n\n<p>\n  popular works!\n</p>\n\n<p>\n  same as public feed but blogs are shown by order of likes.\n</p>\n"
 
 /***/ }),
 
@@ -813,7 +814,7 @@ module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}
 /***/ 184:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  public-feed works!\n</p>\n"
+module.exports = "<button class=\"submitButton\"> Submit self post </button>\n<p>\n  public feed works!\n</p>\n"
 
 /***/ }),
 

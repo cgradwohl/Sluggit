@@ -18,6 +18,9 @@ const PostSchema = mongoose.Schema({
     body: {
         type: String,
     },
+    timestamp: {
+      type: String
+    },
     tags: {
         type: String
     }
