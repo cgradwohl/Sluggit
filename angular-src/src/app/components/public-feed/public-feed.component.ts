@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicFeedComponent implements OnInit {
 
+  //class properties
+  title: string;
+  username: string;
+  postBody: string;
+  timeStamp: number = Date.now();
+
   constructor() { }
 
   ngOnInit() {
