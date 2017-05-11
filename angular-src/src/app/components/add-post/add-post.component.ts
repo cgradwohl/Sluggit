@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-post.component.css']
 })
 export class AddPostComponent {
-  
+
 add(title, description): boolean {
       console.log(`Adding article title: ${title.value} and description: ${description.value}`);
       return false;
