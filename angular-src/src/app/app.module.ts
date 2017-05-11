@@ -16,13 +16,13 @@ import { PublicFeedComponent } from './components/public-feed/public-feed.compon
 import { ProfileComponent } from './components/profile/profile.component';
 import { PopularComponent } from './components/popular/popular.component';
 import { SearchComponent } from './components/search/search.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 
 
 // SERVICES
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
 import { NativeAuthService } from './services/native-auth.service';
 import { NativeAuthGuardService } from './services/guards/native-auth-guard.service';
-import { AddPostComponent } from './components/add-post/add-post.component';
 
 
 // ROUTER CONFIG
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate: [NativeAuthGuardService]},
   {path: 'popular', component: PopularComponent, canActivate: [NativeAuthGuardService]},
   {path: 'search', component: SearchComponent},
-  {path: 'addpost', component: AddPostComponent}
+  {path: 'add-post', component: AddPostComponent}
 ];
 
 
