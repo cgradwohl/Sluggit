@@ -1,0 +1,29 @@
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Create a Post!</legend>
+    <div class="form-group">
+      <label for="title" class="col-lg-2 control-label">Title:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="title"  placeholder="Title" name ="title" #newtitle>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <label for="description" class="col-lg-2 control-label">Description:</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="description" name ="description" #newdescription></textarea>
+        <span class="help-block"></span>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button (click)="add(newtitle, newdescription)" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    
+  </fieldset>
+</form>
+
+
