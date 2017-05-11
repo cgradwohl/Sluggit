@@ -22,7 +22,6 @@ import { SearchComponent } from './components/search/search.component';
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
 import { NativeAuthService } from './services/native-auth.service';
 import { NativeAuthGuardService } from './services/guards/native-auth-guard.service';
-import { AddpostComponent } from './addpost/addpost.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 
 
@@ -53,7 +52,6 @@ const appRoutes: Routes = [
     ProfileComponent,
     PopularComponent,
     SearchComponent,
-    AddpostComponent,
     AddPostComponent
   ],
   imports: [
