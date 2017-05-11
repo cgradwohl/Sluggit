@@ -38,6 +38,10 @@ const appRoutes: Routes = [
   {path: 'add-post', component: AddPostComponent}
 ];
 
+// test comment from master
+
+
+
 
 // NG MODULE CONFIG
 // defines the set of injectable objects that are available in the injector of this module.
