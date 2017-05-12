@@ -88,3 +88,41 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Git Helpers/ Reminders
+To get a remote branch named `<foo>` from github go to the master branch and then do the following:
+
+1. `$ git fetch`
+2. `$ git checkout <foo>` , git will automatically checkout the `<foo>` branch and setup tracking.
+
+
+You should see this success message from git:
+
+```Branch <foo> set up to track remote branch <foo> from origin.
+
+Switched to a new branch '<foo>'
+```
+
+
+3. Now you can do `$ git branch` and you will see that you are now on the `<foo>` branch.
+
+Now you can do regular git things from this remote `<foo>` branch, like
+
+```
+$ git pull
+
+$ git add . && git commit -m "commit msg"
+
+$ git push
+```
+
+These will only update the `<foo>` branch...which is what we want! :)
+
+
+
+## Current Working Remote Branches
+hopes --> From master run `$ git fetch` then `$ git checkout hopes`
+
+
+Jasmine --> From master run `$ git fetch` then `$ git checkout Jasmine`
