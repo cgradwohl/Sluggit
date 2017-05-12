@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require( 'bcryptjs');
 const config = require('../config/environment');
 
 const PostSchema = mongoose.Schema({
@@ -7,38 +6,23 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    author:{
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    body: {
-        type: String,
-    },
-    timestamp: {
-      type: String
-    },
-    tags: {
-        type: String
-    }
+
+    // TODO description field
 });
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
 
 
-// addPost()
-// adds a new post to mongoDB
-module.exports.addPost = (newPost, callback) => {
-    newPost.save(callback);
-}
+
+// DB METHODS   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+// these methods will be call by api requests
 
 
-// getPostByUsername()
-// gets user post data from mongodb
-module.exports.getPostByUsername = (username, callback) => {
-    const userQuery = {username: username}
-    Post.findOne(userQuery, callback);
-}
+// TODO getPostByTitle()
+module.exports.getPostByTitle = () => {}
+
+// TODO getPostById()
+module.exports.getPostById = () => {}
+
+// TODO addPost()
+module.exports.addPost = () => {}
