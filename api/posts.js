@@ -2,7 +2,8 @@ const express = require('express'),
     router = express.Router(),
     Post = require('../models/post'),
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-    config = require('../config/environment')[env];
+    config = require('../config/environment')[env],
+    passport = require('passport');
 
 
 // ROUTES -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
@@ -15,19 +16,23 @@ router.post('/add', (req, res, next) => {
         title: req.body.title,
         author: req.body.author,
         username: req.body.username,
-        description: req.body.description
+        description: req.body.description,
+        timestamp: new Date()
     });
-    
-    console.log("/add called");
-    console.log(newPost);
 
-    Post.addPost(newPost, (err) => {
-        if(err){
-            res.json({success: false, msg:'Failed to add post'});
-        } else {
-            res.json({success: true, msg:'Successfully added post'});
-        }
-    });
+    if(req.isAuthenticated())
+    {
+      Post.addPost(newPost, (err) => {
+          if(err){
+              res.json({success: false, msg:'Failed to add post'});
+          } else {
+              res.json({success: true, msg:'Successfully added post'});
+          }
+      });
+    }
+    else {
+      res.json({success: false, msg:'Login to post.'})
+    }
 });
 
 
