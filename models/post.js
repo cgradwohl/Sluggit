@@ -43,12 +43,10 @@ module.exports.addPost = (newPost, callback) => {
 
 // getAllPosts()
 // gets all Posts
-module.exports.getAllPosts = (callback) => {
-      console.log('getAllPosts()');
+module.exports.getAllPosts = (res) => {
       var collection = db.collection('posts');
       collection.find().toArray(function (err, items) {
-        console.log(items);
-        return callback(items);
+        return res(items);
       });
 }
 

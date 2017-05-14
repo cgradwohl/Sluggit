@@ -38,10 +38,11 @@ router.post('/add', (req, res, next) => {
 });
 
 
+// getPost
+// Returns all posts from the db
 router.get('/getPost', (req, res) => {
-  console.log('getPost()');
   Post.getAllPosts(function(items) {
-    console.log(items);
+    res.json(items);
   });
 });
 
