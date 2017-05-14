@@ -23,6 +23,9 @@ export class AddPostComponent {
   ngOnInit() {
   }
 
+// onNativeAddPost()
+// grabs posts data after submitting form and calls addPost() using observables
+
   onNativeAddPost() {
     const post = {
       title: this.title,

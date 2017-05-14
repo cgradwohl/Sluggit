@@ -7,12 +7,23 @@ import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class NativePostService {
 
+  // CLASS PROPERTIES
   post: any;
 
 
+  // constructor()
+  // injects the Http object
   constructor(
     private http: Http,
   ) { }
+
+
+
+  // addPost()
+  // makes a POST request to the /register api endpoint
+  // returns success or failure on response
+  // sends the post object to ./users/register api endpoint
+  // the map() method makes the post request an Observable
 
   addPost(post) {
     let headers = new Headers();
