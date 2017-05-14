@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const bcrypt = require( 'bcryptjs');
-const config = require('../config/environment');
+const mongoose = require('mongoose'),
+      bcrypt = require( 'bcryptjs'),
+      config = require('../config/environment');
 
 const PostSchema = mongoose.Schema({
     title: {
@@ -33,7 +33,7 @@ const PostSchema = mongoose.Schema({
 });
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
-
+const db = mongoose.connection;
 
 // addPost()
 // adds a new post to mongoDB
@@ -41,6 +41,16 @@ module.exports.addPost = (newPost, callback) => {
     newPost.save(callback);
 }
 
+// getAllPosts()
+// gets all Posts
+module.exports.getAllPosts = (callback) => {
+      console.log('getAllPosts()');
+      var collection = db.collection('posts');
+      collection.find().toArray(function (err, items) {
+        console.log(items);
+        return callback(items);
+      });
+}
 
 // getPostByUsername()
 // gets user post data from mongodb

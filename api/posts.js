@@ -1,9 +1,9 @@
 const express = require('express'),
-    router = express.Router(),
-    Post = require('../models/post'),
-    env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-    config = require('../config/environment')[env],
-    passport = require('passport');
+      router = express.Router(),
+      Post = require('../models/post'),
+      env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+      config = require('../config/environment')[env],
+      passport = require('passport');
 
 
 // ROUTES -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
@@ -35,6 +35,14 @@ router.post('/add', (req, res, next) => {
     else {
       res.json({success: false, msg:'Login to post.'})
     }
+});
+
+
+router.get('/getPost', (req, res) => {
+  console.log('getPost()');
+  Post.getAllPosts(function(items) {
+    console.log(items);
+  });
 });
 
 
