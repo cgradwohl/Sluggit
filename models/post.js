@@ -21,6 +21,12 @@ const PostSchema = mongoose.Schema({
     timestamp: {
       type: String
     },
+    upvote: {
+      type: Number
+    },
+    downvote: {
+      type: Number
+    },
     tags: {
         type: String
     }

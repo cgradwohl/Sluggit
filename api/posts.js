@@ -17,7 +17,9 @@ router.post('/add', (req, res, next) => {
         author: req.body.author,
         username: req.body.username,
         description: req.body.description,
-        timestamp: new Date()
+        timestamp: new Date(),
+        upvote: 0,
+        downvote: 0
     });
 
     if(req.isAuthenticated())
