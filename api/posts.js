@@ -15,8 +15,11 @@ router.post('/add', (req, res, next) => {
         title: req.body.title,
         author: req.body.author,
         username: req.body.username,
-        body: req.body.body
+        description: req.body.description
     });
+    
+    console.log("/add called");
+    console.log(newPost);
 
     Post.addPost(newPost, (err) => {
         if(err){

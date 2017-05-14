@@ -23,6 +23,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { NativeRegisterValidationService } from './services/native-reg-validate.service';
 import { NativeAuthService } from './services/native-auth.service';
 import { NativeAuthGuardService } from './services/guards/native-auth-guard.service';
+import { NativePostService } from './services/native-post.service';
 
 
 // ROUTER CONFIG
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
   providers: [
     NativeRegisterValidationService,
     NativeAuthService,
-    NativeAuthGuardService
+    NativeAuthGuardService,
+    NativePostService
   ],
   bootstrap: [AppComponent]
 })
