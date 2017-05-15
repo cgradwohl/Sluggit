@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { PublicFeedComponent } from './components/public-feed/public-feed.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PopularComponent } from './components/popular/popular.component';
 import { SearchComponent } from './components/search/search.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'feed', component: PublicFeedComponent, canActivate: [NativeAuthGuardService]},
   {path: 'profile', component: ProfileComponent, canActivate: [NativeAuthGuardService]},
+  {path: 'edit-profile', component: EditProfileComponent, canActivate: [NativeAuthGuardService]},
   {path: 'popular', component: PopularComponent, canActivate: [NativeAuthGuardService]},
   {path: 'search', component: SearchComponent},
   {path: 'add-post', component: AddPostComponent}
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
     HomeComponent,
     PublicFeedComponent,
     ProfileComponent,
+    EditProfileComponent,
     PopularComponent,
     SearchComponent,
     AddPostComponent

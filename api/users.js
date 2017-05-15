@@ -31,6 +31,31 @@ router.post('/register', (req, res, next) => {
     });
 });
 
+// Update User Information
+// Will update user information when profile is beingu updated
+
+router.post('/edit-profile', (req, res, next) => {
+    
+    let person = new User({
+        name: req.body.name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+    });
+
+    User.editUser(person,(err, user) => {
+        
+        if(err){
+
+            res.json({success: false, msg:'Failed to Update'});
+        } else {
+        
+            res.json({success: true, msg:'Successfully Updated'});
+        }
+
+    });
+});
+
 
 // /auth
 // authenticates existing users from the DB using a JWT passport strategy (see ./config/passport.js)

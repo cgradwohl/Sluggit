@@ -41,8 +41,6 @@ export class NativeAuthService {
   ) { }
 
 
-
-
   // registerUser()
   // makes a POST request to the /register api endpoint
   // returns success or failure on repsonse
@@ -63,7 +61,16 @@ export class NativeAuthService {
 
   }
 
+  updateUser(user) {
+    let headers = new Headers();
 
+    headers.append('Content-Type', 'application/json');
+
+    const userObservable = this.http.post('http://localhost:3000/users/edit-profile', user, {headers: headers}).map(res => res.json());
+
+    return userObservable;
+
+  }
 
 
   // authenticateUser()
