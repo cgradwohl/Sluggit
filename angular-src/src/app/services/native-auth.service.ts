@@ -61,12 +61,15 @@ export class NativeAuthService {
 
   }
 
+  // updateUser()
+  // Authenticate API call in order to update user profile information
+ 
   updateUser(user) {
     let headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
 
-    const userObservable = this.http.post('http://localhost:3000/users/edit-profile', user, {headers: headers}).map(res => res.json());
+    const userObservable = this.http.put('http://localhost:3000/users/edit-profile', user, {headers: headers}).map(res => res.json());
 
     return userObservable;
 
