@@ -57,16 +57,23 @@ module.exports.addUser = (newUser, callback) => {
 // editUser()
 // Looks up curr user by ID and updates information
 module.exports.editUser = (updatedUser, callback) => {
+    
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(updatedUser.password, salt, (err, hash) => {
+            updatedUser.password = hash;
+             User.findOneAndUpdate(updatedUser._id, updatedUser, function(error, result){
+                if(error){
+                    callback(error);
+                }else{
+                    console.log(result);
+                    result.save(callback);
 
-    User.findOneAndUpdate(updatedUser._id, updatedUser, function(error, result){
-        if(error){
-            callback(error);
-        }else{
-            console.log(result);
-            result.save(callback);
-
-        }
+                }
+            });
+            
+        });
     });
+   
 }
 
 
