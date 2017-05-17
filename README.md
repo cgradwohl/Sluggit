@@ -110,15 +110,18 @@ Switched to a new branch '<foo>'
 Now you can do regular git things from this remote `<foo>` branch, like
 
 ```
-$ git pull
 
 $ git add . && git commit -m "commit msg"
 
 $ git push
 ```
+4. To retrieve new work done by other people on the `<foo>` branch run `$ git fetch <foo>`.
 
-These will only update the `<foo>` branch...which is what we want! :)
+5. To retrieve new work done by other people on all remote branches run `$ git fetch`.
 
+
+More info:
+https://help.github.com/articles/fetching-a-remote/
 
 
 ## Current Working Remote Branches
