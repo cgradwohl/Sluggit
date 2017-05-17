@@ -116,9 +116,12 @@ $ git add . && git commit -m "commit msg"
 $ git push
 ```
 
-NOTE: to get all changes from a remote branch use `$ git fetch <foo>` DO NOT USE git pull.
+NOTE: to get all changes from a remote branch use `$ git fetch <foo>` DO NOT USE git pull. Similarly running
+`$ git fetch`, will pull all changes from all branches. 
 
 These will only update the `<foo>` branch...which is what we want! :)
+
+
 
 For more information about remote branches see :
 https://help.github.com/articles/fetching-a-remote/
