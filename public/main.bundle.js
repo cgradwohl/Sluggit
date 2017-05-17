@@ -492,9 +492,9 @@ var NativeAuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         // NOTE FOR LOCAL DEV comment out for heroku deployment
-        // const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
+        var userObservable = this.http.post('http://localhost:3000/users/register', user, { headers: headers }).map(function (res) { return res.json(); });
         // NOTE FOR HEROKU comment out for local development
-        var userObservable = this.http.post('users/register', user, { headers: headers }).map(function (res) { return res.json(); });
+        // const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
         return userObservable;
     };
     // authenticateUser()
@@ -506,9 +506,9 @@ var NativeAuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         // NOTE FOR LOCAL DEV comment out for heroku deployment
-        // const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+        var userObservable = this.http.post('http://localhost:3000/users/auth', user, { headers: headers }).map(function (res) { return res.json(); });
         // NOTE FOR HEROKU comment out for local development
-        var userObservable = this.http.post('users/auth', user, { headers: headers }).map(function (res) { return res.json(); });
+        // const userObservable = this.http.post('users/auth', user, {headers: headers}).map(res => res.json());
         return userObservable;
     };
     // getProfile()
@@ -520,9 +520,9 @@ var NativeAuthService = (function () {
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
         // NOTE FOR LOCAL DEV comment out for heroku deployment
-        // const userObservable = this.http.get('http://localhost:3000/users/profile', {headers: headers}).map(res => res.json());
+        var userObservable = this.http.get('http://localhost:3000/users/profile', { headers: headers }).map(function (res) { return res.json(); });
         // NOTE FOR HEROKU comment out for local development
-        var userObservable = this.http.get('users/profile', { headers: headers }).map(function (res) { return res.json(); });
+        // const userObservable = this.http.get('users/profile', {headers: headers}).map(res => res.json());
         return userObservable;
     };
     // storeNativeUserData()

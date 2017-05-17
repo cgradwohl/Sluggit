@@ -54,10 +54,10 @@ export class NativeAuthService {
 
 
     // NOTE FOR LOCAL DEV comment out for heroku deployment
-    // const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
+    const userObservable = this.http.post('http://localhost:3000/users/register', user, {headers: headers}).map(res => res.json());
 
     // NOTE FOR HEROKU comment out for local development
-    const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
+    // const userObservable = this.http.post('users/register', user, {headers: headers}).map(res => res.json());
 
     return userObservable;
 
@@ -77,10 +77,10 @@ export class NativeAuthService {
 
 
     // NOTE FOR LOCAL DEV comment out for heroku deployment
-    // const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
+    const userObservable = this.http.post('http://localhost:3000/users/auth', user, {headers: headers}).map(res => res.json());
 
     // NOTE FOR HEROKU comment out for local development
-    const userObservable = this.http.post('users/auth', user, {headers: headers}).map(res => res.json());
+    // const userObservable = this.http.post('users/auth', user, {headers: headers}).map(res => res.json());
 
     return userObservable;
   }
@@ -100,10 +100,10 @@ export class NativeAuthService {
 
 
     // NOTE FOR LOCAL DEV comment out for heroku deployment
-    // const userObservable = this.http.get('http://localhost:3000/users/profile', {headers: headers}).map(res => res.json());
+    const userObservable = this.http.get('http://localhost:3000/users/profile', {headers: headers}).map(res => res.json());
 
     // NOTE FOR HEROKU comment out for local development
-    const userObservable = this.http.get('users/profile', {headers: headers}).map(res => res.json());
+    // const userObservable = this.http.get('users/profile', {headers: headers}).map(res => res.json());
 
     return userObservable;
   }
