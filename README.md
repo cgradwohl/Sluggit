@@ -91,10 +91,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Git Helpers/ Reminders
-To get a remote branch named `<foo>` from github go to the master branch and then do the following:
+To get a remote branch named `<foo>` with tracking, from github go to the master branch and then do the following:
 
 1. `$ git fetch`
-2. `$ git checkout <foo>` , git will automatically checkout the `<foo>` branch and setup tracking.
+2. `$ git checkout <foo>` , git will automatically checkout the `<foo>` branch and setup remote tracking.
 
 
 You should see this success message from git:
@@ -107,7 +107,7 @@ Switched to a new branch '<foo>'
 
 3. Now you can do `$ git branch` and you will see that you are now on the `<foo>` branch.
 
-Now you can do regular git things from this remote `<foo>` branch, like
+Now you can do regular git things from this remote `<foo>` branch, like:
 
 ```
 
@@ -117,10 +117,17 @@ $ git push
 ```
 4. To retrieve new work done by other people on the `<foo>` branch run `$ git fetch <foo>`.
 
-5. To retrieve new work done by other people on all remote branches run `$ git fetch`.
+NOTE: to get all changes from a remote branch use `$ git fetch <foo>` DO NOT USE git pull. Similarly running
+`$ git fetch`, will pull all changes from all branches.
+
+These will only update the `<foo>` branch...which is what we want! :)
 
 
 More info:
+https://help.github.com/articles/fetching-a-remote/
+
+
+For more information about remote branches see :
 https://help.github.com/articles/fetching-a-remote/
 
 
