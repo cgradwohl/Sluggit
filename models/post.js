@@ -7,28 +7,11 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    author:{
-        type: String,
-        //required: true
-    },
-    username: {
-        type: String,
-        //required: true
-    },
-    body: {
+    description: {
         type: String,
     },
     timestamp: {
       type: String
-    },
-    upvote: {
-      type: Number
-    },
-    downvote: {
-      type: Number
-    },
-    tags: {
-        type: String
     }
 });
 
@@ -44,7 +27,7 @@ module.exports.addPost = (newPost, callback) => {
 // getAllPosts()
 // gets all Posts
 module.exports.getAllPosts = (res) => {
-      var collection = db.collection('posts');
+      const collection = db.collection('posts');
       collection.find().toArray(function (err, items) {
         return res(items);
       });

@@ -1,7 +1,6 @@
 const express = require('express'),
     router = express.Router(),
     User = require('../models/user'),
-    passport = require('passport'),
     jwt = require('jsonwebtoken'),
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     config = require('../config/environment')[env];
@@ -10,7 +9,7 @@ const express = require('express'),
 // ROUTES -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 
 
-// /register
+// api/users/register
 // creates a new User object to be stored into DB
 router.post('/register', (req, res, next) => {
     let newUser = new User({
@@ -32,7 +31,7 @@ router.post('/register', (req, res, next) => {
 });
 
 
-// /auth
+// api/users/auth
 // authenticates existing users from the DB using a JWT passport strategy (see ./config/passport.js)
 router.post('/auth', (req, res, next) => {
     const username = req.body.username;
@@ -69,7 +68,7 @@ router.post('/auth', (req, res, next) => {
 });
 
 
-// /profile
+// api/users/profile
 // retrieves user profile data from the database
 // this is a protected route using passport-jwt strategy
 // user must have a valid jsonwebtoken to access this path
