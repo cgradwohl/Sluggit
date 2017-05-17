@@ -1,6 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     User = require('../models/user'),
+    passport = require('passport'),
     jwt = require('jsonwebtoken'),
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     config = require('../config/environment')[env];
