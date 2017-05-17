@@ -129,3 +129,8 @@ hopes --> From master run `$ git fetch` then `$ git checkout hopes`
 
 
 Jasmine --> From master run `$ git fetch` then `$ git checkout Jasmine`
+
+
+tar --> From master run `$ git fetch` then `$ git checkout tar`
+
+Diego --> From master run `$ git fetch` then `$ git checkout Diego`
