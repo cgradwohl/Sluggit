@@ -16,6 +16,14 @@ router.get('/list', (req, res) => {
   });
 });
 
+// api/posts/listPopular
+// Returns all posts in descending popularity from the db as a list or array object
+router.get('/listPopular', (req, res) => {
+  Post.getAllPopularPosts(function(items) {
+    res.json(items);
+  });
+});
+
 
 
 // api/posts/add
@@ -26,6 +34,8 @@ router.post('/add', (req, res, next) => {
         description: req.body.description,
         username: req.body.username,
         timestamp: new Date().toDateString(),
+        upvote: 0,
+        downvote: 0,
     });
 
     Post.addPost(newPost, (err) => {

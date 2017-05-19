@@ -18,6 +18,12 @@ const PostSchema = mongoose.Schema({
     timestamp: {
       type: String,
       required: true
+    },
+    upvote: {
+      type: Number
+    },
+    downvote: {
+      type: Number
     }
 });
 
@@ -38,6 +44,16 @@ module.exports.getAllPosts = (res) => {
         return res(items);
       });
 }
+
+// getAllPopularPosts()
+// gets all Posts by Popularity
+module.exports.getAllPopularPosts = (res) => {
+      const collection = db.collection('posts');
+      collection.find().sort({upvote: -1}).toArray(function (err, items) {
+        return res(items);
+      });
+}
+
 
 // getPostByUsername()
 // gets user post data from mongodb

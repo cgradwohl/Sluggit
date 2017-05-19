@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-popular',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popular.component.css']
 })
 export class PopularComponent implements OnInit {
+blogs: any;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.postService.getPopularPost().subscribe( blogs => {
+      this.blogs = blogs.reverse();
+  },
+  err => {
+      console.log(err);
+      return false;
+    });
   }
 
 }
