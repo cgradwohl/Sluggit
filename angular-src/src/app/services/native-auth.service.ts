@@ -49,7 +49,7 @@ export class NativeAuthService {
   // sends the user object to ./users/register api endpoint
   // the map() method makes the post request an Observable
   registerUser(user) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
 
@@ -72,7 +72,7 @@ export class NativeAuthService {
   // sends the user object to ./users/register api endpoint
   // the map() method makes the post request an Observable
   authenticateUser(user) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
 
@@ -92,7 +92,7 @@ export class NativeAuthService {
   // makes a protected/authenticated get request, requires a valid token to access this endpoint
   // sends a valid auth token to the api endpoint
   getProfile() {
-    let headers = new Headers();
+    const headers = new Headers();
     this.fetchToken();
 
     headers.append('Authorization', this.authToken);
