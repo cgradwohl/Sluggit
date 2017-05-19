@@ -1,14 +1,14 @@
-<form class="form-horizontal" (submit)="onNativeAddPost()">
+<form class="form-horizontal" (submit)="onAddPostSubmit()">
   <fieldset>
-    
+
     <legend>Create a Post!</legend>
-    
-    
+
+
     <!-- POST FORM PROPERTIES -->
     <div class="form-group">
       <label for="title" class="col-lg-2 control-label">Title:</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" [(ngModel)]="title"  placeholder="Title" name ="title" >
+        <input type="text" class="form-control" [(ngModel)]="title" name ="title" >
       </div>
     </div>
 
