@@ -1,1 +1,10 @@
-
+<ul>
+  <li *ngFor="let blog of blogs">
+    <div class="jumbotron">
+      <h2>{{blog.title}}</h2>
+      <p>{{blog.description}}</p>
+      <i>Author {{blog.username}}</i>
+      <i>{{blog.timestamp}}</i>
+    </div>
+  </li>
+</ul>

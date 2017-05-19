@@ -16,7 +16,13 @@ router.get('/list', (req, res) => {
   });
 });
 
-
+// api/posts/listPopular
+// Returns all popular posts from the db as a list or array object
+router.get('/listPopular', (req, res) => {
+  Post.getAllPopularPosts(function(items) {
+    res.json(items);
+  });
+});
 
 // api/posts/add
 // creates a new Post object and adds the pos to DB
