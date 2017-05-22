@@ -25,6 +25,9 @@ const PostSchema = mongoose.Schema({
     downvote: {
       type: Number
     },
+    popularity: {
+      type: Number
+    },
 });
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
@@ -49,7 +52,7 @@ module.exports.getAllPosts = (res) => {
 // gets all Popular Posts
 module.exports.getPopularPosts = (res) => {
       const collection = db.collection('posts');
-      collection.find().sort({upvote: -desc}).toArray(function (err, items) {
+      collection.find().sort({popularity: -desc}).toArray(function (err, items) {
         return res(items);
       });
 }
