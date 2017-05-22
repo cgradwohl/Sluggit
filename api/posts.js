@@ -19,7 +19,7 @@ router.get('/list', (req, res) => {
 // api/posts/listPopular
 // Returns all popular posts from the db as a list or array object
 router.get('/listPopular', (req, res) => {
-  Post.getAllPopularPosts(function(items) {
+  Post.getPopularPosts(function(items) {
     res.json(items);
   });
 });
