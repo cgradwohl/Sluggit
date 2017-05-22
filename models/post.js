@@ -39,6 +39,13 @@ module.exports.addPost = (newPost, callback) => {
     newPost.save(callback);
 }
 
+// editPost()
+// edits a post to mongoDB
+module.exports.editPost = (newPost, callback) => {
+    const collection = db.collection('posts');
+    newPost.update(collection.find({id: newPost.id}));
+}
+
 // getAllPosts()
 // gets all Posts
 module.exports.getAllPosts = (res) => {
@@ -60,7 +67,15 @@ module.exports.getPopularPosts = (res) => {
 
 // getPostByUsername()
 // gets user post data from mongodb
-module.exports.getPostByUsername = (username, callback) => {
-    const userQuery = {username: username}
-    Post.findOne(userQuery, callback);
+module.exports.getPostByUsername = (uname, res) => {
+    const collection = db.collection('posts');
+    collection.find({username: uname}).sort({popularity: -1}).toArray(function (err, items) {
+      return res(items);
+    });
+}
+
+// deletePost()
+// deletes post based on userID
+module.exports.deletePost = (pId, callback) => {
+  Post.find({ id:pId }).remove( callback )
 }

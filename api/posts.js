@@ -24,6 +24,17 @@ router.get('/listPopular', (req, res) => {
   });
 });
 
+
+// api/posts/list
+// Returns all posts from the db as a list or array object
+router.get('/listUser', (req, res) => {
+  let uname = req.body.username;
+  Post.getPostByUsername(uname, function(items) {
+    res.json(items);
+  });
+});
+
+
 // api/posts/add
 // creates a new Post object and adds the pos to DB
 router.post('/add', (req, res, next) => {
@@ -46,15 +57,47 @@ router.post('/add', (req, res, next) => {
 
 
 // api/posts/edit
+// NOT FINISHED
 /*router.put('edit/:id', (req, res, next) => {
   if (!req.params.id) return next(new Error('No article ID.'));
 
   Post.getPostById(req.params.id)
 });*/
+router.put('/put', (req, res, next) => {
+  let newPost = new Post({
+      title: req.body.title,
+      description: req.body.description,
+      username: req.body.username,
+      timestamp: new Date().toDateString(),
+      id: req.body.id,
+    });
+
+    Post.editPost(newPost, (err) => {
+      if(err){
+          res.json({success: false, msg:'Failed to edit post!'});
+      } else {
+          res.json({success: true, msg:'Successfully edited post!'});
+      }
+    })
+})
+
+
 
 
 
 // api/posts/del
 // TODO app.del('/api/posts/:id', routes.article.del);
+router.delete('/delete', (req, res) => {
+  Post.deletePost(req, (err) => {
+    if(err){
+        res.json({success: false, msg:'Failed to delete post!'});
+    } else {
+        res.json({success: true, msg:'Successfully deleted post!'});
+    }
+  });
+});
+
+
+
 
 module.exports = router;
