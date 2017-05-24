@@ -54,7 +54,13 @@ export class PostService {
     return postObservable;
 
   }
+  
+  deletePost(post) {
 
 
-
+    // NOTE FOR LOCAL DEV
+    return this.http.delete('http://localhost:3000/posts/delete',
+      post);
+    
+  }
 }

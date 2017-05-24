@@ -38,6 +38,7 @@ router.get('/listUser', (req, res) => {
 // api/posts/add
 // creates a new Post object and adds the pos to DB
 router.post('/add', (req, res, next) => {
+  console.log(2);
     let newPost = new Post({
         title: req.body.title,
         description: req.body.description,
@@ -88,6 +89,8 @@ router.put('/put', (req, res, next) => {
 // api/posts/del
 // TODO app.del('/api/posts/:id', routes.article.del);
 router.delete('/delete', (req, res) => {
+  console.log(req.body);
+  console.log("delete()");
   Post.deletePost(req, (err) => {
     if(err){
         res.json({success: false, msg:'Failed to delete post!'});

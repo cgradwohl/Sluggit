@@ -1,10 +1,12 @@
 <ul>
-  <li *ngFor="let blog of blogs">
+  <li *ngFor="let blog of blogs; let index = index">
     <div class="jumbotron">
       <h2>{{blog.title}}</h2>
       <p>{{blog.description}}</p>
       <i>Author {{blog.username}}</i>
       <i>{{blog.timestamp}}</i>
+      <button style= "float:right;" class="btn btn-link" type="button" (click)="remove(index)"> delete &times;</button>
+      <button style= "float:right;" class="btn btn-link" type="button"> edit</button>
     </div>
   </li>
 </ul>

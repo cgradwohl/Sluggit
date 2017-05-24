@@ -10,6 +10,14 @@ import { PostService } from '../../services/post.service';
 
 export class PublicFeedComponent implements OnInit {
   blogs: any;
+  
+  remove(index: number): void {
+    if (confirm('Are you sure?')) {
+      this.postService.deletePost(this.blogs[index]);
+      this.blogs.splice(index, 1);
+      console.log(1);
+    }
+  }
 
 
   constructor(
