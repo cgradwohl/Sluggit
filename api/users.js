@@ -43,7 +43,8 @@ router.put('/edit-profile', (req, res, next) => {
         company: req.body.company,
         role: req.body.role,
         age: req.body.age,
-        aboutMe: req.body.aboutMe
+        aboutMe: req.body.aboutMe,
+        location: req.body.location
 
     }
 

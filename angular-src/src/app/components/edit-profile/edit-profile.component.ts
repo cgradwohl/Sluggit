@@ -18,6 +18,7 @@ export class EditProfileComponent implements OnInit {
   email: String;
   password: String;
   company: String;
+  location: String;
   role: String;
   age: Number;
   aboutMe: String;
@@ -46,6 +47,7 @@ export class EditProfileComponent implements OnInit {
       email: this.email,
       password: this.password,
       company: this.company,
+      location: this.location,
       role: this.role,
       age: this.age,
       aboutMe: this.aboutMe
