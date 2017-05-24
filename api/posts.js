@@ -54,15 +54,42 @@ router.post('/add', (req, res, next) => {
     });
 });
 
+// api/posts/postupvote
+// upvotes a specific post that the user clicked.
+router.post('/postupvote', (req, res, next) => {
+  let pst = {
+    uname: req.body.username,
+    pid: req.body.pi,
+  };
 
+  Post.addUpvote(pst, (err) => {
+      if(err){
+          res.json({success: false, msg:'Failed to upvote!'});
+      } else {
+          res.json({success: true, msg:'Successfully downvote!'});
+      }
+  });
+});
+
+// api/posts/postupvote
+// upvotes a specific post that the user clicked.
+router.post('/postdownvote', (req, res, next) => {
+  let pst = {
+    uname: req.body.username,
+    pid: req.body.pi,
+  };
+
+  Post.addDownvote(pst, (err) => {
+      if(err){
+          res.json({success: false, msg:'Failed to upvote!'});
+      } else {
+          res.json({success: true, msg:'Successfully downvote!'});
+      }
+  });
+});
 
 // api/posts/edit
 // NOT FINISHED
-/*router.put('edit/:id', (req, res, next) => {
-  if (!req.params.id) return next(new Error('No article ID.'));
-
-  Post.getPostById(req.params.id)
-});*/
 router.put('/put', (req, res, next) => {
   let newPost = new Post({
       title: req.body.title,
@@ -78,8 +105,8 @@ router.put('/put', (req, res, next) => {
       } else {
           res.json({success: true, msg:'Successfully edited post!'});
       }
-    })
-})
+    });
+});
 
 
 
@@ -88,7 +115,8 @@ router.put('/put', (req, res, next) => {
 // api/posts/del
 // TODO app.del('/api/posts/:id', routes.article.del);
 router.delete('/delete', (req, res) => {
-  Post.deletePost(req, (err) => {
+  console.log(req.body);
+  Post.deletePost(req.body.id, (err) => {
     if(err){
         res.json({success: false, msg:'Failed to delete post!'});
     } else {
