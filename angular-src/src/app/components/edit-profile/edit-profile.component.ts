@@ -17,6 +17,10 @@ export class EditProfileComponent implements OnInit {
   username: String;
   email: String;
   password: String;
+  company: String;
+  role: String;
+  age: Number;
+  aboutMe: String;
 
 
   // constructor()
@@ -40,7 +44,11 @@ export class EditProfileComponent implements OnInit {
       name: this.name,
       username: this.username,
       email: this.email,
-      password: this.password
+      password: this.password,
+      company: this.company,
+      role: this.role,
+      age: this.age,
+      aboutMe: this.aboutMe
     };
 
     this.nativeAuthService.updateUser(user).subscribe( data => {
