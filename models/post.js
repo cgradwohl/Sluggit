@@ -43,9 +43,12 @@ module.exports.addPost = (newPost, callback) => {
 
 // editPost()
 // edits a post to mongoDB
-module.exports.editPost = (newPost, callback) => {
-    newPost.update(collection.find({id: newPost.id}));
-}
+module.exports.editPost = (pst, callback) => {
+    collection.update({_id: ObjectId(pst._id)}, { $set: { description: pst.description, title: pst.title}}, function(err, result) {
+      if (err)
+          throw err;
+        });
+};
 
 // getAllPosts()
 // gets all Posts

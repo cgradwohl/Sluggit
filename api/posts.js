@@ -91,13 +91,10 @@ router.post('/postdownvote', (req, res, next) => {
 
 // api/posts/edit
 // NOT FINISHED
-router.put('/put', (req, res, next) => {
+router.post('/edit', (req, res, next) => {
   let newPost = new Post({
       title: req.body.title,
-      description: req.body.description,
-      username: req.body.username,
-      timestamp: new Date().toDateString(),
-      id: req.body.id,
+      description: req.body.description
     });
 
     Post.editPost(newPost, (err) => {
