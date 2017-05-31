@@ -29,6 +29,12 @@ viewPost(blog) {
   });
 }
 
+viewThisPost(blog) {
+  this.postService.viewPost(blog._id).subscribe( blogs => {
+    this.blogs = blogs.reverse();
+  });
+}
+
 upvote(blog) {
   const post = {
     _id: blog._id,

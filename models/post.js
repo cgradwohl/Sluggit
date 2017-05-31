@@ -72,6 +72,14 @@ module.exports.getPostByUsername = (uname, res) => {
     });
 };
 
+// getPost()
+// gets post data from db
+module.exports.getPost = (pId, res) => {
+    collection.find({_id: ObjectId(pId)}).toArray(function (err, items) {
+      return res(items);
+    });
+};
+
 
 // deletePost()
 // deletes post based on userID

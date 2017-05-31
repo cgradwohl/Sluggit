@@ -26,9 +26,17 @@ router.get('/listPopular', (req, res) => {
 
 
 // api/posts/list
-// Returns all posts from the db as a list or array object
+// Returns all posts from the user in the db as a list or array object
 router.get('/listUser/:id', (req, res) => {
   Post.getPostByUsername(req.params.id, function(items) {
+    res.json(items);
+  });
+});
+
+// api/posts/list
+// Returns the post as a singular object
+router.get('/post/:id', (req, res) => {
+  Post.getPost(req.params.id, function(items) {
     res.json(items);
   });
 });

@@ -87,4 +87,16 @@ export class PostService {
     return post;
   }
 
+  viewPost(id) {
+    const headers = new Headers();
+
+    headers.append('Authorization', 'No Auth');
+    headers.append('Content-Type', 'application/json');
+
+    // NOTE FOR LOCAL DEV
+    const post = this.http.get('http://localhost:3000/posts/post/' + id,
+      {headers: headers}).map(res => res.json());
+    return post;
+  }
+
 }
