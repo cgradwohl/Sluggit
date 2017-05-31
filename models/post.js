@@ -58,7 +58,7 @@ module.exports.getAllPosts = (res) => {
 // getPopularPosts()
 // gets all Popular Posts
 module.exports.getPopularPosts = (res) => {
-      collection.find().sort({popularity: -1}).toArray(function (err, items) {
+      collection.find().sort({popularity: 1}).toArray(function (err, items) {
         return res(items);
       });
 };
