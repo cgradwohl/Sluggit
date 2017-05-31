@@ -55,6 +55,26 @@ export class PostService {
 
   }
 
+  addUpvote(post) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    // NOTE FOR LOCAL DEV
+    const postObservable = this.http.post('http://localhost:3000/posts/postupvote',
+      post, {headers: headers}).map(res => res.json());
+    return postObservable;
+  }
+
+  addDownvote(post) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    // NOTE FOR LOCAL DEV
+    const postObservable = this.http.post('http://localhost:3000/posts/postdownvote',
+      post, {headers: headers}).map(res => res.json());
+    return postObservable;
+  }
+
 
 
 }

@@ -24,7 +24,24 @@ export class PublicFeedComponent implements OnInit {
       console.log(err);
       return false;
     });
+  }
 
+  upvote() {
+    const post = this.blogs;
+    this.postService.addUpvote(post).subscribe( data => {
+      if (data.success) {
+        this.blogs.popularity += 1;
+      }
+    });
+  }
+
+  downvote() {
+    const post = this.blogs;
+    this.postService.addDownvote(post).subscribe( data => {
+      if (data.success) {
+        this.blogs.popularity += 1;
+      }
+    });
   }
 
 }

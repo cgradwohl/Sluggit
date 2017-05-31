@@ -60,11 +60,7 @@ router.post('/add', (req, res, next) => {
 // api/posts/postupvote
 // upvotes a specific post that the user clicked.
 router.post('/postupvote', (req, res, next) => {
-  let pst = {
-    uname: req.body.username,
-    pid: req.body.pi,
-  };
-
+  const pst = req.body;
   Post.addUpvote(pst, (err) => {
       if(err){
           res.json({success: false, msg:'Failed to upvote!'});
@@ -77,14 +73,10 @@ router.post('/postupvote', (req, res, next) => {
 // api/posts/postupvote
 // upvotes a specific post that the user clicked.
 router.post('/postdownvote', (req, res, next) => {
-  let pst = {
-    uname: req.body.username,
-    pid: req.body.pi,
-  };
-
+  const pst = req.body;
   Post.addDownvote(pst, (err) => {
       if(err){
-          res.json({success: false, msg:'Failed to downvote!'});
+          res.json({success: false, msg:'Failed to upvote!'});
       } else {
           res.json({success: true, msg:'Successfully downvote!'});
       }
@@ -112,7 +104,7 @@ router.put('/put', (req, res, next) => {
 });
 
 
-// api/posts/del
+// api/posts/delete
 // deletes the post if given the id
 router.delete('/delete/:id', (req, res) => {
     Post.deletePost(req.params.id, function(success) {

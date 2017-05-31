@@ -86,17 +86,17 @@ module.exports.deletePost = (pId, res) => {
 // addUpvote()
 // upvotes selected post
 module.exports.addUpvote = (pst, callback) => {
-  var ps = collection.find({id: pst.pid});
-  ps.upvote += 1;
-  ps.popularity += 1;
-  ps.save(callback);
+  collection.update({id: pst._id}, { $inc: { upvote: 1, popularity: 1}}, function(err, result) {
+    if (err)
+        throw err;
+      });
 };
 
 // addDownvote()
 // downvotes selected post
 module.exports.addDownvote = (pst, callback) => {
-  var ps = collection.find({id: pst.pid});
-  ps.downvotes += 1;
-  ps.popularity -= 1;
-  ps.save(callback);
+  collection.update({id: pst._id}, { $inc: { downvote: 1, popularity: -1}}, function(err, result) {
+    if (err)
+        throw err;
+      });
 };
