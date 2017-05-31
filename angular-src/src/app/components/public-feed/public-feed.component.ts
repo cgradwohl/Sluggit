@@ -26,20 +26,24 @@ export class PublicFeedComponent implements OnInit {
     });
   }
 
-  upvote() {
-    const post = this.blogs;
+  upvote(blog) {
+    const post = {
+      _id: blog._id,
+    };
     this.postService.addUpvote(post).subscribe( data => {
       if (data.success) {
-        this.blogs.popularity += 1;
+        blog.popularity += 1;
       }
     });
   }
 
-  downvote() {
-    const post = this.blogs;
+  downvote(blog) {
+    const post = {
+      _id: blog._id,
+    };
     this.postService.addDownvote(post).subscribe( data => {
       if (data.success) {
-        this.blogs.popularity += 1;
+        blog.popularity -= 1;
       }
     });
   }

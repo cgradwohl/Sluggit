@@ -1,10 +1,13 @@
 <ul>
-  <li *ngFor="let blog of blogs">
+  <li *ngFor="let blog of blogs; let i = index">
     <div class="jumbotron">
       <h2>{{blog.title}}</h2>
       <p>{{blog.description}}</p>
       <i>Author {{blog.username}}</i>
       <i>{{blog.timestamp}}</i>
+      <p>{{blog.popularity}}</p>
+      <button (click)="upvote(blog)">upvote</button>
+      <button (click)="downvote(blog)">downvote</button>
     </div>
   </li>
 </ul>

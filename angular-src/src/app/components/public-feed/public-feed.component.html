@@ -6,8 +6,8 @@
       <i>Author {{blog.username}}</i>
       <i>{{blog.timestamp}}</i>
       <p>{{blog.popularity}}</p>
-      <button (click)="upvote()">upvote</button>
-      <button (click)="downvote()">downvote</button>
+      <button (click)="upvote(blog)">upvote</button>
+      <button (click)="downvote(blog)">downvote</button>
     </div>
   </li>
 </ul>

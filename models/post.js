@@ -39,7 +39,7 @@ const ObjectId = require('mongodb').ObjectID;
 // adds a new post to mongoDB
 module.exports.addPost = (newPost, callback) => {
     newPost.save(callback);
-}
+};
 
 // editPost()
 // edits a post to mongoDB
@@ -53,7 +53,7 @@ module.exports.getAllPosts = (res) => {
       collection.find().toArray(function (err, items) {
         return res(items);
       });
-}
+};
 
 // getPopularPosts()
 // gets all Popular Posts
@@ -61,7 +61,7 @@ module.exports.getPopularPosts = (res) => {
       collection.find().sort({popularity: -1}).toArray(function (err, items) {
         return res(items);
       });
-}
+};
 
 
 // getPostByUsername()
@@ -70,7 +70,7 @@ module.exports.getPostByUsername = (uname, res) => {
     collection.find({username: uname}).sort({popularity: -1}).toArray(function (err, items) {
       return res(items);
     });
-}
+};
 
 
 // deletePost()
@@ -81,12 +81,12 @@ module.exports.deletePost = (pId, res) => {
       throw err;
     return res(results);
       });
-  }
+  };
 
 // addUpvote()
 // upvotes selected post
 module.exports.addUpvote = (pst, callback) => {
-  collection.update({id: pst._id}, { $inc: { upvote: 1, popularity: 1}}, function(err, result) {
+  collection.update({_id: ObjectId(pst._id)}, { $inc: {upvote: 1, popularity: 1}}, function(err, result) {
     if (err)
         throw err;
       });
@@ -95,7 +95,7 @@ module.exports.addUpvote = (pst, callback) => {
 // addDownvote()
 // downvotes selected post
 module.exports.addDownvote = (pst, callback) => {
-  collection.update({id: pst._id}, { $inc: { downvote: 1, popularity: -1}}, function(err, result) {
+  collection.update({_id: ObjectId(pst._id)}, { $inc: { downvote: 1, popularity: -1}}, function(err, result) {
     if (err)
         throw err;
       });

@@ -21,4 +21,26 @@ export class PopularComponent implements OnInit {
   });
 }
 
+upvote(blog) {
+  const post = {
+    _id: blog._id,
+  };
+  this.postService.addUpvote(post).subscribe( data => {
+    if (data.success) {
+      blog.popularity += 1;
+    }
+  });
+}
+
+downvote(blog) {
+  const post = {
+    _id: blog._id,
+  };
+  this.postService.addDownvote(post).subscribe( data => {
+    if (data.success) {
+      blog.popularity -= 1;
+    }
+  });
+}
+
 }
