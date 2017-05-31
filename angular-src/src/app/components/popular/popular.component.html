@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let blog of blogs; let i = index">
+  <li *ngFor="let blog of blogs">
     <div class="jumbotron">
       <h2>{{blog.title}}</h2>
       <p>{{blog.description}}</p>
@@ -8,6 +8,7 @@
       <p>{{blog.popularity}}</p>
       <button (click)="upvote(blog)">upvote</button>
       <button (click)="downvote(blog)">downvote</button>
+      <button (click)="viewPost(blog)">view all posts by user</button>
     </div>
   </li>
 </ul>

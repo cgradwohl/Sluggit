@@ -27,9 +27,8 @@ router.get('/listPopular', (req, res) => {
 
 // api/posts/list
 // Returns all posts from the db as a list or array object
-router.get('/listUser', (req, res) => {
-  let uname = req.body.username;
-  Post.getPostByUsername(uname, function(items) {
+router.get('/listUser/:id', (req, res) => {
+  Post.getPostByUsername(req.params.id, function(items) {
     res.json(items);
   });
 });
@@ -38,6 +37,7 @@ router.get('/listUser', (req, res) => {
 // api/posts/add
 // creates a new Post object and adds the pos to DB
 router.post('/add', (req, res, next) => {
+  console.log(req);
     let newPost = new Post({
         title: req.body.title,
         description: req.body.description,

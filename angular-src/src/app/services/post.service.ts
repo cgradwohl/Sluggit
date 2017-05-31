@@ -75,6 +75,16 @@ export class PostService {
     return postObservable;
   }
 
+  viewUserPost(id) {
+    const headers = new Headers();
 
+    headers.append('Authorization', 'No Auth');
+    headers.append('Content-Type', 'application/json');
+
+    // NOTE FOR LOCAL DEV
+    const post = this.http.get('http://localhost:3000/posts/listUser/' + id,
+      {headers: headers}).map(res => res.json());
+    return post;
+  }
 
 }
