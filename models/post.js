@@ -33,6 +33,7 @@ const PostSchema = mongoose.Schema({
 const Post = module.exports = mongoose.model('Post', PostSchema);
 const db = mongoose.connection;
 const collection = db.collection('posts');
+const ObjectId = require('mongodb').ObjectID;
 
 // addPost()
 // adds a new post to mongoDB
@@ -71,11 +72,16 @@ module.exports.getPostByUsername = (uname, res) => {
     });
 }
 
+
 // deletePost()
 // deletes post based on userID
-module.exports.deletePost = (pId, callback) => {
-  Post.find({ id:pId }).remove( callback )
-}
+module.exports.deletePost = (pId, res) => {
+  collection.deleteOne({_id: ObjectId(pId)}, function(err, results) {
+    if(err)
+      throw err;
+    return res(results);
+      });
+  }
 
 // addUpvote()
 // upvotes selected post
@@ -84,8 +90,7 @@ module.exports.addUpvote = (pst, callback) => {
   ps.upvote += 1;
   ps.popularity += 1;
   ps.save(callback);
-
-}
+};
 
 // addDownvote()
 // downvotes selected post
@@ -94,5 +99,4 @@ module.exports.addDownvote = (pst, callback) => {
   ps.downvotes += 1;
   ps.popularity -= 1;
   ps.save(callback);
-
-}
+};

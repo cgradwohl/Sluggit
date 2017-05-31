@@ -43,6 +43,9 @@ router.post('/add', (req, res, next) => {
         description: req.body.description,
         username: req.body.username,
         timestamp: new Date().toDateString(),
+        downvote: 0,
+        upvote: 0,
+        popularity: 0,
     });
 
     Post.addPost(newPost, (err) => {
@@ -81,7 +84,7 @@ router.post('/postdownvote', (req, res, next) => {
 
   Post.addDownvote(pst, (err) => {
       if(err){
-          res.json({success: false, msg:'Failed to upvote!'});
+          res.json({success: false, msg:'Failed to downvote!'});
       } else {
           res.json({success: true, msg:'Successfully downvote!'});
       }
@@ -109,23 +112,16 @@ router.put('/put', (req, res, next) => {
 });
 
 
-
-
-
 // api/posts/del
-// TODO app.del('/api/posts/:id', routes.article.del);
-router.delete('/delete', (req, res) => {
-  console.log(req.body);
-  Post.deletePost(req.body.id, (err) => {
-    if(err){
+// deletes the post if given the id
+router.delete('/delete/:id', (req, res) => {
+    Post.deletePost(req.params.id, function(success) {
+      if(success.deletedCount == 0)
         res.json({success: false, msg:'Failed to delete post!'});
-    } else {
+      else {
         res.json({success: true, msg:'Successfully deleted post!'});
-    }
-  });
+      }
+    });
 });
-
-
-
 
 module.exports = router;
