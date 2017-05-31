@@ -1,30 +1,22 @@
 <form class="form-horizontal" (submit)="onNativeEditProfileSubmit()">
   <fieldset>
     
-    <legend>Edit Profile</legend>
+    <legend>Edit Login Information</legend>
     
     <!-- POST FORM PROPERTIES -->
-    <div class="form-group">
-      <label for="title" class="col-lg-2 control-label">Username:</label>
-      <div class="col-lg-10">
-        <input type="text" [(ngModel)]="username" name="username" class="form-control">
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <label for="description" class="col-lg-2 control-label">Password:</label>
-      <div class="col-lg-10">
-        <input type="password" [(ngModel)]="password" name="password" class="form-control">
-        <span class="help-block"></span>
-      </div>
-    </div>
 
     <div class="form-group">
       <label for="description" class="col-lg-2 control-label">Name:</label>
       <div class="col-lg-10">
         <input type="text" [(ngModel)]="name" name="name" class="form-control">
         <span class="help-block"></span>
+    </div>
+
+    </div>
+    <div class="form-group">
+      <label for="title" class="col-lg-2 control-label">Username:</label>
+      <div class="col-lg-10">
+        <input type="text" [(ngModel)]="username" name="username" class="form-control">
       </div>
     </div>
 
@@ -37,6 +29,19 @@
     </div>
 
     <div class="form-group">
+      <label for="description" class="col-lg-2 control-label">Password:</label>
+      <div class="col-lg-10">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control">
+        <span class="help-block"></span>
+      </div>
+    </div>
+
+
+
+
+    <legend>Edit Personal Information</legend>
+   
+   <div class="form-group">
       <label for="description" class="col-lg-2 control-label">Company:</label>
       <div class="col-lg-10">
         <input type="text" [(ngModel)]="company" name="company" class="form-control">
@@ -52,15 +57,15 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="description" class="col-lg-2 control-label">location:</label>
+     <div class="form-group">
+      <label for="description" class="col-lg-2 control-label">Location:</label>
       <div class="col-lg-10">
         <input type="text" [(ngModel)]="location" name="location" class="form-control">
         <span class="help-block"></span>
       </div>
     </div>
 
-    <div class="form-group">
+  <div class="form-group">
       <label for="description" class="col-lg-2 control-label">Age:</label>
       <div class="col-lg-10">
         <input type="text" [(ngModel)]="age" name="age" class="form-control">
@@ -68,10 +73,12 @@
       </div>
     </div>
 
+
+
     <div class="form-group">
       <label for="description" class="col-lg-2 control-label">About Me:</label>
       <div class="col-lg-10">
-        <input type="text" [(ngModel)]="aboutMe" name="aboutMe" class="form-control">
+        <input type="text" [(ngModel)]="aboutMe" name="aboutMe" class="form-control" style="width:100%; height:150px;">
         <span class="help-block"></span>
       </div>
     </div>
@@ -80,7 +87,7 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
       </div>
     </div>
 
