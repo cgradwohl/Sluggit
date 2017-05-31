@@ -26,6 +26,12 @@ export class PublicFeedComponent implements OnInit {
     });
   }
 
+  viewPost(blog) {
+    this.postService.viewUserPost(blog.username).subscribe( blogs => {
+      this.blogs = blogs.reverse();
+    });
+  }
+
   upvote(blog) {
     const post = {
       _id: blog._id,
