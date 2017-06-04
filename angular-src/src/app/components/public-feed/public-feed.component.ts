@@ -66,8 +66,10 @@ export class PublicFeedComponent implements OnInit {
     };
     this.postService.deletePost(post).subscribe( data => {
       if (data.success) {
-        blog.popularity -= 1;
-      }
+        this.postService.getPost().subscribe( blogs => {
+          this.blogs = blogs.reverse();
+      })
+    }
     });
   }
 

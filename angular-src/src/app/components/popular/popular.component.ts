@@ -63,8 +63,10 @@ deleteThisPost(blog) {
   };
   this.postService.deletePost(post).subscribe( data => {
     if (data.success) {
-      blog.popularity -= 1;
-    }
+      this.postService.getPopularPosts().subscribe( blogs => {
+        this.blogs = blogs.reverse();
+    })
+  }
   });
 }
 
