@@ -85,6 +85,7 @@ router.post('/postdownvote', (req, res, next) => {
           res.json({success: false, msg:'Failed to downvote!'});
       } else {
           res.json({success: true, msg:'Successfully downvote!'});
+          console.log("success");
       }
   });
 });

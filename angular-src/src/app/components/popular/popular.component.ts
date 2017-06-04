@@ -9,19 +9,31 @@ import { Router } from '@angular/router';
 })
 export class PopularComponent implements OnInit {
   blogs: any;
+  hidden: Boolean[];
+  descr: String[];
 
-  constructor(private postService: PostService,
-              private router: Router) { }
+  constructor(
+    private postService: PostService,
+    private router: Router,
+  ) { this.hidden = []; this.descr = []; }
 
   ngOnInit() {
+    this.refresh();
+  }
+
+  refresh() {
     this.postService.getPopularPosts().subscribe( blogs => {
       this.blogs = blogs.reverse();
-  },
-  err => {
-    console.log(err);
-    return false;
-  });
-}
+      for( var i = 0; i < this.blogs.length; i++)
+      {
+          this.hidden.push(false);
+          this.descr.push("");
+      }
+    },
+    err => {
+      console.log(err);
+    })
+};
 
 viewPost(blog) {
   this.postService.viewUserPost(blog.username).subscribe( blogs => {
@@ -42,6 +54,7 @@ upvote(blog) {
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity += 1;
+      this.refresh();
     }
   });
 }
@@ -53,6 +66,7 @@ downvote(blog) {
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity -= 1;
+      this.refresh();
     }
   });
 }
@@ -63,11 +77,28 @@ deleteThisPost(blog) {
   };
   this.postService.deletePost(post).subscribe( data => {
     if (data.success) {
-      this.postService.getPopularPosts().subscribe( blogs => {
-        this.blogs = blogs.reverse();
-    })
-  }
+      this.refresh();
+    }
   });
 }
+
+showPost(index) {
+  this.hidden[index] = true;
+};
+
+submitEdit(index, blog) {
+  const post = {
+    _id: blog._id,
+    description: this.descr[index]
+  }
+  this.hidden[index] = false;
+  this.postService.editPost(post).subscribe( data => {
+    if (data.success) {
+      this.refresh();
+    } else {
+        console.log("Failure!");
+    }
+  });
+};
 
 }

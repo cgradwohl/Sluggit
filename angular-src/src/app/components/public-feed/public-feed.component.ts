@@ -97,7 +97,7 @@ export class PublicFeedComponent implements OnInit {
       if (data.success) {
         this.refresh();
       } else {
-        console.log("Failure!");
+          console.log("Failure!");
       }
     });
   };
