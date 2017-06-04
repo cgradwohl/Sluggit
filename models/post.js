@@ -101,6 +101,7 @@ module.exports.addUpvote = (pst, callback) => {
   collection.update({_id: ObjectId(pst._id)}, { $inc: {upvote: 1, popularity: 1}}, function(err, result) {
     if (err)
         throw err;
+    return callback(true);
       });
 };
 
@@ -110,5 +111,6 @@ module.exports.addDownvote = (pst, callback) => {
   collection.update({username: pst._id}, { $inc: { downvote: 1, popularity: -1}}, function(err, result) {
     if (err)
         throw err;
+    return callback(true);    
       });
 };

@@ -54,7 +54,6 @@ upvote(blog) {
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity += 1;
-      this.refresh();
     }
   });
 }
@@ -66,7 +65,6 @@ downvote(blog) {
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity -= 1;
-      this.refresh();
     }
   });
 }

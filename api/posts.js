@@ -68,25 +68,24 @@ router.post('/add', (req, res, next) => {
 // api/posts/postupvote
 // upvotes a specific post that the user clicked.
 router.post('/postupvote', (req, res, next) => {
-  Post.addUpvote(req.body, (err) => {
-      if(err){
-          res.json({success: false, msg:'Failed to upvote!'});
-      } else {
-          res.json({success: true, msg:'Successfully upvote!'});
-      }
+  Post.addUpvote(req.body, function(success) {
+    if(!success)
+      res.json({success: false, msg:'Failed to downvote post!'});
+    else {
+      res.json({success: true, msg:'Successfully downvoted post!'});
+    }
   });
 });
 
 // api/posts/postupvote
 // upvotes a specific post that the user clicked.
 router.post('/postdownvote', (req, res, next) => {
-  Post.addDownvote(req.body, (err) => {
-      if(err){
-          res.json({success: false, msg:'Failed to downvote!'});
-      } else {
-          res.json({success: true, msg:'Successfully downvote!'});
-          console.log("success");
-      }
+  Post.addDownvote(req.body, function(success) {
+    if(!success)
+      res.json({success: false, msg:'Failed to downvote post!'});
+    else {
+      res.json({success: true, msg:'Successfully downvoted post!'});
+    }
   });
 });
 
