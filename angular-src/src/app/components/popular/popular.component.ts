@@ -57,4 +57,15 @@ downvote(blog) {
   });
 }
 
+deleteThisPost(blog) {
+  const post = {
+    _id: blog._id,
+  };
+  this.postService.deletePost(post).subscribe( data => {
+    if (data.success) {
+      blog.popularity -= 1;
+    }
+  });
+}
+
 }
