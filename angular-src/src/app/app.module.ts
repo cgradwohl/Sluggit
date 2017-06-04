@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate: [NativeAuthGuardService]},
   {path: 'popular', component: PopularComponent, canActivate: [NativeAuthGuardService]},
   {path: 'search', component: SearchComponent},
-  {path: 'add-post', component: AddPostComponent}
+  {path: 'add-post', component: AddPostComponent},
 ];
 
 
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     PopularComponent,
     SearchComponent,
-    AddPostComponent
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,

@@ -41,15 +41,6 @@ module.exports.addPost = (newPost, callback) => {
     newPost.save(callback);
 };
 
-// editPost()
-// edits a post to mongoDB
-module.exports.editPost = (pst, callback) => {
-    collection.update({_id: ObjectId(pst._id)}, { $set: { description: pst.description, title: pst.title}}, function(err, result) {
-      if (err)
-          throw err;
-        });
-};
-
 // getAllPosts()
 // gets all Posts
 module.exports.getAllPosts = (res) => {
@@ -80,6 +71,16 @@ module.exports.getPostByUsername = (uname, res) => {
 module.exports.getPost = (pId, res) => {
     collection.find({_id: ObjectId(pId)}).toArray(function (err, items) {
       return res(items);
+    });
+};
+
+// editPost()
+// edits a post to mongoDB
+module.exports.editPost = (pst, res) => {
+    collection.update({_id: ObjectId(pst._id)}, { $set: { description: pst.description }}, function(err, result) {
+      if (err)
+          throw err;
+      return res(result);
     });
 };
 

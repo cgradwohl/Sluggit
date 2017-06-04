@@ -103,11 +103,20 @@ export class PostService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    console.log('http://localhost:3000/posts/delete/' + post._id);
-
     // NOTE FOR LOCAL DEV
     const postObservable = this.http.delete('http://localhost:3000/posts/delete/' + post._id).map(res => res.json());
     return postObservable;
   }
 
+  editPost(pst) {
+    const headers = new Headers();
+
+    headers.append('Authorization', 'No Auth');
+    headers.append('Content-Type', 'application/json');
+
+    // NOTE FOR LOCAL DEV
+    const post = this.http.post('http://localhost:3000/posts/edit/', pst,
+      {headers: headers}).map(res => res.json());
+    return post;
+  }
 }

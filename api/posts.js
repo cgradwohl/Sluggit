@@ -93,15 +93,14 @@ router.post('/postdownvote', (req, res, next) => {
 // NOT FINISHED
 router.post('/edit', (req, res, next) => {
   let newPost = new Post({
-      title: req.body.title,
+      _id: req.body._id,
       description: req.body.description
     });
-
-    Post.editPost(newPost, (err) => {
-      if(err){
-          res.json({success: false, msg:'Failed to edit post!'});
-      } else {
-          res.json({success: true, msg:'Successfully edited post!'});
+    Post.editPost(newPost, function(success) {
+      if(success.deletedCount == 0)
+        res.json({success: false, msg:'Failed to edit post!'});
+      else {
+        res.json({success: true, msg:'Successfully edited post!'});
       }
     });
 });
