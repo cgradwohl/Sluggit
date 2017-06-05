@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NativeAuthService } from '../../services/native-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,11 +19,16 @@ export class ProfileComponent implements OnInit {
   user: Object;
 
 
+
+
   // constructor()
-  // injects native auth service
+  // injects front end router and native auth service
   constructor(
+    private router: Router,
     private nativeAuthService: NativeAuthService
   ) { }
+
+
 
 
   // ngOnInit()
@@ -37,4 +43,8 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  onClick() {
+    console.log("function");
+    this.router.navigate(['/edit-profile']);
+  }
 }

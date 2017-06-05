@@ -41,15 +41,13 @@ export class NativeAuthService {
   ) { }
 
 
-
-
   // registerUser()
   // makes a POST request to the /register api endpoint
   // returns success or failure on repsonse
   // sends the user object to ./users/register api endpoint
   // the map() method makes the post request an Observable
   registerUser(user) {
-    const headers = new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
 
@@ -63,7 +61,19 @@ export class NativeAuthService {
 
   }
 
+  // updateUser()
+  // Authenticate API call in order to update user profile information
+ 
+  updateUser(user) {
+    let headers = new Headers();
 
+    headers.append('Content-Type', 'application/json');
+
+    const userObservable = this.http.put('http://localhost:3000/users/edit-profile', user, {headers: headers}).map(res => res.json());
+
+    return userObservable;
+
+  }
 
 
   // authenticateUser()
@@ -72,7 +82,7 @@ export class NativeAuthService {
   // sends the user object to ./users/register api endpoint
   // the map() method makes the post request an Observable
   authenticateUser(user) {
-    const headers = new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
 
@@ -92,7 +102,7 @@ export class NativeAuthService {
   // makes a protected/authenticated get request, requires a valid token to access this endpoint
   // sends a valid auth token to the api endpoint
   getProfile() {
-    const headers = new Headers();
+    let headers = new Headers();
     this.fetchToken();
 
     headers.append('Authorization', this.authToken);
@@ -101,7 +111,7 @@ export class NativeAuthService {
 
     // NOTE FOR LOCAL DEV comment out for heroku deployment
     const userObservable = this.http.get('http://localhost:3000/users/profile', {headers: headers}).map(res => res.json());
-    
+
     // NOTE FOR HEROKU comment out for local development
     // const userObservable = this.http.get('users/profile', {headers: headers}).map(res => res.json());
 

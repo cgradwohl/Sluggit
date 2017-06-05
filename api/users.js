@@ -10,7 +10,7 @@ const express = require('express'),
 // ROUTES -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 
 
-// api/users/register
+// /register
 // creates a new User object to be stored into DB
 router.post('/register', (req, res, next) => {
     let newUser = new User({
@@ -31,8 +31,39 @@ router.post('/register', (req, res, next) => {
     });
 });
 
+// Update User Information
+// Will update user information when profile is edited
+router.put('/edit-profile', (req, res, next) => {
+    
+    var person = {
+        name: req.body.name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        company: req.body.company,
+        role: req.body.role,
+        age: req.body.age,
+        aboutMe: req.body.aboutMe,
+        location: req.body.location
 
-// api/users/auth
+    }
+
+
+    User.editUser(person,(err, user) => {
+        
+        if(err){
+            console.log(err);
+            res.json({success: false, msg:'Failed to update! Please try again.'});
+        } else {
+
+            res.json({success: true, msg:'Successfully Updated!!'});
+        }
+
+    });
+});
+
+
+// /auth
 // authenticates existing users from the DB using a JWT passport strategy (see ./config/passport.js)
 router.post('/auth', (req, res, next) => {
     const username = req.body.username;
@@ -45,6 +76,7 @@ router.post('/auth', (req, res, next) => {
         }
 
         User.comparePassword(password, user.password, (err, isMatch) => {
+
             if( err ) throw err;
             if( isMatch ){
                 const token = jwt.sign(user, config.secret, {
@@ -69,7 +101,7 @@ router.post('/auth', (req, res, next) => {
 });
 
 
-// api/users/profile
+// /profile
 // retrieves user profile data from the database
 // this is a protected route using passport-jwt strategy
 // user must have a valid jsonwebtoken to access this path

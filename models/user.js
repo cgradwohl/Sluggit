@@ -4,7 +4,8 @@ const config = require('../config/environment');
 
 const UserSchema = mongoose.Schema({
     name: {
-        type: String
+        type: String,
+
     },
     email: {
         type: String,
@@ -17,7 +18,28 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    company: {
+        type: String,
+        required: false
+    },
+    role: {
+        type: String,
+        required: false
+    },
+    location: {
+        type: String,
+        required: false
+    },
+    age: {
+        type: Number,
+        required: false
+    },
+    aboutMe: {
+        type: String,
+        required: false
     }
+     
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);
@@ -32,7 +54,6 @@ const User = module.exports = mongoose.model('User', UserSchema);
 module.exports.getUserById = (id, callback) => {
     User.findById(id, callback);
 }
-
 
 // getUserByUsername()
 // gets the user by querying its username
@@ -52,6 +73,31 @@ module.exports.addUser = (newUser, callback) => {
         });
     });
 }
+
+
+// editUser()
+// Looks up curr user by ID and updates information
+module.exports.editUser = (updatedUser, callback) => {
+    
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(updatedUser.password, salt, (err, hash) => {
+            updatedUser.password = hash;
+             User.findOneAndUpdate(updatedUser._id, updatedUser, function(error, result){
+                if(error){
+                    callback(error);
+                }else{
+                    console.log(result);
+                    result.save(callback);
+
+                }
+            });
+            
+        });
+    });
+   
+}
+
+
 
 
 // comparePassword()

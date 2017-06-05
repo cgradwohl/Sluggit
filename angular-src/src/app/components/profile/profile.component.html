@@ -1,8 +1,20 @@
+
 <div *ngIf="user">
   <h2 class="page-header">{{user.name}}</h2>
+
   <ul class="list-group">
     <li class="list-group-item">Username: {{user.username}}</li>
     <li class="list-group-item">Email: {{user.email}}</li>
+    <li class="list-group-item">Name: {{user.name}}</li>
+    <li class="list-group-item">Company: {{user.company}}</li>
+    <li class="list-group-item">Role: {{user.role}}</li>
+    <li class="list-group-item">Location: {{user.location}}</li>
+    <li class="list-group-item">Age: {{user.age}}</li>
+    <li class="list-group-item">About Me: {{user.aboutMe}}</li>
   </ul>
 
 </div>
+
+<button type="edit-profile" class="btn btn-primary">
+<a class ="edit-profile" (click)="onClick()">Edit Profile</a> 
+</button>

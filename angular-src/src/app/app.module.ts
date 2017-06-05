@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PopularComponent } from './components/popular/popular.component';
 import { SearchComponent } from './components/search/search.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 // SERVICES
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
   {path: 'popular', component: PopularComponent, canActivate: [NativeAuthGuardService]},
   {path: 'search', component: SearchComponent},
   {path: 'add-post', component: AddPostComponent},
+  {path: 'edit-profile', component: EditProfileComponent},
 ];
 
 
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     PopularComponent,
     SearchComponent,
     AddPostComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
