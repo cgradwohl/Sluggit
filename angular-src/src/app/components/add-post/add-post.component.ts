@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPostComponent {
 
+<<<<<<< HEAD
 
 
 add(title, description): boolean {
       console.log( 'Title:', `${title.value}`, 'Description:', `${description.value}`);
+=======
+add(title, description): boolean {
+      console.log('Title:', `${title.value}`, 'Description:', `${description.value}`);
+>>>>>>> master
       return false;
   }
 }
