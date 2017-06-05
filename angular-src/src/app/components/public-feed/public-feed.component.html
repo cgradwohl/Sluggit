@@ -3,19 +3,26 @@
     <div class="jumbotron">
       <h2>{{blog.title}}</h2>
       <p>{{blog.description}}</p>
-      <i>Author {{blog.username}}</i>
-      <i>{{blog.timestamp}}</i>
-      <p>{{blog.popularity}}</p>
-      <button (click)="upvote(blog)">upvote</button>
-      <button (click)="downvote(blog)">downvote</button>
-      <button (click)="viewPost(blog)">view all posts by user</button>
-      <button (click)="viewThisPost(blog)">view this post</button>
+      <i>Submited By: {{blog.username}}</i>
+      <i>On: {{blog.timestamp}}</i>
+      <br>
+      <span class="label label-primary">{{blog.popularity}} Points</span>
+      <span class="label label-default">{{blog.upvote}} Like it</span>
+      <span class="label label-default">{{blog.downvote}} Dislike it</span>
+      <div align = "right" class="well well-sm">
+        <button class="btn btn-primary" (click)="upvote(blog)">upvote</button>
+        <button class="text-center" class="btn btn-primary" (click)="downvote(blog)">downvote</button>
+        <button class="btn btn-primary" (click)="viewPost(blog)">view all posts by user</button>
+        <button class="btn btn-primary" (click)="viewThisPost(blog)">view this post</button>
+      </div>
       <div *ngIf="owner[i]">
-        <button (click)="deleteThisPost(blog)">delete this post</button>
-        <button (click)="showPost(i)">edit this post</button>
-        <div *ngIf="hidden[i]">
-          <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
-          <button (click)="submitEdit(i, blog)">Submit edit</button>
+        <div align = "right" class="well well-sm">
+          <button class="btn btn-primary" (click)="deleteThisPost(blog)">delete this post</button>
+          <button class="btn btn-primary" (click)="showPost(i)">edit this post</button>
+          <div *ngIf="hidden[i]">
+            <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
+            <button class="btn btn-primary" (click)="submitEdit(i, blog)">Submit edit</button>
+          </div>
         </div>
     </div>
     </div>

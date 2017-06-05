@@ -90,7 +90,7 @@ router.post('/postdownvote', (req, res, next) => {
 });
 
 // api/posts/edit
-// NOT FINISHED
+// edits user post
 router.post('/edit', (req, res, next) => {
   let newPost = new Post({
       _id: req.body._id,

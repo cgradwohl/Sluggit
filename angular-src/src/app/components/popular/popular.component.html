@@ -1,22 +1,32 @@
 <ul>
   <li *ngFor="let blog of blogs; let i = index;" >
-    <div class="jumbotron">
-      <h2>{{blog.title}}</h2>
-      <p>{{blog.description}}</p>
-      <i>Author {{blog.username}}</i>
-      <i>{{blog.timestamp}}</i>
-      <p>{{blog.popularity}}</p>
-      <button (click)="upvote(blog)">upvote</button>
-      <button (click)="downvote(blog)">downvote</button>
-      <button (click)="viewPost(blog)">view all posts by user</button>
-      <button (click)="viewThisPost(blog)">view this post</button>
+    <div class="panel panel-primary">
+      <div align="right" class="panel-heading">
+        <span class="badge"><h3>{{blog.popularity}}</h3></span>
+      </div>
+      <div align="center" class="well well-sm">
+        <h3>{{blog.title}}</h3>
+      </div>
+      <div class="panel-body">
+        <p>{{blog.description}}</p>
+        <i>Submited By: {{blog.username}}</i>
+        <i>On: {{blog.timestamp}}</i>
+      </div>
+      <div align= "right" class = "well well-sm">
+        <button class="btn btn-default" (click)="upvote(blog)">upvote</button>
+        <button class="btn btn-default" (click)="downvote(blog)">downvote</button>
+        <button class="btn btn-default" (click)="viewPost(blog)">view all posts by user</button>
+        <button class="btn btn-default" (click)="viewThisPost(blog)">view this post</button>
+      </div>
       <div *ngIf="owner[i]">
-        <button (click)="deleteThisPost(blog)">delete this post</button>
-        <button (click)="showPost(i)">edit this post</button>
-        <div *ngIf="hidden[i]">
-          <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
-          <button (click)="submitEdit(i, blog)">Submit edit</button>
-        </div>
+        <div align="right" class="well well-sm">
+          <button class="btn btn-default" (click)="deleteThisPost(blog)">delete this post</button>
+          <button class="btn btn-default" (click)="showPost(i)">edit this post</button>
+          <div *ngIf="hidden[i]">
+            <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
+            <button class="btn btn-default" (click)="submitEdit(i, blog)">Submit edit</button>
+          </div>
+      </div>
     </div>
     </div>
   </li>
