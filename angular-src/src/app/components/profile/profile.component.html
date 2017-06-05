@@ -1,20 +1,17 @@
-
 <div *ngIf="user">
   <h2 class="page-header">{{user.name}}</h2>
 
-  <ul class="list-group">
-    <li class="list-group-item">Username: {{user.username}}</li>
-    <li class="list-group-item">Email: {{user.email}}</li>
-    <li class="list-group-item">Name: {{user.name}}</li>
-    <li class="list-group-item">Company: {{user.company}}</li>
-    <li class="list-group-item">Role: {{user.role}}</li>
-    <li class="list-group-item">Location: {{user.location}}</li>
-    <li class="list-group-item">Age: {{user.age}}</li>
-    <li class="list-group-item">About Me: {{user.aboutMe}}</li>
-  </ul>
 
+  <div class="info">
+    <i class="fa fa-address-card" aria-hidden="true"></i><b class="head"> Username: </b>{{user.username}}<br>
+    <i class="fa fa-building" aria-hidden="true"></i><b class="head"> Company: </b>{{user.company}}<br>
+    <i class="fa fa-briefcase" aria-hidden="true"></i><b class="head"> Role: </b>{{user.role}}<br>
+    <i class="fa fa-location-arrow" aria-hidden="true"></i><b class="head"> Location: </b>{{user.location}}<br>
+    <i class="fa fa-user" aria-hidden="true"></i> <b class="head">Age: </b>{{user.age}}<br>
+    <i class="fa fa-smile-o" aria-hidden="true"></i><b class="head"> About Me: </b>{{user.aboutMe}}
 </div>
-
+</div>
+<br>
 <button type="edit-profile" class="btn btn-primary">
-<a class ="edit-profile" (click)="onClick()">Edit Profile</a> 
+<a class ="edit-profile" [routerLink]="['/edit-profile']">Edit Profile</a>
 </button>
