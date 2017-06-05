@@ -28,20 +28,16 @@ export class PopularComponent implements OnInit {
   refresh() {
     this.nativeAuthService.getProfile().subscribe( profile => {
       this.profile = profile.user;
-      console.log(this.profile.username);
       this.postService.getPopularPosts().subscribe( blogs => {
         this.blogs = blogs.reverse();
         for( var i = 0; i < this.blogs.length; i++)
         {
             this.hidden.push(false);
             this.descr.push("");
-            console.log(this.blogs[i].username);
-            console.log(this.profile.username);
-            if(this.blogs[i].username == profile.username)
+            if(this.blogs[i].username.trim() == this.profile.username.trim())
               this.owner.push(true);
             else
               this.owner.push(false);
-              console.log(this.blogs[i].username == profile.username);
         }
         console.log(this.owner);
       },
