@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPostComponent {
 
-
-
 add(title, description): boolean {
-      console.log( 'Title:', `${title.value}`, 'Description:', `${description.value}`);
+      console.log('Title:', `${title.value}`, 'Description:', `${description.value}`);
+
       return false;
   }
 }
