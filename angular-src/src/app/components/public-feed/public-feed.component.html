@@ -10,12 +10,14 @@
       <button (click)="downvote(blog)">downvote</button>
       <button (click)="viewPost(blog)">view all posts by user</button>
       <button (click)="viewThisPost(blog)">view this post</button>
-      <button (click)="deleteThisPost(blog)">delete this post</button>
-      <button (click)="showPost(i)">edit this post</button>
-      <div *ngIf="hidden[i]">
-        <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
-        <button (click)="submitEdit(i, blog)">Submit edit</button>
-      </div>
+      <div *ngIf="blog.owner">
+        <button (click)="deleteThisPost(blog)">delete this post</button>
+        <button (click)="showPost(i)">edit this post</button>
+        <div *ngIf="hidden[i]">
+          <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
+          <button (click)="submitEdit(i, blog)">Submit edit</button>
+        </div>
+    </div>
     </div>
   </li>
 </ul>

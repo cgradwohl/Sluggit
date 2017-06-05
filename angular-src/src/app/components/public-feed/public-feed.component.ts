@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
+import { NativeAuthService } from '../../services/native-auth.service';
 
 @Component({
-  selector: 'app-public-feed',
+  selector: 'app-popular',
   templateUrl: './public-feed.component.html',
   styleUrls: ['./public-feed.component.css']
 })
-
-
 export class PublicFeedComponent implements OnInit {
   blogs: any;
+  profile: any;
   hidden: Boolean[];
   descr: String[];
 
   constructor(
     private postService: PostService,
     private router: Router,
+    private authService: NativeAuthService,
   ) { this.hidden = []; this.descr = []; }
 
   ngOnInit() {
     this.refresh();
-  }
+  };
 
   refresh() {
     this.postService.getPost().subscribe( blogs => {
@@ -34,71 +35,74 @@ export class PublicFeedComponent implements OnInit {
     },
     err => {
       console.log(err);
-      return false;
-    })
+    });
+    this.authService.getProfile().subscribe( profile => {
+      this.profile = profile;
+    });
 };
 
-  viewPost(blog) {
-    this.postService.viewUserPost(blog.username).subscribe( blogs => {
-      this.blogs = blogs.reverse();
-    });
-  }
+viewPost(blog) {
+  this.postService.viewUserPost(blog.username).subscribe( blogs => {
+    this.blogs = blogs.reverse();
+  });
+};
 
-  viewThisPost(blog) {
-    this.postService.viewPost(blog._id).subscribe( blogs => {
-      this.blogs = blogs.reverse();
-    });
-  }
+viewThisPost(blog) {
+  this.postService.viewPost(blog._id).subscribe( blogs => {
+    this.blogs = blogs.reverse();
+  });
+};
 
-  upvote(blog) {
-    const post = {
-      _id: blog._id,
-    };
-    this.postService.addUpvote(post).subscribe( data => {
-      if (data.success) {
-        blog.popularity += 1;
-      }
-    });
-  }
-
-  downvote(blog) {
-    const post = {
-      _id: blog._id,
-    };
-    this.postService.addDownvote(post).subscribe( data => {
-      if (data.success) {
-        blog.popularity -= 1;
-      }
-    });
-  }
-
-  deleteThisPost(blog) {
-    const post = {
-      _id: blog._id,
-    };
-    this.postService.deletePost(post).subscribe( data => {
-      if (data.success) {
-        this.refresh();
-      }
-    });
-  }
-
-  showPost(index) {
-    this.hidden[index] = true;
+upvote(blog) {
+  const post = {
+    _id: blog._id,
   };
-
-  submitEdit(index, blog) {
-    const post = {
-      _id: blog._id,
-      description: this.descr[index]
+  this.postService.addUpvote(post).subscribe( data => {
+    if (data.success) {
+      blog.popularity += 1;
     }
-    this.hidden[index] = false;
-    this.postService.editPost(post).subscribe( data => {
-      if (data.success) {
-        this.refresh();
-      } else {
-          console.log("Failure!");
-      }
-    });
+  });
+};
+
+downvote(blog) {
+  const post = {
+    _id: blog._id,
   };
+  this.postService.addDownvote(post).subscribe( data => {
+    if (data.success) {
+      blog.popularity -= 1;
+    }
+  });
+};
+
+deleteThisPost(blog) {
+  const post = {
+    _id: blog._id,
+  };
+  this.postService.deletePost(post).subscribe( data => {
+    if (data.success) {
+      this.refresh();
+    }
+  });
+};
+
+showPost(index) {
+  this.hidden[index] = true;
+};
+
+submitEdit(index, blog) {
+  const post = {
+    _id: blog._id,
+    description: this.descr[index]
+  }
+  this.hidden[index] = false;
+  this.postService.editPost(post).subscribe( data => {
+    if (data.success) {
+      this.refresh();
+    } else {
+        console.log("Failure!");
+    }
+  });
+};
+
 }

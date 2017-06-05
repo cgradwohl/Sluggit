@@ -101,7 +101,7 @@ export class NativeAuthService {
 
     // NOTE FOR LOCAL DEV comment out for heroku deployment
     const userObservable = this.http.get('http://localhost:3000/users/profile', {headers: headers}).map(res => res.json());
-
+    
     // NOTE FOR HEROKU comment out for local development
     // const userObservable = this.http.get('users/profile', {headers: headers}).map(res => res.json());
 

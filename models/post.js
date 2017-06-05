@@ -53,6 +53,7 @@ module.exports.getAllPosts = (res) => {
 // gets all Popular Posts
 module.exports.getPopularPosts = (res) => {
       collection.find().sort({popularity: 1}).toArray(function (err, items) {
+
         return res(items);
       });
 };
@@ -111,6 +112,6 @@ module.exports.addDownvote = (pst, callback) => {
   collection.update({username: pst._id}, { $inc: { downvote: 1, popularity: -1}}, function(err, result) {
     if (err)
         throw err;
-    return callback(true);    
+    return callback(true);
       });
 };
