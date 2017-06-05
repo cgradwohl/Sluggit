@@ -39,7 +39,6 @@ export class PopularComponent implements OnInit {
             else
               this.owner.push(false);
         }
-        console.log(this.owner);
       },
       err => {
         console.log(err);

@@ -12,32 +12,37 @@ export class PublicFeedComponent implements OnInit {
   blogs: any;
   profile: any;
   hidden: Boolean[];
+  owner: Boolean[];
   descr: String[];
 
   constructor(
     private postService: PostService,
     private router: Router,
-    private authService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; }
+    private nativeAuthService: NativeAuthService,
+  ) { this.hidden = []; this.descr = []; this.owner = [];}
 
   ngOnInit() {
     this.refresh();
   };
 
   refresh() {
-    this.postService.getPost().subscribe( blogs => {
-      this.blogs = blogs.reverse();
-      for( var i = 0; i < this.blogs.length; i++)
-      {
-          this.hidden.push(false);
-          this.descr.push("");
-      }
-    },
-    err => {
-      console.log(err);
-    });
-    this.authService.getProfile().subscribe( profile => {
-      this.profile = profile;
+    this.nativeAuthService.getProfile().subscribe( profile => {
+      this.profile = profile.user;
+      this.postService.getPost().subscribe( blogs => {
+        this.blogs = blogs.reverse();
+        for( var i = 0; i < this.blogs.length; i++)
+        {
+            this.hidden.push(false);
+            this.descr.push("");
+            if(this.blogs[i].username.trim() == this.profile.username.trim())
+              this.owner.push(true);
+            else
+              this.owner.push(false);
+        }
+      },
+      err => {
+        console.log(err);
+      });
     });
 };
 
