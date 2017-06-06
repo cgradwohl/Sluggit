@@ -45,7 +45,6 @@ router.get('/post/:id', (req, res) => {
 // api/posts/add
 // creates a new Post object and adds the pos to DB
 router.post('/add', (req, res, next) => {
-  console.log(req);
     let newPost = new Post({
         title: req.body.title,
         description: req.body.description,
@@ -54,6 +53,8 @@ router.post('/add', (req, res, next) => {
         downvote: 0,
         upvote: 0,
         popularity: 0,
+        votedUp: req.body.username,
+        votedDown: req.body.username,
     });
 
     Post.addPost(newPost, (err) => {
@@ -70,9 +71,9 @@ router.post('/add', (req, res, next) => {
 router.post('/postupvote', (req, res, next) => {
   Post.addUpvote(req.body, function(success) {
     if(!success)
-      res.json({success: false, msg:'Failed to downvote post!'});
+      res.json({success: false, msg:'Failed to upvote post!'});
     else {
-      res.json({success: true, msg:'Successfully downvoted post!'});
+      res.json({success: true, msg:'Successfully upvote post!'});
     }
   });
 });

@@ -28,6 +28,12 @@ const PostSchema = mongoose.Schema({
     popularity: {
       type: Number
     },
+    votedUp: [{
+        type: String
+    }],
+    votedDown: [{
+        type: String
+    }],
 });
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
@@ -53,7 +59,6 @@ module.exports.getAllPosts = (res) => {
 // gets all Popular Posts
 module.exports.getPopularPosts = (res) => {
       collection.find().sort({popularity: 1}).toArray(function (err, items) {
-
         return res(items);
       });
 };
@@ -99,19 +104,32 @@ module.exports.deletePost = (pId, res) => {
 // addUpvote()
 // upvotes selected post
 module.exports.addUpvote = (pst, callback) => {
-  collection.update({_id: ObjectId(pst._id)}, { $inc: {upvote: 1, popularity: 1}}, function(err, result) {
+  collection.update({ _id: ObjectId(pst._id)},
+  { $push: { votedUp: pst.username }}, function(err, response) {
     if (err)
         throw err;
-    return callback(true);
       });
+    collection.update({ _id: ObjectId(pst._id)},
+    { $inc:{ upvote: 1, popularity: 1 }}, function(err, response) {
+      if(err)
+        throw err;
+      return callback(true);
+    });
 };
+
 
 // addDownvote()
 // downvotes selected post
 module.exports.addDownvote = (pst, callback) => {
-  collection.update({username: pst._id}, { $inc: { downvote: 1, popularity: -1}}, function(err, result) {
+  collection.update({ _id: ObjectId(pst._id)},
+  { $push: { votedDown: pst.username }}, function(err, response) {
     if (err)
         throw err;
-    return callback(true);
       });
+    collection.update({ _id: ObjectId(pst._id)},
+    { $inc:{ downvote: 1, popularity: -1 }}, function(err, response) {
+      if(err)
+        throw err;
+      return callback(true);
+    });
 };

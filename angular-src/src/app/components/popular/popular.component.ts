@@ -14,12 +14,13 @@ export class PopularComponent implements OnInit {
   hidden: Boolean[];
   owner: Boolean[];
   descr: String[];
+  voted: Number[];
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = [];}
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; }
 
   ngOnInit() {
     this.refresh();
@@ -30,6 +31,7 @@ export class PopularComponent implements OnInit {
       this.profile = profile.user;
       this.postService.getPopularPosts().subscribe( blogs => {
         this.blogs = blogs.reverse();
+        var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
         {
             this.hidden.push(false);
@@ -38,12 +40,36 @@ export class PopularComponent implements OnInit {
               this.owner.push(true);
             else
               this.owner.push(false);
+            for(var q = 0; q < this.blogs[i].votedUp.length; q++)
+            {
+              if(this.blogs[i].votedUp[q].username.trim() == this.profile.username)
+              {
+                this.voted.push(1);
+                exists = 1;
+                break;
+              }
+            }
+            if(exists != 1)
+            {
+              for(var q = 0; q < this.blogs[i].votedDown.length; q++)
+              {
+                if(this.blogs[i].votedDown[q].username.trim() == this.profile.username)
+                {
+                  this.voted.push(-1);
+                  exists = 1;
+                  break;
+                }
+              }
+              if(exists == 0)
+                this.voted.push(0);
+          }
         }
       },
       err => {
         console.log(err);
       });
     });
+    console.log(this.voted);
 };
 
 viewPost(blog) {
@@ -61,6 +87,7 @@ viewThisPost(blog) {
 upvote(blog) {
   const post = {
     _id: blog._id,
+    username: this.profile.username,
   };
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
@@ -72,6 +99,7 @@ upvote(blog) {
 downvote(blog) {
   const post = {
     _id: blog._id,
+    username: this.profile.username,
   };
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {
