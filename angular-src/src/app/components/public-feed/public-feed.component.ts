@@ -72,8 +72,6 @@ export class PublicFeedComponent implements OnInit {
               }
           }
         }
-        console.log(this.showVote);
-        console.log(this.voted);
       },
       err => {
         console.log(err);
@@ -96,6 +94,7 @@ viewThisPost(blog) {
 upvote(blog, index) {
   const post = {
     _id: blog._id,
+    username: this.profile.username
   };
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
@@ -108,6 +107,7 @@ upvote(blog, index) {
 downvote(blog, index) {
   const post = {
     _id: blog._id,
+    username: this.profile.username
   };
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {

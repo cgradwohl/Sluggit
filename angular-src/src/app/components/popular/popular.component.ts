@@ -17,12 +17,13 @@ export class PopularComponent implements OnInit {
   descr: String[];
   voted: Number[];
   showVote: Boolean[];
+  singular:  Boolean;
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; this.showDropdown = []; this.showVote = []; }
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; this.showDropdown = []; this.showVote = []; this.singular = false;}
 
   ngOnInit() {
     this.refresh();
@@ -32,6 +33,7 @@ export class PopularComponent implements OnInit {
     this.nativeAuthService.getProfile().subscribe( profile => {
       this.profile = profile.user;
       this.postService.getPopularPosts().subscribe( blogs => {
+        this.singular = false;
         this.blogs = blogs.reverse();
         var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
@@ -81,6 +83,7 @@ export class PopularComponent implements OnInit {
 
 viewPost(blog) {
   this.postService.viewUserPost(blog.username).subscribe( blogs => {
+    this.singular = true;
     this.blogs = blogs.reverse();
   });
 };
@@ -94,6 +97,7 @@ viewThisPost(blog) {
 upvote(blog, index) {
   const post = {
     _id: blog._id,
+    username: this.profile.username
   };
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
@@ -106,6 +110,7 @@ upvote(blog, index) {
 downvote(blog, index) {
   const post = {
     _id: blog._id,
+    username: this.profile.username
   };
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {

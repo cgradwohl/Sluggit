@@ -99,9 +99,15 @@ router.post('/postdownvote', (req, res, next) => {
     if(!success)
       res.json({success: false, msg:'Failed to downvote post!'});
     else {
-      res.json({success: true, msg:'Successfully downvoted post!'});
+      Post.addDownVoter(req.body, function(success) {
+        if(!success)
+          res.json({success: false, msg:'Failed to downvote post!'});
+          else {
+              res.json({success: true, msg:'Successfully downvoted post!'});
+          }
+      })
     }
-  });
+  })
 });
 
 // api/posts/edit

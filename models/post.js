@@ -132,35 +132,40 @@ module.exports.addUpvote = (pst, callback) => {
 };
 
 
-// addDownvote()
-// downvotes selected post
-module.exports.addDownvote = (pst, callback) => {
+// addDownVoter()
+// adds user who downvoted
+module.exports.addDownVoter = (pst, callback) => {
   collection.update({ _id: ObjectId(pst._id)},
     { $push: { votedDown: pst.username }}, function(err, response) {
     if (err)
         throw err;
       });
-    collection.update({ _id: ObjectId(pst._id)},
+      return callback(true);
+};
+
+// addDownvote()
+// downvotes selected post
+module.exports.addDownvote = (pst, callback) => {
+  collection.update({ _id: ObjectId(pst._id)},
     { $inc:{ downvote: 1, popularity: -1 }}, function(err, response) {
       if(err)
         throw err;
       return callback(true);
-    });
-};
+});
 
 // addTag()
 // Tags selected post based on user choice
 module.exports.addTag = (pst, callback) => {
-  console.log(pst);
     collection.update({ _id: ObjectId(pst._id)},
       { $push: { tagged: pst.username }}, function(err, response) {
         if (err)
             throw err;
           });
         collection.update({ _id: ObjectId(pst._id), "tag.title" : pst.title},
-        { $inc: {'tag.$.num' : 100}}, function(err, response) {
+        { $inc: {'tag.$.num' : 1 }}, function(err, response) {
           if(err)
             throw err;
           return callback(true);
         });
+      }
 };
