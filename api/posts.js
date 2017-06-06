@@ -139,10 +139,9 @@ router.delete('/delete/:id', (req, res) => {
     });
 });
 
-// api/posts/edit
-// edits user post
-router.post('/addTag', (req, res, next) => {
-  console.log(req.body);
+// api/posts/addTag
+// addsTag to selected post
+router.post('/addTag', (req, res) => {
   let pst = {
       _id: req.body._id,
       title: req.body.tagTitle,

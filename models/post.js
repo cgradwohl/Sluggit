@@ -151,7 +151,8 @@ module.exports.addDownvote = (pst, callback) => {
       if(err)
         throw err;
       return callback(true);
-});
+    })
+}
 
 // addTag()
 // Tags selected post based on user choice
@@ -167,5 +168,4 @@ module.exports.addTag = (pst, callback) => {
             throw err;
           return callback(true);
         });
-      }
-};
+}
