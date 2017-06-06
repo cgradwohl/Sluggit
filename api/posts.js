@@ -45,6 +45,18 @@ router.get('/post/:id', (req, res) => {
 // api/posts/add
 // creates a new Post object and adds the pos to DB
 router.post('/add', (req, res, next) => {
+    let newTag = [
+          {title: "News", num: 0},
+          {title: "Software", num: 0},
+          {title: "Discussion", num: 0},
+          {title: "Video", num: 0},
+          {title: "Travel", num: 0},
+          {title: "Fitness", num: 0},
+          {title: "Music", num: 0},
+          {title: "Art", num: 0},
+          {title: "Food", num: 0},
+          {title: "Style", num: 0}];
+
     let newPost = new Post({
         title: req.body.title,
         description: req.body.description,
@@ -55,6 +67,7 @@ router.post('/add', (req, res, next) => {
         popularity: 0,
         votedUp: req.body.username,
         votedDown: req.body.username,
+        tag: newTag,
     });
 
     Post.addPost(newPost, (err) => {
@@ -115,6 +128,24 @@ router.delete('/delete/:id', (req, res) => {
         res.json({success: false, msg:'Failed to delete post!'});
       else {
         res.json({success: true, msg:'Successfully deleted post!'});
+      }
+    });
+});
+
+// api/posts/edit
+// edits user post
+router.post('/addTag', (req, res, next) => {
+  console.log(req.body);
+  let pst = {
+      _id: req.body._id,
+      title: req.body.tagTitle,
+      username: req.body.username
+    };
+    Post.addTag(pst, function(success) {
+      if(success.deletedCount == 0)
+        res.json({success: false, msg:'Failed to tag post!'});
+      else {
+        res.json({success: true, msg:'Successfully tagged post!'});
       }
     });
 });

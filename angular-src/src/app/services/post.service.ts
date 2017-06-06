@@ -119,4 +119,14 @@ export class PostService {
       {headers: headers}).map(res => res.json());
     return post;
   }
+
+  addTag(pst) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    // NOTE FOR LOCAL DEV
+    const post = this.http.post('http://localhost:3000/posts/addTag',
+      pst, {headers: headers}).map(res => res.json());
+    return post;
+  }
 }

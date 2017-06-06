@@ -13,6 +13,7 @@ export class PopularComponent implements OnInit {
   profile: any;
   hidden: Boolean[];
   owner: Boolean[];
+  showDropdown: Boolean[];
   descr: String[];
   voted: Number[];
 
@@ -20,7 +21,7 @@ export class PopularComponent implements OnInit {
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; }
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; this.showDropdown = []; }
 
   ngOnInit() {
     this.refresh();
@@ -35,6 +36,7 @@ export class PopularComponent implements OnInit {
         for( var i = 0; i < this.blogs.length; i++)
         {
             this.hidden.push(false);
+            this.showDropdown.push(false);
             this.descr.push("");
             if(this.blogs[i].username.trim() == this.profile.username.trim())
               this.owner.push(true);
@@ -42,7 +44,7 @@ export class PopularComponent implements OnInit {
               this.owner.push(false);
             for(var q = 0; q < this.blogs[i].votedUp.length; q++)
             {
-              if(this.blogs[i].votedUp[q].username.trim() == this.profile.username)
+              if(this.blogs[i].votedUp[q].trim() == this.profile.username)
               {
                 this.voted.push(1);
                 exists = 1;
@@ -53,7 +55,7 @@ export class PopularComponent implements OnInit {
             {
               for(var q = 0; q < this.blogs[i].votedDown.length; q++)
               {
-                if(this.blogs[i].votedDown[q].username.trim() == this.profile.username)
+                if(this.blogs[i].votedDown[q].trim() == this.profile.username)
                 {
                   this.voted.push(-1);
                   exists = 1;
@@ -69,7 +71,6 @@ export class PopularComponent implements OnInit {
         console.log(err);
       });
     });
-    console.log(this.voted);
 };
 
 viewPost(blog) {
@@ -120,7 +121,10 @@ deleteThisPost(blog) {
 };
 
 showPost(index) {
-  this.hidden[index] = true;
+  if(this.hidden[index] == false)
+    this.hidden[index] = true
+  else
+    this.hidden[index] = false;
 };
 
 submitEdit(index, blog) {
@@ -137,5 +141,28 @@ submitEdit(index, blog) {
     }
   });
 };
+
+toggleDropDown(index){
+  if(this.showDropdown[index] == false)
+    this.showDropdown[index] = true
+  else
+    this.showDropdown[index] = false;
+};
+
+addTag(blog, title) {
+  const post = {
+    _id: blog._id,
+    tagTitle: title,
+    uid: this.profile.username
+  }
+  this.postService.addTag(post).subscribe( data => {
+    if (data.success) {
+      this.refresh();
+    } else {
+      console.log("Failure!");
+    }
+  });
+  this.refresh();
+}
 
 }

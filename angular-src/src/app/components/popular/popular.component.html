@@ -17,17 +17,40 @@
         <button class="btn btn-default" (click)="downvote(blog)">downvote</button>
         <button class="btn btn-default" (click)="viewPost(blog)">view all posts by user</button>
         <button class="btn btn-default" (click)="viewThisPost(blog)">view this post</button>
-      </div>
-      <div *ngIf="owner[i]">
-        <div align="right" class="well well-sm">
-          <button class="btn btn-default" (click)="deleteThisPost(blog)">delete this post</button>
-          <button class="btn btn-default" (click)="showPost(i)">edit this post</button>
-          <div *ngIf="hidden[i]">
-            <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
-            <button class="btn btn-default" (click)="submitEdit(i, blog)">Submit edit</button>
-          </div>
+
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropDown(i)">
+          Tag<span class="caret"></span>
+        </button>
+
+        <div *ngIf="showDropdown[i]">
+        <ul class="menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'News')">News</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Software')">Software</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Discussion')">Discussion</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Video')">Video</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Travel')">Travel</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Fitness')">Fitness</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Music')">Music</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Art')">Art</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Food')">Food</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Style')">Style</button></li>
+        </ul>
       </div>
     </div>
+
+    <div *ngIf="owner[i]">
+      <div align="right" class="well well-sm">
+        <button class="btn btn-default" (click)="deleteThisPost(blog)">delete this post</button>
+        <button class="btn btn-default" (click)="showPost(i)">edit this post</button>
+        <div *ngIf="hidden[i]">
+          <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
+          <button class="btn btn-default" (click)="submitEdit(i, blog)">Submit edit</button>
+        </div>
+    </div>
+  </div>
+
+
+
     </div>
   </li>
 </ul>

@@ -34,6 +34,20 @@ const PostSchema = mongoose.Schema({
     votedDown: [{
         type: String
     }],
+    comments: [{
+      type: String
+    }],
+    tag: [{
+      title: {
+        type: String
+      },
+      num: {
+        type: Number
+      }
+    }],
+    tagged: [{
+      type: String
+    }]
 });
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
@@ -122,7 +136,7 @@ module.exports.addUpvote = (pst, callback) => {
 // downvotes selected post
 module.exports.addDownvote = (pst, callback) => {
   collection.update({ _id: ObjectId(pst._id)},
-  { $push: { votedDown: pst.username }}, function(err, response) {
+    { $push: { votedDown: pst.username }}, function(err, response) {
     if (err)
         throw err;
       });
@@ -132,4 +146,20 @@ module.exports.addDownvote = (pst, callback) => {
         throw err;
       return callback(true);
     });
+};
+
+// addDownvote()
+// downvotes selected post
+module.exports.addTag = (pst, callback) => {
+    collection.update({ _id: ObjectId(pst._id)},
+      { $push: { tagged: pst.username }}, function(err, response) {
+        if (err)
+            throw err;
+          });
+        collection.update({ _id: ObjectId(pst._id), "tag.title" : pst.title},
+        { $inc: {"tag.$.num" : 999}}, function(err, response) {
+          if(err)
+            throw err;
+          return callback(true);
+        });
 };
