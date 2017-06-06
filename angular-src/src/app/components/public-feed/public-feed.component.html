@@ -1,62 +1,78 @@
 <ul>
+
+  <ul class="menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a (click)="clickTag(0)">News</a></li>
+    <li role="menuitem"><a (click)="clickTag(1)">Software</a></li>
+    <li role="menuitem"><a (click)="clickTag(2)">Discussion</a></li>
+    <li role="menuitem"><a (click)="clickTag(3)">Video</a></li>
+    <li role="menuitem"><a (click)="clickTag(4)">Travel</a></li>
+    <li role="menuitem"><a (click)="clickTag(5)">Fitness</a></li>
+    <li role="menuitem"><a (click)="clickTag(6)">Music</a></li>
+    <li role="menuitem"><a (click)="clickTag(7)">Art</a></li>
+    <li role="menuitem"><a (click)="clickTag(8)">Food</a></li>
+    <li role="menuitem"><a (click)="clickTag(9)">Style</a></li>
+  </ul>
+
   <li *ngFor="let blog of blogs; let i = index;" >
-    <div class="jumbotron">
-      <h2>{{blog.title}}</h2>
-      <p>{{blog.description}}</p>
-      <i>Submited By: {{blog.username}}</i>
-      <i>On: {{blog.timestamp}}</i>
-      <br>
-      <span class="label label-primary">{{blog.popularity}} Points</span>
-      <span class="label label-default">{{blog.upvote}} Like it</span>
-      <span class="label label-default">{{blog.downvote}} Dislike it</span>
-      <div align = "right" class="well well-sm">
-        <div *ngIf="showVote[i]">
-          <button class="btn btn-primary" (click)="upvote(blog, i)">upvote</button>
-          <button class="text-center" class="btn btn-primary" (click)="downvote(blog, i)">downvote</button>
-        </div>
-        <button class="btn btn-primary" (click)="viewPost(blog)">view all posts by user</button>
-        <button class="btn btn-primary" (click)="viewThisPost(blog)">view this post</button>
-      </div>
-      
-      <div *ngIf="enableDropDown[i]">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropDown(i)">
-          Tag<span class="caret"></span>
-        </button>
-      </div>
-
-      <div *ngIf="showDropdown[i]">
-      <ul class="menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'News', i)">News</button></li>
-        <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Software', i)">Software</button></li>
-        <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Discussion', i)">Discussion</button></li>
-        <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Video', i)">Video</button></li>
-        <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Travel', i)">Travel</button></li>
-        <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Fitness', i)">Fitness</button></li>
-        <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Music', i)">Music</button></li>
-        <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Art', i)">Art</button></li>
-        <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Food', i)">Food</button></li>
-        <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Style', i)">Style</button></li>
-      </ul>
-    </div>
-
-    <div align = "left" class="well well-sm">
-      <li>News {{blog.tag[0].num}} Software {{blog.tag[1].num}}
-      Discussion {{blog.tag[2].num}} Video {{blog.tag[3].num}}</li>
-      <li>Travel {{blog.tag[4].num}} Fitness {{blog.tag[5].num}} Music {{blog.tag[6].num}}
-      Art {{blog.tag[7].num}} Food {{blog.tag[8].num}} Style {{blog.tag[9].num}}</li>
-    </div>
-
-      <div *ngIf="owner[i]">
+    <div *ngIf="show[i]">
+      <div class="jumbotron">
+        <h2>{{blog.title}}</h2>
+        <p>{{blog.description}}</p>
+        <i>Submited By: {{blog.username}}</i>
+        <i>On: {{blog.timestamp}}</i>
+        <br>
+        <span class="label label-primary">{{blog.popularity}} Points</span>
+        <span class="label label-default">{{blog.upvote}} Like it</span>
+        <span class="label label-default">{{blog.downvote}} Dislike it</span>
         <div align = "right" class="well well-sm">
-          <button class="btn btn-primary" (click)="deleteThisPost(blog)">delete this post</button>
-          <button class="btn btn-primary" (click)="showPost(i)">edit this post</button>
-          <div *ngIf="hidden[i]">
-            <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
-            <button class="btn btn-primary" (click)="submitEdit(i, blog)">Submit edit</button>
+          <div *ngIf="showVote[i]">
+            <button class="btn btn-primary" (click)="upvote(blog, i)">upvote</button>
+            <button class="text-center" class="btn btn-primary" (click)="downvote(blog, i)">downvote</button>
           </div>
+          <button class="btn btn-primary" (click)="viewPost(blog)">view all posts by user</button>
+          <button class="btn btn-primary" (click)="viewThisPost(blog)">view this post</button>
         </div>
-    </div>
 
-    </div>
+        <div *ngIf="enableDropDown[i]">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropDown(i)">
+            Tag<span class="caret"></span>
+          </button>
+        </div>
+
+        <div *ngIf="showDropdown[i]">
+        <ul class="menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'News', i)">News</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Software', i)">Software</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Discussion', i)">Discussion</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Video', i)">Video</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Travel', i)">Travel</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Fitness', i)">Fitness</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Music', i)">Music</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Art', i)">Art</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Food', i)">Food</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Style', i)">Style</button></li>
+        </ul>
+      </div>
+
+      <div align = "left" class="well well-sm">
+        <li>News {{blog.tag[0].num}} Software {{blog.tag[1].num}}
+        Discussion {{blog.tag[2].num}} Video {{blog.tag[3].num}}</li>
+        <li>Travel {{blog.tag[4].num}} Fitness {{blog.tag[5].num}} Music {{blog.tag[6].num}}
+        Art {{blog.tag[7].num}} Food {{blog.tag[8].num}} Style {{blog.tag[9].num}}</li>
+      </div>
+
+        <div *ngIf="owner[i]">
+          <div align = "right" class="well well-sm">
+            <button class="btn btn-primary" (click)="deleteThisPost(blog)">delete this post</button>
+            <button class="btn btn-primary" (click)="showPost(i)">edit this post</button>
+            <div *ngIf="hidden[i]">
+              <textarea class="form-control" rows="3" [(ngModel)]="descr[i]" name ="descr[i]">  </textarea>
+              <button class="btn btn-primary" (click)="submitEdit(i, blog)">Submit edit</button>
+            </div>
+          </div>
+      </div>
+
+      </div>
+    </div>  
   </li>
 </ul>

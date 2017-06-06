@@ -39,8 +39,8 @@ export class PopularComponent implements OnInit {
   refresh() {
     this.nativeAuthService.getProfile().subscribe( profile => {
       this.profile = profile.user;
+      this.singular = false;
       this.postService.getPopularPosts().subscribe( blogs => {
-        this.singular = false;
         this.blogs = blogs.reverse();
         var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
