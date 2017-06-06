@@ -91,7 +91,6 @@ export class PublicFeedComponent implements OnInit {
         console.log(err);
       });
     });
-    console.log(this.enableDropDown);
 };
 
 viewPost(blog) {
