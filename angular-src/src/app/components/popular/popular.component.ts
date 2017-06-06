@@ -19,15 +19,20 @@ export class PopularComponent implements OnInit {
   showVote: Boolean[];
   enableDropDown: Boolean[];
   singular:  Boolean;
+  show: Boolean[];
+  tagClicked: Boolean[];
+
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
   ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = [];
-      this.showDropdown = []; this.showVote = []; this.singular = false; this.enableDropDown = [];}
+      this.showDropdown = []; this.showVote = []; this.singular = false; this.enableDropDown = [];
+      this.tagClicked = []; this.show = []; }
 
   ngOnInit() {
+    this.tagClicked = [false, false, false, false, false, false, false, false, false, false];
     this.refresh();
   };
 
@@ -40,6 +45,21 @@ export class PopularComponent implements OnInit {
         var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
         {
+            for(var q = 0; q < this.tagClicked.length; q++)
+            {
+              if(this.tagClicked[q] == true)
+              {
+                if(this.blogs[i].tag[q].num == 0)
+                {
+                    this.show[i] = false;
+                    break;
+                }
+                else
+                  this.show[i] = true;
+              }
+              else
+                this.show[i] = true;
+            }
             exists = 0;
             this.showDropdown.push(false);
             this.hidden.push(false);
@@ -51,6 +71,7 @@ export class PopularComponent implements OnInit {
               this.owner.push(false);
             for(var q = 0; q < this.blogs[i].votedUp.length; q++)
             {
+              exists = 0;
               if(this.blogs[i].votedUp[q].trim() == this.profile.username)
               {
                 this.voted.push(1);
@@ -192,6 +213,14 @@ addTag(blog, title, index) {
       console.log("Failure!");
     }
   });
+  this.refresh();
+}
+
+clickTag(index) {
+  if(this.tagClicked[index] == false)
+    this.tagClicked[index] = true;
+  else
+    this.tagClicked[index] = true;
   this.refresh();
 }
 

@@ -13,32 +13,59 @@ export class PublicFeedComponent implements OnInit {
   profile: any;
   hidden: Boolean[];
   owner: Boolean[];
-  descr: String[];
   showDropdown: Boolean[];
-  showVote: Boolean[];
+  descr: String[];
   voted: Number[];
+  showVote: Boolean[];
   enableDropDown: Boolean[];
+  singular:  Boolean;
+  show: Boolean[];
+  tagClicked: Boolean[];
+
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = [];
-      this.showDropdown = []; this.voted = []; this.showVote = []; this.enableDropDown = []; }
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = [];
+      this.showDropdown = []; this.showVote = []; this.singular = false; this.enableDropDown = [];
+      this.tagClicked = []; this.show = []; }
 
   ngOnInit() {
+    this.tagClicked = [false, false, false, false, false, false, false, false, false, false];
     this.refresh();
   };
 
   refresh() {
     this.nativeAuthService.getProfile().subscribe( profile => {
       this.profile = profile.user;
-      this.postService.getPopularPosts().subscribe( blogs => {
+      this.postService.getPost().subscribe( blogs => {
+        this.singular = false;
         this.blogs = blogs.reverse();
         var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
         {
+            for(var q = 0; q < this.tagClicked.length; q++)
+            {
+              if(this.tagClicked[q] == true)
+              {
+                if(this.blogs[i].tag[q].num == 0)
+                {
+                    this.show[i] = false;
+                    break;
+                }
+                else
+                  this.show[i] = true;
+              }
+              else
+                this.show[i] = true;
+            }
+            console.log(this.show);
+            console.log(this.tagClicked);
+            exists = 0;
+            this.showDropdown.push(false);
             this.hidden.push(false);
+            this.showDropdown.push(false);
             this.descr.push("");
             if(this.blogs[i].username.trim() == this.profile.username.trim())
               this.owner.push(true);
@@ -46,6 +73,7 @@ export class PublicFeedComponent implements OnInit {
               this.owner.push(false);
             for(var q = 0; q < this.blogs[i].votedUp.length; q++)
             {
+              exists = 0;
               if(this.blogs[i].votedUp[q].trim() == this.profile.username)
               {
                 this.voted.push(1);
@@ -58,7 +86,7 @@ export class PublicFeedComponent implements OnInit {
             {
               for(var q = 0; q < this.blogs[i].votedDown.length; q++)
               {
-                if(this.blogs[i].votedDown[q].trim() == this.profile.username.trim())
+                if(this.blogs[i].votedDown[q].trim() == this.profile.username)
                 {
                   this.voted.push(-1);
                   this.showVote.push(false);
@@ -73,7 +101,6 @@ export class PublicFeedComponent implements OnInit {
               }
           }
           exists = 0;
-
           for(var q = 0; q < this.blogs[i].tagged.length; q++)
           {
             if(this.blogs[i].tagged[q].trim() == this.profile.username.trim())
@@ -84,7 +111,9 @@ export class PublicFeedComponent implements OnInit {
             }
           }
           if(exists == 0)
-            this.enableDropDown.push(true);
+          {
+              this.enableDropDown.push(true);
+          }
         }
       },
       err => {
@@ -95,6 +124,7 @@ export class PublicFeedComponent implements OnInit {
 
 viewPost(blog) {
   this.postService.viewUserPost(blog.username).subscribe( blogs => {
+    this.singular = true;
     this.blogs = blogs.reverse();
   });
 };
@@ -179,8 +209,21 @@ addTag(blog, title, index) {
   }
   this.postService.addTag(post).subscribe( data => {
     this.showDropdown[index] = false;
-    this.refresh();
+    if (data.success) {
+      this.refresh();
+    } else {
+      console.log("Failure!");
+    }
   });
+  this.refresh();
+}
+
+clickTag(index) {
+  if(this.tagClicked[index] == false)
+    this.tagClicked[index] = true;
+  else
+    this.tagClicked[index] = true;
+  this.refresh();
 }
 
 }
