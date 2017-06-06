@@ -148,16 +148,17 @@ module.exports.addDownvote = (pst, callback) => {
     });
 };
 
-// addDownvote()
-// downvotes selected post
+// addTag()
+// Tags selected post based on user choice
 module.exports.addTag = (pst, callback) => {
+  console.log(pst);
     collection.update({ _id: ObjectId(pst._id)},
       { $push: { tagged: pst.username }}, function(err, response) {
         if (err)
             throw err;
           });
         collection.update({ _id: ObjectId(pst._id), "tag.title" : pst.title},
-        { $inc: {"tag.$.num" : 999}}, function(err, response) {
+        { $inc: {'tag.$.num' : 100}}, function(err, response) {
           if(err)
             throw err;
           return callback(true);

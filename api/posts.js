@@ -68,6 +68,7 @@ router.post('/add', (req, res, next) => {
         votedUp: req.body.username,
         votedDown: req.body.username,
         tag: newTag,
+        tagged: req.body.username,
     });
 
     Post.addPost(newPost, (err) => {

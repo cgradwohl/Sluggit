@@ -14,12 +14,15 @@ export class PublicFeedComponent implements OnInit {
   hidden: Boolean[];
   owner: Boolean[];
   descr: String[];
+  showDropdown: Boolean[];
+  showVote: Boolean[];
+  voted: Number[];
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = [];}
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.showDropdown = []; this.voted = []; this.showVote = []; }
 
   ngOnInit() {
     this.refresh();
@@ -28,17 +31,49 @@ export class PublicFeedComponent implements OnInit {
   refresh() {
     this.nativeAuthService.getProfile().subscribe( profile => {
       this.profile = profile.user;
-      this.postService.getPost().subscribe( blogs => {
+      this.postService.getPopularPosts().subscribe( blogs => {
         this.blogs = blogs.reverse();
+        var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
         {
             this.hidden.push(false);
+            this.showDropdown.push(false);
             this.descr.push("");
             if(this.blogs[i].username.trim() == this.profile.username.trim())
               this.owner.push(true);
             else
               this.owner.push(false);
+            for(var q = 0; q < this.blogs[i].votedUp.length; q++)
+            {
+              if(this.blogs[i].votedUp[q].trim() == this.profile.username)
+              {
+                this.voted.push(1);
+                this.showVote.push(false);
+                exists = 1;
+                break;
+              }
+            }
+            if(exists != 1)
+            {
+              for(var q = 0; q < this.blogs[i].votedDown.length; q++)
+              {
+                if(this.blogs[i].votedDown[q].trim() == this.profile.username.trim())
+                {
+                  this.voted.push(-1);
+                  this.showVote.push(false);
+                  exists = 1;
+                  break;
+                }
+              }
+              if(exists == 0)
+              {
+                  this.voted.push(0);
+                  this.showVote.push(true);
+              }
+          }
         }
+        console.log(this.showVote);
+        console.log(this.voted);
       },
       err => {
         console.log(err);
@@ -58,24 +93,26 @@ viewThisPost(blog) {
   });
 };
 
-upvote(blog) {
+upvote(blog, index) {
   const post = {
     _id: blog._id,
   };
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity += 1;
+      this.showVote[index] = false;
     }
   });
 };
 
-downvote(blog) {
+downvote(blog, index) {
   const post = {
     _id: blog._id,
   };
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity -= 1;
+      this.showVote[index] = false;
     }
   });
 };
@@ -92,7 +129,10 @@ deleteThisPost(blog) {
 };
 
 showPost(index) {
-  this.hidden[index] = true;
+  if(this.hidden[index] == false)
+    this.hidden[index] = true
+  else
+    this.hidden[index] = false;
 };
 
 submitEdit(index, blog) {
@@ -109,5 +149,29 @@ submitEdit(index, blog) {
     }
   });
 };
+
+toggleDropDown(index){
+  if(this.showDropdown[index] == false)
+    this.showDropdown[index] = true
+  else
+    this.showDropdown[index] = false;
+};
+
+addTag(blog, title, index) {
+  const post = {
+    _id: blog._id,
+    tagTitle: title,
+    username: this.profile.username
+  }
+  this.postService.addTag(post).subscribe( data => {
+    this.showDropdown[index] = false;
+    if (data.success) {
+      this.refresh();
+    } else {
+      console.log("Failure!");
+    }
+  });
+  this.refresh();
+}
 
 }

@@ -13,8 +13,10 @@
         <i>On: {{blog.timestamp}}</i>
       </div>
       <div align= "right" class = "well well-sm">
-        <button class="btn btn-default" (click)="upvote(blog)">upvote</button>
-        <button class="btn btn-default" (click)="downvote(blog)">downvote</button>
+        <div *ngIf="showVote[i]">
+          <button class="btn btn-primary" (click)="upvote(blog, i)">upvote</button>
+          <button class="text-center" class="btn btn-primary" (click)="downvote(blog, i)">downvote</button>
+        </div>
         <button class="btn btn-default" (click)="viewPost(blog)">view all posts by user</button>
         <button class="btn btn-default" (click)="viewThisPost(blog)">view this post</button>
 
@@ -24,16 +26,16 @@
 
         <div *ngIf="showDropdown[i]">
         <ul class="menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'News')">News</button></li>
-          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Software')">Software</button></li>
-          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Discussion')">Discussion</button></li>
-          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Video')">Video</button></li>
-          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Travel')">Travel</button></li>
-          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Fitness')">Fitness</button></li>
-          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Music')">Music</button></li>
-          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Art')">Art</button></li>
-          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Food')">Food</button></li>
-          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Style')">Style</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'News', i)">News</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Software', i)">Software</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Discussion', i)">Discussion</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Video', i)">Video</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Travel', i)">Travel</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Fitness', i)">Fitness</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Music', i)">Music</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Art', i)">Art</button></li>
+          <li role="menuitem"><button class="btn btn-basic" (click)="addTag(blog, 'Food', i)">Food</button></li>
+          <li role="menuitem"><button class="btn btn-default" (click)="addTag(blog, 'Style', i)">Style</button></li>
         </ul>
       </div>
     </div>

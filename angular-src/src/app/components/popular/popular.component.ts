@@ -16,12 +16,13 @@ export class PopularComponent implements OnInit {
   showDropdown: Boolean[];
   descr: String[];
   voted: Number[];
+  showVote: Boolean[];
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; this.showDropdown = []; }
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; this.showDropdown = []; this.showVote = []; }
 
   ngOnInit() {
     this.refresh();
@@ -47,6 +48,7 @@ export class PopularComponent implements OnInit {
               if(this.blogs[i].votedUp[q].trim() == this.profile.username)
               {
                 this.voted.push(1);
+                this.showVote.push(false);
                 exists = 1;
                 break;
               }
@@ -58,12 +60,16 @@ export class PopularComponent implements OnInit {
                 if(this.blogs[i].votedDown[q].trim() == this.profile.username)
                 {
                   this.voted.push(-1);
+                  this.showVote.push(false);
                   exists = 1;
                   break;
                 }
               }
               if(exists == 0)
-                this.voted.push(0);
+              {
+                  this.voted.push(0);
+                  this.showVote.push(true);
+              }
           }
         }
       },
@@ -85,26 +91,26 @@ viewThisPost(blog) {
   });
 };
 
-upvote(blog) {
+upvote(blog, index) {
   const post = {
     _id: blog._id,
-    username: this.profile.username,
   };
   this.postService.addUpvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity += 1;
+      this.showVote[index] = false;
     }
   });
 };
 
-downvote(blog) {
+downvote(blog, index) {
   const post = {
     _id: blog._id,
-    username: this.profile.username,
   };
   this.postService.addDownvote(post).subscribe( data => {
     if (data.success) {
       blog.popularity -= 1;
+      this.showVote[index] = false;
     }
   });
 };
@@ -149,13 +155,14 @@ toggleDropDown(index){
     this.showDropdown[index] = false;
 };
 
-addTag(blog, title) {
+addTag(blog, title, index) {
   const post = {
     _id: blog._id,
     tagTitle: title,
-    uid: this.profile.username
+    username: this.profile.username
   }
   this.postService.addTag(post).subscribe( data => {
+    this.showDropdown[index] = false;
     if (data.success) {
       this.refresh();
     } else {
