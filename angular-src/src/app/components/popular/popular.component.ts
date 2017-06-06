@@ -17,13 +17,15 @@ export class PopularComponent implements OnInit {
   descr: String[];
   voted: Number[];
   showVote: Boolean[];
+  enableDropDown: Boolean[];
   singular:  Boolean;
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = []; this.showDropdown = []; this.showVote = []; this.singular = false;}
+  ) { this.hidden = []; this.descr = []; this.owner = []; this.voted = [];
+      this.showDropdown = []; this.showVote = []; this.singular = false; this.enableDropDown = [];}
 
   ngOnInit() {
     this.refresh();
@@ -38,6 +40,8 @@ export class PopularComponent implements OnInit {
         var exists = 0;
         for( var i = 0; i < this.blogs.length; i++)
         {
+            exists = 0;
+            this.showDropdown.push(false);
             this.hidden.push(false);
             this.showDropdown.push(false);
             this.descr.push("");
@@ -72,6 +76,20 @@ export class PopularComponent implements OnInit {
                   this.voted.push(0);
                   this.showVote.push(true);
               }
+          }
+          exists = 0;
+          for(var q = 0; q < this.blogs[i].tagged.length; q++)
+          {
+            if(this.blogs[i].tagged[q].trim() == this.profile.username.trim())
+            {
+              this.enableDropDown.push(false);
+              exists = 1;
+              break;
+            }
+          }
+          if(exists == 0)
+          {
+              this.enableDropDown.push(true);
           }
         }
       },

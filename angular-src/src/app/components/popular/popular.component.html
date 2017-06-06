@@ -20,9 +20,11 @@
         <button class="btn btn-default" (click)="viewPost(blog)">view all posts by user</button>
         <button class="btn btn-default" (click)="viewThisPost(blog)">view this post</button>
 
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropDown(i)">
-          Tag<span class="caret"></span>
-        </button>
+        <div *ngIf="enableDropDown[i]">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropDown(i)">
+            Tag<span class="caret"></span>
+          </button>
+        </div>
 
         <div *ngIf="showDropdown[i]">
         <ul class="menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">

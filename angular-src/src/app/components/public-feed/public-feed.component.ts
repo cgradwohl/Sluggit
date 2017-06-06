@@ -17,12 +17,14 @@ export class PublicFeedComponent implements OnInit {
   showDropdown: Boolean[];
   showVote: Boolean[];
   voted: Number[];
+  enableDropDown: Boolean[];
 
   constructor(
     private postService: PostService,
     private router: Router,
     private nativeAuthService: NativeAuthService,
-  ) { this.hidden = []; this.descr = []; this.owner = []; this.showDropdown = []; this.voted = []; this.showVote = []; }
+  ) { this.hidden = []; this.descr = []; this.owner = [];
+      this.showDropdown = []; this.voted = []; this.showVote = []; this.enableDropDown = []; }
 
   ngOnInit() {
     this.refresh();
@@ -37,7 +39,6 @@ export class PublicFeedComponent implements OnInit {
         for( var i = 0; i < this.blogs.length; i++)
         {
             this.hidden.push(false);
-            this.showDropdown.push(false);
             this.descr.push("");
             if(this.blogs[i].username.trim() == this.profile.username.trim())
               this.owner.push(true);
@@ -71,12 +72,26 @@ export class PublicFeedComponent implements OnInit {
                   this.showVote.push(true);
               }
           }
+          exists = 0;
+
+          for(var q = 0; q < this.blogs[i].tagged.length; q++)
+          {
+            if(this.blogs[i].tagged[q].trim() == this.profile.username.trim())
+            {
+              this.enableDropDown.push(false);
+              exists = 1;
+              break;
+            }
+          }
+          if(exists == 0)
+            this.enableDropDown.push(true);
         }
       },
       err => {
         console.log(err);
       });
     });
+    console.log(this.enableDropDown);
 };
 
 viewPost(blog) {
@@ -165,13 +180,8 @@ addTag(blog, title, index) {
   }
   this.postService.addTag(post).subscribe( data => {
     this.showDropdown[index] = false;
-    if (data.success) {
-      this.refresh();
-    } else {
-      console.log("Failure!");
-    }
+    this.refresh();
   });
-  this.refresh();
 }
 
 }
