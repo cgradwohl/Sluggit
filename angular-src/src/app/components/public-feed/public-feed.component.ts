@@ -37,6 +37,14 @@ export class PublicFeedComponent implements OnInit {
   };
 
   refresh() {
+    this.hidden = [];
+    this.showDropdown = [];
+    this.descr = [];
+    this.show = [];
+    this.owner = [];
+    this.voted = [];
+    this.showVote = [];
+    this.enableDropDown = [];
     this.nativeAuthService.getProfile().subscribe( profile => {
       this.profile = profile.user;
       this.postService.getPost().subscribe( blogs => {
@@ -60,12 +68,9 @@ export class PublicFeedComponent implements OnInit {
               else
                 this.show[i] = true;
             }
-            console.log(this.show);
-            console.log(this.tagClicked);
             exists = 0;
             this.showDropdown.push(false);
             this.hidden.push(false);
-            this.showDropdown.push(false);
             this.descr.push("");
             if(this.blogs[i].username.trim() == this.profile.username.trim())
               this.owner.push(true);
