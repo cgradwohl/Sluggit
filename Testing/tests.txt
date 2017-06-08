@@ -1,0 +1,26 @@
+Max:
+I tested the components I created with Postman and MongoDB Compass as I was developing my 
+components. I also used extensive logging to the console to ensure that the values were being
+properly processed. MongoDB Compass allowed me to ensure that the final state of the object
+that is modified or created is saved properly. Postman allowed me to create a test stub that
+would test all the possible inputs. The combination of all four allowed me to test all aspects
+of my components that I created.
+
+
+Tarum: 
+I worked on making sure a user was able to edit their profile correctly, as well as front end development on profile layout. 
+After that, I tested the functionality of this, as well as editing and deleting user posts. 
+
+Hope:
+After creating the post to database feature, I worked with Max to test that the functionality was working. 
+Worked with Tarum to create the system tests report. Specifically, worked on testing the login and post tests. 
+
+Diego:
+I worked on cleaning up the layout for the home page as well as desgining the visual layout of the public feed 
+as well as the popluar feed. Most of it was done with boot strap themes
+
+Jasmine:
+I worked on making sure the post like functionality worked as intended. I also tested to make sure the public feed properly sorted posts by the number of likes.
+
+Chris:
+
